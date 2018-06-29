@@ -1,4 +1,4 @@
-package com.orienteer.orienteer.controller;
+package com.orienteer.orienteer.controllers;
 
 import com.orienteer.orienteer.repositories.UserRepo;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
