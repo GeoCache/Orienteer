@@ -33,7 +33,7 @@ public class User {
     @Column(name = "birthday", nullable = false)
     private String birthday;
 
-    public User() { }
+    public User() {}
 
     public User(String firstName, String lastName, String userName, String password, String email, long phoneNumber, String birthday) {
         this.firstName = firstName;
