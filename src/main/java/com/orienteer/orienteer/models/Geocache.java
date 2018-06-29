@@ -1,4 +1,4 @@
-package com.orienteer.orienteer.model;
+package com.orienteer.orienteer.models;
 
 public class Geocache {
     private long id;
