@@ -1,6 +1,7 @@
 package com.orienteer.orienteer.controllers;
 
-import com.orienteer.orienteer.repositories.UserRepo;
+import com.orienteer.orienteer.models.User;
+import com.orienteer.orienteer.repositories.Users;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,11 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private UserRepo users;
+    private User user;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepo users, PasswordEncoder passwordEncoder) {
-        this.users = users;
+    public UserController(User user, PasswordEncoder passwordEncoder) {
+        this.user = user;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -29,7 +30,7 @@ public class UserController {
     public String saveUser(@ModelAttribute SecurityProperties.User user) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
-        users.save(user);
+        User.save();
         return "redirect:/login";
     }
 }
