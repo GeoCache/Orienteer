@@ -9,6 +9,8 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="/static/css/style.css" />
+    <style th:replace="fragmentfile :: mapStyle">
+    </style>
 </head>
 <body>
 <nav th:fragment="navbar" id="myNavbar" class="navbar navbar-expand-sm">
@@ -31,7 +33,8 @@
         </form>
     </div>
 </nav>
-
+<div th:replace="fragmentfile :: mapCanvas"></div>
+<div th:replace="fragmentfile :: mapScript"></div>
 <div th:fragment="footer" th:remove="tag">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
