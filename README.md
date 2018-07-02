@@ -1,13 +1,14 @@
-GeoCache Orienteer Web App<
+<H1>GeoCache Orienteer Web App
 
 GeoCache App
 SUMMARY:
 This website will be a standalone geocaching application where users can participate in geocaching adventures by finding or hiding geocached stashes.
 
 SITE PERMISSIONS LEVELS:
-Level 0 = General User (logged in or out)
-Level 1 = Geocache Owner
-Level 2 = Site Admin
+<ol>
+<li> Level 0 = General User (logged in or out)
+<li> Level 1 = Geocache Owner
+<li> Level 2 = Site Admin
 
 COMPREHENSIVE FEATURES LIST:
 

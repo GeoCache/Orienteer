@@ -1,17 +1,18 @@
-//package com.orienteer.orienteer.controllers;
-//
-//
-//import com.orienteer.orienteer.services.GeocacheService;
-//import org.springframework.stereotype.Controller;
-//
-//@Controller
-//public class GeocacheController {
-//    private final GeocacheService geocacheService;
-//
-//            public GeocacheController(GeocacheService geocacheService){
-//        this.geocacheService = geocacheService;
-//            }
-//
-//
-//
-//}
+package com.orienteer.orienteer.controllers;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class GeocacheController {
+
+    @GetMapping("/home")
+    @ResponseBody
+    public String home() {
+        return "Time to start your adventure";
+    }
+
+
+}
