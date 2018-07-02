@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/fragments :: header(${'Home'})">
+
+
+</head>
+
+<body>
+<nav th:replace="partials/fragments :: navbar"></nav>
+
+
+<h1>Hello <span th:text="${name}"></span></h1>
+<script th:replace="partials/fragments :: footer"></script>
+
+</body>
+</html>
