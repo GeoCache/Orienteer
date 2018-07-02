@@ -4,9 +4,21 @@ import javax.persistence.*;
 import java.util.List;
 
 
+
 @Entity
 @Table(name = "users")
 public class User {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy ="user")
+    private List <Geocache> geocacheList;
+
+    @OneToMany
+    @JoinColumn (name = "finder_id")
+    private User finder;
+
+    @OneToMany
+    @JoinColumn (name = "owner_id")
+    private User owner;
 
     @Id
     @GeneratedValue
@@ -32,6 +44,8 @@ public class User {
 
     @Column(name = "birthday", nullable = false)
     private String birthday;
+
+
 
     public User() {}
 
