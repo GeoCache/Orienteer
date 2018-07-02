@@ -3,8 +3,6 @@
 
 src/main/resources/application.properties
 
-yay
-
 ### STS ###
 .apt_generated
 .classpath

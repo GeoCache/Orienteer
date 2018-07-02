@@ -1,12 +1,26 @@
 package com.orienteer.orienteer.models;
 
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+
 import javax.persistence.*;
 import java.util.List;
+
 
 
 @Entity
 @Table(name = "users")
 public class User {
+
+    @OneToMany
+    private List <Geocache> geocacheList;
+
+    @OneToMany
+    @JoinColumn (name = "finder_id")
+    private List<User> finder;
+
+    @OneToMany
+    @JoinColumn (name = "owner_id")
+    private List<User> owner;
 
     @Id
     @GeneratedValue
@@ -33,7 +47,9 @@ public class User {
     @Column(name = "birthday", nullable = false)
     private String birthday;
 
-    public User() {}
+
+
+    public User(User user) {}
 
     public User(String firstName, String lastName, String userName, String password, String email, long phoneNumber, String birthday) {
         this.firstName = firstName;
@@ -107,5 +123,10 @@ public class User {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+
+    public void save(SecurityProperties.User user){};
+
+    public static void save() {
     }
 }
