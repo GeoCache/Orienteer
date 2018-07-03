@@ -87,9 +87,6 @@ https://developers.google.com/maps/documentation/distance-matrix/start</dd>
 <dd>https://developers.google.com/identity/sign-in/web/sign-in</dd>
 
 
-<dt>Filestack api</dt>
-<dd>AajnJ3deRYaP2V0M22Us4z</dd>
-
 <dt>Instascan</dt>
 <dd>https://github.com/schmich/instascan</dd>
 
