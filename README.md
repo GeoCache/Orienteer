@@ -62,7 +62,7 @@
 <li>Distance away of caches in miles will be displayed in results for logged in users</li>
 <li>Users can search for each other and click to see their profile</li>
 </ul>
-
+<br>
 Search available caches => All users can search available caches.
 
 View map => Google maps of available caches
