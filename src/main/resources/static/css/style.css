@@ -1,0 +1,35 @@
+#myNavbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: .5s;
+    opacity: .9;
+}
+
+#home {
+    height: 2000px;
+    margin: 0;
+}
+
+
+#space {
+    margin-top: 200px;
+}
+
+#hero {
+    background-image: url(../img/adventure-ancient-antique-697662.jpg);
+    height: 80vh;
+    background-size: cover;
+    padding-top: 8vh;
+    padding-bottom: 30vh;
+
+}
+.wrapper{
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+.footer, .push{
+    height: 50px;
+
+}

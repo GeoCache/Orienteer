@@ -1,18 +1,36 @@
 package com.orienteer.orienteer.models;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Geocache {
+    @Id
+    @GeneratedValue
     private long id;
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
+    @Column(name = "description", nullable = false, length = 100)
     private String description;
+    @Column(name = "type", nullable = false, length = 100)
     private String type;
+    @Column(name = "owner_id", nullable = false)
     private long ownerId;
+    @Column(name = "qr_code", nullable = false, length = 100)
     private String qrCode;
+    @Column(name = "created_time", nullable = false)
     private long createdTime;
+    @Column(name = "location_name", nullable = false, length = 100)
     private String locationName;
+    @Column(name = "longitute", nullable = false)
     private double longitude;
+    @Column(name = "latitude", nullable = false)
     private double latitude;
+    @Column(name = "points", nullable = false)
     private int points;
+    @Column(name = "finder_id", nullable = false)
     private int finderId;
+    @Column(name = "is_active", nullable = true)
     private boolean isActive;
 
     public Geocache(long id, String name, String description, String type, long ownerId, String qrCode, long createdTime, String locationName, double longitude, double latitude, int points, int finderId, boolean isActive) {
