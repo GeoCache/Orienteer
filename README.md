@@ -54,7 +54,7 @@
 <li>Players that have found that item can mark it as found through QR code</li>
 
 
-</h3>View all caches:</h3>
+<h3>View all caches:</h3>
 <li>Logged out players can view all caches</li>
 <li>Logged-in users can view all caches</li>
 <li>Distance away of caches in miles will be displayed in results for logged in users</li>
@@ -69,29 +69,29 @@ View map => Google maps of available caches
 
 <h3>API’S to use </h3>
 
-<ul>
-<li>GOOGLE MAPS API
+<dl>
+  <dt>GOOGLE MAPS API</dt>
+<dd>
 https://cloud.google.com/maps-platform/
-
-https://developers.google.com/maps/documentation/distance-matrix/start</li>
-
-
-<li>FACEBOOK SIGN IN INTEGRATION
-no
-https://developers.facebook.com/docs/facebook-login/</li>
+https://developers.google.com/maps/documentation/distance-matrix/start</dd>
 
 
-<li>GOOGLE SIGN-IN
-https://developers.google.com/identity/sign-in/web/sign-in</li>
+<dt>FACEBOOK SIGN IN INTEGRATION</dt>
+
+<dd>https://developers.facebook.com/docs/facebook-login/</dd>
 
 
-<li>Filestack api
-AajnJ3deRYaP2V0M22Us4z</li>
+<dt>GOOGLE SIGN-IN</dt>
+<dd>https://developers.google.com/identity/sign-in/web/sign-in</dd>
 
-<li>Instascan
-https://github.com/schmich/instascan</li>
 
-</ul>
+<dt>Filestack api</dt>
+<dd>AajnJ3deRYaP2V0M22Us4z</dd>
+
+<dt>Instascan</dt>
+<dd>https://github.com/schmich/instascan</dd>
+
+</dl>
 
 
 
