@@ -1,32 +1,36 @@
-<H1>GeoCache Orienteer Web App
+<H1>GeoCache Orienteer Web App</>
 
-GeoCache App
+
 SUMMARY:
 This website will be a standalone geocaching application where users can participate in geocaching adventures by finding or hiding geocached stashes.
 
-SITE PERMISSIONS LEVELS:
+<h2>SITE PERMISSIONS LEVELS:</h2
 <ol>
 <li> Level 0 = General User (logged in or out)
 <li> Level 1 = Geocache Owner
 <li> Level 2 = Site Admin
+</ol>  
 
-COMPREHENSIVE FEATURES LIST:
+<h3>COMPREHENSIVE FEATURES LIST:</h3>
+<dl>
+  <dt>Home Page:</dt>
+  <dd>All Users have access to everything on this page, even if logged out…</dd>
+  <dt>Login Page:</dt>
+<dd>Logged out users can login
+  Logged-in users will be redirected to home page</dd>
+  <dt>Register:</dt>
+<dd>Logged out users can register,
+  Logged in users will be redirected to home page</dd>
+</dl>
 
-Home Page:
-All Users have access to everything on this page, even if logged out…
-Login Page:
-Logged out users can login
-Logged-in users will be redirected to home page
-Register:
-Logged out users can register,
-Logged in users will be redirected to home page
-
-
-User Dashboard:
-Logged in users can view any user profile
-Logged in users can view group profiles
-Logged in users may edit their user profile
-Site Admins can edit any user profiles
+<h3>User Dashboard:</h3>
+<ul>
+  <li>Logged in users can view any user profile</li>
+<li>Logged in users can view group profiles</li>
+<li>Logged in users may edit their user profile</li>
+<li>Site Admins can edit any user profiles</li>
+  </ul>
+  
 Create Search:
 Only logged in users can create a search or place a cache
 Only logged in users can create and join groups
