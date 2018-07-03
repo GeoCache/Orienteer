@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/fragments :: header(${'Home'})">
 
 
 </head>
 
-<body>
+<body id="home">
+
 <nav th:replace="partials/fragments :: navbar"></nav>
 
+<div class="wrapper">
 
-<h1>Hello <span th:text="${name}"></span></h1>
+<section id="hero" class="container-fluid">
+    <h1 id="hello" class="text-center">Hello <span th:text="${name}"></span></h1>
+
+</section>
+
+
+
 <script th:replace="partials/fragments :: footer"></script>
 
+<div class="push"></div>
+</div>
+
 </body>
+<footer id="footer" class=" bg-light pt-4 mt-4">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5>footer content</h5>
+                <p>footer content</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-light bg-dark text-center py-3">© 2018 Copyright:
+        <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+    </div>
+</footer>
 </html>
