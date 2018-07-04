@@ -1,6 +1,7 @@
 package com.orienteer.orienteer.controllers;
 
 import apple.laf.JRSUIConstants;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.TextBox;
@@ -15,7 +16,7 @@ public final class UrlGenerator implements GeneratorSource {
 
     public UrlGenerator(BasicMenuUI.ChangeHandler handler, KeyPressHandler keyListener) {
         url.addStyleName(StylesDefs.INPUT_FIELD_REQUIRED);
-        url.addChangeHandler(handler);
+        url.addChangeHandler((ChangeHandler) handler);
         url.addKeyPressHandler(keyListener);
     }
 
@@ -55,7 +56,7 @@ public final class UrlGenerator implements GeneratorSource {
 
     @Override
     public void validate(JRSUIConstants.Widget widget) throws GeneratorException {
-        if (widget == url) {
+        if (widget = url) {
             getUrlField();
         }
     }
