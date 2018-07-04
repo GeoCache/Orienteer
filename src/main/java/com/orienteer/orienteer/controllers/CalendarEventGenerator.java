@@ -1,6 +1,5 @@
 package com.orienteer.orienteer.controllers;
 
-import apple.laf.JRSUIConstants;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
@@ -167,7 +166,7 @@ public final class CalendarEventGenerator implements GeneratorSource {
     }
 
     @Override
-    public void validate(JRSUIConstants.Widget widget) throws GeneratorException {
+    public void validate(TextBox widget) throws GeneratorException {
 
 
     }

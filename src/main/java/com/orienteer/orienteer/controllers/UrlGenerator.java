@@ -1,6 +1,5 @@
 package com.orienteer.orienteer.controllers;
 
-import apple.laf.JRSUIConstants;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.user.client.ui.Grid;
@@ -55,7 +54,7 @@ public final class UrlGenerator implements GeneratorSource {
     }
 
     @Override
-    public void validate(JRSUIConstants.Widget widget) throws GeneratorException {
+    public void validate(TextBox widget) throws GeneratorException {
         if (widget = url) {
             getUrlField();
         }
