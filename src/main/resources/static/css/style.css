@@ -1,3 +1,34 @@
+.wow{
+    visibility: visible;
+}
+.nav-link{
+    font-family: "mr-eaves-modern", sans-serif;
+    font-weight: 900 !important;
+    font-size: 1.3rem;
+
+}
+body{
+    background-color: #eee2cb;
+}
+
+h1{
+    font-family: "mr-eaves-modern", sans-serif;
+    font-weight: 700;
+    color: #512c2a;
+    font-size: 5rem;
+    margin-top: 50px;
+
+}
+#signIn{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 50%;
+
+}
+
+.shadow{
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+}
 #myNavbar {
     background: transparent;
     position: fixed;
@@ -5,6 +36,16 @@
     width: 100%;
     transition: .5s;
     opacity: .9;
+    z-index: 9;
+
+}
+#onboard{
+    margin-top: 100px;
+
+
+}
+.navbar{
+    box-shadow: none !important;
 }
 
 #home {
@@ -22,7 +63,7 @@
     background-size: cover;
     padding-top: 8vh;
     padding-bottom: 30vh;
-    
+
 
 }
 #hello{
@@ -31,6 +72,11 @@
     font-weight: 700;
     color:#512c2a;
 
+
+}
+#compass {
+    -webkit-animation-duration: 3s;
+    -moz-animation-delay: 2s;
 
 }
 
@@ -71,4 +117,19 @@ a:hover {
     filter: drop-shadow(3px 3px 8px rgba(0,0,0,.4));
 
 
+}
+
+  /*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767px) {
+    #myNavbar {
+        width: 100%;
+        z-index: 9;
+    }
+
+    #signIn {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        width: 75%;
+
+    }
 }

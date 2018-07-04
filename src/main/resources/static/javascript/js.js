@@ -1,4 +1,4 @@
-"use strict";
+
 
 
 var prevScrollpos = window.pageYOffset;
@@ -12,9 +12,4 @@ window.onscroll = function () {
     prevScrollpos = currentScrollPos;
 };
 
-$(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-    $(".zoom #img").css({
-        width: (100 + scroll / 5) + "%"
-    });
-});
+new WOW().init();

@@ -11,18 +11,146 @@
 
 <div class="wrapper">
 
-    <section id="hero" class="container-fluid">
+    <section id="hero" class="z-depth-4 container-fluid">
 
         <h1 id="hello" class="text-center">HELLO <span th:text="${name.toUpperCase()}"></span></h1>
 
     </section>
-    <!--<div class="container">-->
-        <!--<div class="row">-->
-            <!--<div class="col-6">-->
 
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+    <h1 class="text-center">Welcome to Orienteer</h1>
+
+<div id="onboard" class="container">
+    <!-- Card deck -->
+    <div class="card-deck">
+
+        <!-- Card -->
+        <div class="wow animated fadeInLeft card shadow mx-5">
+
+            <!--Card image-->
+            <div class="view overlay">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap"/>
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+
+                <!--Title-->
+                <h4 class="card-title">Card title</h4>
+                <!--Text-->
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+            </div>
+
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="wow animated fadeInUp card shadow mx-5">
+
+            <!--Card image-->
+            <div class="view overlay">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap"/>
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+
+                <!--Title-->
+                <h4 class="card-title">Card title</h4>
+                <!--Text-->
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+            </div>
+
+        </div>
+
+        <!-- Card -->
+        <div class="wow animated fadeInRight card shadow mx-5">
+
+            <!--Card image-->
+            <div class="view overlay">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap"/>
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+            <!--Card content-->
+            <div class="card-body">
+
+                <!--Title-->
+                <h4 class="card-title">Card title</h4>
+                <!--Text-->
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+            </div>
+
+        </div>
+        <!-- Card -->
+
+    </div>
+    <!-- Card deck -->
+</div>
+<div id="signIn" class="container mx-auto p-3">
+    <!-- Card -->
+    <div class="card shadow">
+
+        <!-- Card body -->
+        <div  class="card-body">
+
+            <!-- Material form register -->
+            <form>
+                <p class="h4 text-center py-4">Sign up</p>
+
+                <!-- Material input text -->
+                <div class="md-form">
+                    <i class="fa fa-user prefix grey-text"></i>
+                    <input type="text" id="materialFormCardNameEx" class="form-control"/>
+                    <label for="materialFormCardNameEx" class="font-weight-light">Your name</label>
+                </div>
+
+                <!-- Material input email -->
+                <div class="md-form">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input type="email" id="materialFormCardEmailEx" class="form-control"/>
+                    <label for="materialFormCardEmailEx" class="font-weight-light">Your email</label>
+                </div>
+
+                <!-- Material input email -->
+                <div class="md-form">
+                    <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+                    <input type="email" id="materialFormCardConfirmEx" class="form-control"/>
+                    <label for="materialFormCardConfirmEx" class="font-weight-light">Confirm your email</label>
+                </div>
+
+                <!-- Material input password -->
+                <div class="md-form">
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    <input type="password" id="materialFormCardPasswordEx" class="form-control"/>
+                    <label for="materialFormCardPasswordEx" class="font-weight-light">Your password</label>
+                </div>
+
+                <div class="text-center py-4 mt-3">
+                    <button class="btn btn-cyan" type="submit">Register</button>
+                </div>
+            </form>
+            <!-- Material form register -->
+
+        </div>
+        <!-- Card body -->
+
+    </div>
+    <!-- Card -->
+</div>
+
 
 
     <script th:replace="partials/fragments :: bootstrap"></script>
