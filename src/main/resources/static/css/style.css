@@ -1,4 +1,5 @@
 #myNavbar {
+    background: transparent;
     position: fixed;
     top: 0;
     width: 100%;
@@ -7,29 +8,67 @@
 }
 
 #home {
-    height: 2000px;
+    height: 1500px;
     margin: 0;
 }
-
 
 #space {
     margin-top: 200px;
 }
 
 #hero {
-    background-image: url(../img/adventure-ancient-antique-697662.jpg);
+    background-image: linear-gradient(rgba(238, 226, 203, 1), rgba(208, 148, 74, 0.1)), url(../img/adventure-ancient-antique-697662.jpg);
     height: 80vh;
     background-size: cover;
     padding-top: 8vh;
     padding-bottom: 30vh;
+    
 
 }
-.wrapper{
+#hello{
+    margin-top: 150px;
+    font-family: "mr-eaves-modern", sans-serif;
+    font-weight: 700;
+    color:#512c2a;
+
+
+}
+
+.wrapper {
     min-height: 100%;
     margin-bottom: -50px;
 }
 
-.footer, .push{
+.footer, .push {
     height: 50px;
+
+}
+
+a:hover {
+    color: #d0944a !important;
+}
+
+.nav-link {
+    color: #512c2a !important;
+    font-weight: bolder;
+}
+
+#logo {
+    -webkit-filter: drop-shadow(3px 3px 10px rgba(0,0,0,.8));
+    filter: drop-shadow(3px 3px 8px rgba(0,0,0,.5));
+    margin-left: 20px;
+}
+
+#logo-text {
+    font-family: "mr-eaves-modern", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #d0944a;
+    margin-left: 8px;
+    letter-spacing: 3px;
+    -webkit-filter: drop-shadow(3px 3px 10px rgba(0,0,0,.8));
+    filter: drop-shadow(3px 3px 8px rgba(0,0,0,.4));
+
 
 }

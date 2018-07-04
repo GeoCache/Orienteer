@@ -9,48 +9,31 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="/static/css/style.css"/>
+    <link rel="stylesheet"  href="https://use.typekit.net/pua3fpw.css"/>
 </head>
 <body>
-<nav th:fragment="navbar" id="myNavbar" class="navbar navbar-light bg-light navbar-expand-sm">
-    <a class="navbar-brand" href="#">Navbar</a>
+<nav th:fragment="navbar" id="myNavbar" class="navbar navbar-expand-sm">
+    <img id="logo" th:src="@{/img/safari.svg}" src="/static/img/safari.svg" height="55" width="55" alt=""/><span id="logo-text">RIENTEER</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <ul class="navbar-nav ml-auto mr-5">
+
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="#">Sign In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link" href="#">Register</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 
 
-<div th:fragment="footer" th:remove="tag">
+<div th:fragment="bootstrap" th:remove="tag">
     <script type="text/javascript" th:src="@{/javascript/js.js}" src="static/javascript/js.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -64,4 +47,17 @@
             crossorigin="anonymous"></script>
 </div>
 </body>
+<footer th:fragment="footer" id="footer" class=" bg-light pt-4 mt-4">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5>footer content</h5>
+                <p>footer content</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-light bg-dark text-center py-3">© 2018 Copyright:
+        <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+    </div>
+</footer>
 </html>
