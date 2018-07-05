@@ -1,17 +1,19 @@
-.wow{
+.wow {
     visibility: visible;
 }
-.nav-link{
+
+.nav-link {
     font-family: "mr-eaves-modern", sans-serif;
     font-weight: 900 !important;
     font-size: 1.3rem;
 
 }
-body{
+
+body {
     background-color: #eee2cb;
 }
 
-h1{
+h1 {
     font-family: "mr-eaves-modern", sans-serif;
     font-weight: 700;
     color: #512c2a;
@@ -19,16 +21,18 @@ h1{
     margin-top: 50px;
 
 }
-#signIn{
+
+#signIn {
     margin-top: 100px;
     margin-bottom: 100px;
     width: 50%;
 
 }
 
-.shadow{
-    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+.shadow {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
 }
+
 #myNavbar {
     background: transparent;
     position: fixed;
@@ -39,12 +43,13 @@ h1{
     z-index: 9;
 
 }
-#onboard{
+
+#onboard {
     margin-top: 100px;
 
-
 }
-.navbar{
+
+.navbar {
     box-shadow: none !important;
 }
 
@@ -63,22 +68,21 @@ h1{
     background-size: cover;
     padding-top: 8vh;
     padding-bottom: 30vh;
+    width: 100%;
+
 
 
 }
-#hello{
-    margin-top: 150px;
+
+
+
+#hello {
     font-family: "mr-eaves-modern", sans-serif;
     font-weight: 700;
-    color:#512c2a;
-
-
-}
-#compass {
-    -webkit-animation-duration: 3s;
-    -moz-animation-delay: 2s;
+    color: #512c2a;
 
 }
+
 
 .wrapper {
     min-height: 100%;
@@ -100,8 +104,8 @@ a:hover {
 }
 
 #logo {
-    -webkit-filter: drop-shadow(3px 3px 10px rgba(0,0,0,.8));
-    filter: drop-shadow(3px 3px 8px rgba(0,0,0,.5));
+    -webkit-filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, .8));
+    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, .5));
     margin-left: 20px;
 }
 
@@ -113,23 +117,91 @@ a:hover {
     color: #d0944a;
     margin-left: 8px;
     letter-spacing: 3px;
-    -webkit-filter: drop-shadow(3px 3px 10px rgba(0,0,0,.8));
-    filter: drop-shadow(3px 3px 8px rgba(0,0,0,.4));
-
+    -webkit-filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, .8));
+    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, .4));
 
 }
 
-  /*Small devices (landscape phones, less than 768px)*/
-@media (max-width: 767px) {
-    #myNavbar {
-        width: 100%;
-        z-index: 9;
+/*iPhone 6/7/8------------------------------------------------*/
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: portrait) {
+
+    #logo-text {
+        margin-left: -25px;
+        font-size: 2.5rem;
+    }
+
+    #logo {
+        margin-left: 5px;
+    }
+
+    #hero {
+        background-position: 450px 0px;
+        height: 375px;
+
     }
 
     #signIn {
-        margin-top: 100px;
-        margin-bottom: 100px;
-        width: 75%;
+        width: 100%;
 
     }
+
+    #hello{
+        font-size: 3rem;
+    }
+
 }
+
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: landscape) {
+    #logo-text {
+        margin-left: 10px;
+        font-size: 2.5rem;
+        margin-right: -15px;
+    }
+
+    .card-width {
+        margin: 0 4px 0 4px;
+    }
+
+    #signIn {
+        width: 50%;
+    }
+
+}
+
+/*iPhone 6/7/8 plus----------------------------------*/
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: landscape) {
+
+}
+
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: portrait) {
+    #signIn {
+        width: 100%;
+    }
+    #logo-text {
+        margin-left: -70px;
+        font-size: 2.5rem;
+    }
+
+
+}
+
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (max-width: 576px) {
+    #signIn {
+        width: 100%;
+    }
+}
+

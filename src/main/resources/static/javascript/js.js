@@ -13,3 +13,13 @@ window.onscroll = function () {
 };
 
 new WOW().init();
+
+// $(window).scroll(function() {
+//     var scroll = $(window).scrollTop();
+//     $("#hero").css({
+//         width: (100 + scroll/5)  + "%"
+//
+//
+//
+// });
+// });
