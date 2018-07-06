@@ -27,9 +27,20 @@
                 lat:  29.426791,
                 lng: -98.489602
             },
-            zoom: 14
+            zoom: 17
         });
 
+        marker = new google.maps.Marker({
+            position: map.center,
+            map: map,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 5,
+                strokeColor: 'black',
+                fillColor: 'red',
+                fillOpacity: 1
+            }
+        });
 
         infoWindow = new google.maps.InfoWindow;
 
@@ -39,18 +50,8 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: {
-                        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-                        scale: 4,
-                        strokeColor: 'black',
-                        fillColor: 'red',
-                        fillOpacity: 1
-                    }
-                });
 
+                marker.setPosition(pos);
                 infoWindow.setPosition(pos);
                 map.setCenter(pos);
             }, function() {
