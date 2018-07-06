@@ -42,6 +42,11 @@
             }
         });
 
+       const watchOptions = {
+            enableHighAccuracy: true,
+            timeout: 1
+        };
+
         infoWindow = new google.maps.InfoWindow;
 
         if (navigator.geolocation) {
@@ -51,12 +56,13 @@
                     lng: position.coords.longitude
                 };
 
+
                 marker.setPosition(pos);
                 infoWindow.setPosition(pos);
                 map.setCenter(pos);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
-            });
+            }, watchOptions);
         } else {
             handleLocationError(false, infoWindow, map.getCenter());
         }
