@@ -1,77 +1,94 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Geolocation</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style th:fragment="mapStyle">
-        #map {
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>🌏 Google Maps Geolocation Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
             height: 100%;
         }
-        html, body {
-            height: 100%;
+
+        body {
             margin: 0;
-            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #1a1a1a;
+            text-align: left;
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .map {
+            flex: 1;
+            background: #f0f0f0;
         }
     </style>
 </head>
 <body>
-<div id="map" th:fragment="mapCanvas"></div>
-<div th:fragment="mapScript">
+<main class="container">
+    <div id="map" class="map"></div>
+</main>
+
 <script>
-    var map, infoWindow, marker;
-
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat:  29.426791,
-                lng: -98.489602
-            },
-            zoom: 14
+    const createMap = ({ lat, lng }) => {
+        return new google.maps.Map(document.getElementById('map'), {
+            center: { lat, lng },
+            zoom: 15
         });
+    };
 
+    const createMarker = ({ map, position }) => {
+        return new google.maps.Marker({ map, position });
+    };
 
-        infoWindow = new google.maps.InfoWindow;
+    const getCurrentPosition = ({ onSuccess, onError = () => { } }) => {
+        if ('geolocation' in navigator === false) {
+            return onError(new Error('Geolocation is not supported by your browser.'));
+        }
 
-        if (navigator.geolocation) {
-            navigator.geolocation.watchPosition(function(position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                marker = new google.maps.Marker({
-                    position: pos,
-                    map: map,
-                    icon: {
-                        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-                        scale: 4,
-                        strokeColor: 'black',
-                        fillColor: 'red',
-                        fillOpacity: 1
-                    }
-                });
+        return navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    };
 
-                infoWindow.setPosition(pos);
-                map.setCenter(pos);
-            }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
-            });
-        } else {
-            handleLocationError(false, infoWindow, map.getCenter());
+    const getPositionErrorMessage = code => {
+        switch (code) {
+            case 1:
+                return 'Permission denied.';
+            case 2:
+                return 'Position unavailable.';
+            case 3:
+                return 'Timeout reached.';
+            default:
+                return null;
         }
     }
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
+    function init() {
+        const initialPosition = { lat: 59.325, lng: 18.069 };
+        const map = createMap(initialPosition);
+        const marker = createMarker({ map, position: initialPosition });
+
+        getCurrentPosition({
+            onSuccess: ({ coords: { latitude: lat, longitude: lng } }) => {
+            marker.setPosition({ lat, lng });
+        map.panTo({ lat, lng });
+    },
+        onError: err =>
+        alert(`Error: ${getPositionErrorMessage(err.code) || err.message}`)
+    });
     }
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxRJQ2z_RF7BIbR_QLUawSWrQAa1Hhbds&callback=initMap">
-</script>
-</div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxRJQ2z_RF7BIbR_QLUawSWrQAa1Hhbds &callback=init"></script>
 </body>
 </html>
