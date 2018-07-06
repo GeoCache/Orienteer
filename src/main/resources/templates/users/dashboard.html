@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="partials/fragments :: header(${'Dashboard'})">
+
 </head>
 <body>
+<nav th:replace="partials/fragments :: dashbar"></nav>
+
+<div id="map-container" class="z-depth-1" style="height: 540px"></div>
+
+
+
+<!--Google Maps-->
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyAxRJQ2z_RF7BIbR_QLUawSWrQAa1Hhbds"></script>
+
+
+<script th:replace="partials/fragments :: bootstrap"></script>
 
 </body>
+<footer th:replace="partials/fragments :: dashFooter"></footer>
 </html>

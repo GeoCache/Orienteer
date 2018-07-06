@@ -11,15 +11,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet"/>
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
-          <!--integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"-->
-          <!--crossorigin="anonymous"/>-->
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="/static/css/style.css"/>
-    <link rel="stylesheet"  href="https://use.typekit.net/pua3fpw.css"/>
+    <link rel="stylesheet" href="https://use.typekit.net/pua3fpw.css"/>
 </head>
 <body>
 <nav th:fragment="navbar" id="myNavbar" class="navbar navbar-light navbar-expand-sm">
-    <img id="logo" th:src="@{/img/safari.svg}" src="/static/img/safari.svg" height="55" width="55" alt=""/><span id="logo-text">RIENTEER</span>
+    <img id="logo" th:src="@{/img/safari.svg}" src="/static/img/safari.svg" height="55" width="55" alt=""/><span
+        id="logo-text">RIENTEER</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,28 +36,43 @@
     </div>
 </nav>
 
+<nav th:fragment="dashbar" id="myDashbar" class="navbar navbar-light navbar-expand-sm">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mr-5">
+
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
 <div th:fragment="bootstrap" th:remove="tag">
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
 
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
-            <!--integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
-            <!--crossorigin="anonymous"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"-->
-            <!--integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"-->
-            <!--crossorigin="anonymous"></script>-->
-    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"-->
-            <!--integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"-->
-            <!--crossorigin="anonymous"></script>-->
     <script type="text/javascript" th:src="@{/javascript/js.js}" src="static/javascript/js.js"></script>
 </div>
+
+
 </body>
 <footer th:fragment="footer" id="footer" class=" bg-light pt-4 mt-4">
     <div class="container-fluid text-center text-md-left">
@@ -74,4 +87,22 @@
         <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
     </div>
 </footer>
+
+<!-- Footer -->
+<footer th:fragment="dashFooter" id="myDashFooter" class="page-footer font-small pt-3 fixed-bottom">
+
+<div class="container mx-auto">
+    <a class="mx-2 ml-2 inline" href="#">
+        <img class="icon mb-1" th:src="@{/img/list.svg}" src="/static/img/list.svg" alt=""/>
+    </a>
+    <a class="mb-3 ml-4 inline" href="#">
+        <img class="icon mb-1" th:src="@{/img/explorer.svg}" src="/static/img/explorer.svg" alt=""/>
+    </a>
+    <a href="#"  class="mb-3 ml-5 inline">
+        <img  id="pin" th:src="@{/img/pin.svg}" src="/static/img/pin.svg" alt="" class="mb-1"/>
+    </a>
+</div>
+
+</footer>
+<!-- Footer -->
 </html>

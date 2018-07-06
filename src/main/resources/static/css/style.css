@@ -8,7 +8,12 @@
     font-size: 1.3rem;
 
 }
-
+.icon {
+    width: 10%
+}
+.inline{
+    display: inline;
+}
 body {
     background-color: #eee2cb;
 }
@@ -42,6 +47,35 @@ h1 {
     opacity: .9;
     z-index: 9;
 
+}
+
+#myDashbar{
+    background: #eee2cb;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: .5s;
+    opacity: .9;
+    z-index: 9;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+
+}
+#map-container{
+    margin-top: 55px;
+}
+#myDashFooter{
+    height: 70px;
+    background-color: #d0944a;
+    box-shadow: 0 -2px 10px 0 rgba(0,0,0,.16), 0 -2px 10px 0 rgba(0,0,0,.12);
+
+
+}
+
+#pin{
+    position: absolute;
+    bottom: 27px;
+    left: 150px;
+    width: 20%;
 }
 
 #onboard {
