@@ -1,17 +1,24 @@
-.wow{
+.wow {
     visibility: visible;
 }
-.nav-link{
+
+.nav-link {
     font-family: "mr-eaves-modern", sans-serif;
     font-weight: 900 !important;
     font-size: 1.3rem;
 
 }
-body{
+.icon {
+    width: 10%
+}
+.inline{
+    display: inline;
+}
+body {
     background-color: #eee2cb;
 }
 
-h1{
+h1 {
     font-family: "mr-eaves-modern", sans-serif;
     font-weight: 700;
     color: #512c2a;
@@ -19,16 +26,18 @@ h1{
     margin-top: 50px;
 
 }
-#signIn{
+
+#register {
     margin-top: 100px;
     margin-bottom: 100px;
     width: 50%;
 
 }
 
-.shadow{
-    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+.shadow {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
 }
+
 #myNavbar {
     background: transparent;
     position: fixed;
@@ -39,12 +48,43 @@ h1{
     z-index: 9;
 
 }
-#onboard{
-    margin-top: 100px;
+
+#myDashbar{
+    background: #eee2cb;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: .5s;
+    opacity: .9;
+    z-index: 9;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+
+}
+#map-container{
+    margin-top: 55px;
+    height: 540px;
+}
+#myDashFooter{
+    height: 70px;
+    background-color: #d0944a;
+    box-shadow: 0 -2px 10px 0 rgba(0,0,0,.16), 0 -2px 10px 0 rgba(0,0,0,.12);
 
 
 }
-.navbar{
+
+#pin{
+    position: absolute;
+    bottom: 27px;
+    left: 42%;
+    width: 20%;
+}
+
+#onboard {
+    margin-top: 100px;
+
+}
+
+.navbar {
     box-shadow: none !important;
 }
 
@@ -63,22 +103,21 @@ h1{
     background-size: cover;
     padding-top: 8vh;
     padding-bottom: 30vh;
+    width: 100%;
+
 
 
 }
-#hello{
-    margin-top: 150px;
+
+
+
+#hello {
     font-family: "mr-eaves-modern", sans-serif;
     font-weight: 700;
-    color:#512c2a;
-
-
-}
-#compass {
-    -webkit-animation-duration: 3s;
-    -moz-animation-delay: 2s;
+    color: #512c2a;
 
 }
+
 
 .wrapper {
     min-height: 100%;
@@ -90,6 +129,7 @@ h1{
 
 }
 
+
 a:hover {
     color: #d0944a !important;
 }
@@ -100,8 +140,8 @@ a:hover {
 }
 
 #logo {
-    -webkit-filter: drop-shadow(3px 3px 10px rgba(0,0,0,.8));
-    filter: drop-shadow(3px 3px 8px rgba(0,0,0,.5));
+    -webkit-filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, .8));
+    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, .5));
     margin-left: 20px;
 }
 
@@ -113,23 +153,131 @@ a:hover {
     color: #d0944a;
     margin-left: 8px;
     letter-spacing: 3px;
-    -webkit-filter: drop-shadow(3px 3px 10px rgba(0,0,0,.8));
-    filter: drop-shadow(3px 3px 8px rgba(0,0,0,.4));
-
+    -webkit-filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, .8));
+    filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, .4));
 
 }
+#login{
+    margin-bottom: 50px;
+    margin-top: 100px;
+    width: 50%;
+}
 
-  /*Small devices (landscape phones, less than 768px)*/
-@media (max-width: 767px) {
-    #myNavbar {
+/*iPhone 6/7/8------------------------------------------------*/
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: portrait) {
+
+    #logo-text {
+        margin-left: -25px;
+        font-size: 2.5rem;
+    }
+
+    #logo {
+        margin-left: 5px;
+    }
+
+    #hero {
+        background-position: 450px 0px;
+        height: 375px;
+
+    }
+
+    #register {
         width: 100%;
-        z-index: 9;
+
     }
 
-    #signIn {
+    #hello{
+        font-size: 3rem;
+    }
+    #login{
         margin-top: 100px;
-        margin-bottom: 100px;
-        width: 75%;
+        width: 100%;
+    }
 
+}
+
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: landscape) {
+    #logo-text {
+        margin-left: 10px;
+        font-size: 2.5rem;
+        margin-right: -15px;
+    }
+
+    .card-width {
+        margin: 0 4px 0 4px;
+    }
+
+    #register {
+        width: 50%;
+    }
+    #login{
+        margin-top: 100px;
+        width: 100%;
+    }
+
+}
+
+/*iPhone 6/7/8 plus----------------------------------*/
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: landscape) {
+
+}
+
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: portrait) {
+    #register {
+        width: 100%;
+    }
+    #logo-text {
+        margin-left: -70px;
+        font-size: 2.5rem;
+    }
+    #map-container{
+        height: 610px;
+
+    }
+    #login{
+        margin-top: 100px;
+        width: 100%;
+    }
+
+
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : portrait) {
+    #map-container{
+        height: 690px;
+
+    }
+    #login{
+        margin-top: 100px;
+        width: 100%;
     }
 }
+
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (max-width: 576px) {
+    #register {
+        width: 100%;
+    }
+    #login{
+        margin-top: 100px;
+        width: 100%;
+    }
+}
+
