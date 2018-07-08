@@ -27,7 +27,7 @@ h1 {
 
 }
 
-#signIn {
+#register {
     margin-top: 100px;
     margin-bottom: 100px;
     width: 50%;
@@ -129,6 +129,7 @@ h1 {
 
 }
 
+
 a:hover {
     color: #d0944a !important;
 }
@@ -156,6 +157,11 @@ a:hover {
     filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, .4));
 
 }
+#login{
+    margin-bottom: 50px;
+    margin-top: 100px;
+    width: 50%;
+}
 
 /*iPhone 6/7/8------------------------------------------------*/
 @media only screen
@@ -178,13 +184,17 @@ and (orientation: portrait) {
 
     }
 
-    #signIn {
+    #register {
         width: 100%;
 
     }
 
     #hello{
         font-size: 3rem;
+    }
+    #login{
+        margin-top: 100px;
+        width: 100%;
     }
 
 }
@@ -203,8 +213,12 @@ and (orientation: landscape) {
         margin: 0 4px 0 4px;
     }
 
-    #signIn {
+    #register {
         width: 50%;
+    }
+    #login{
+        margin-top: 100px;
+        width: 100%;
     }
 
 }
@@ -221,7 +235,7 @@ and (orientation: landscape) {
 and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (orientation: portrait) {
-    #signIn {
+    #register {
         width: 100%;
     }
     #logo-text {
@@ -232,14 +246,37 @@ and (orientation: portrait) {
         height: 610px;
 
     }
+    #login{
+        margin-top: 100px;
+        width: 100%;
+    }
 
 
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : portrait) {
+    #map-container{
+        height: 690px;
+
+    }
+    #login{
+        margin-top: 100px;
+        width: 100%;
+    }
 }
 
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) {
-    #signIn {
+    #register {
+        width: 100%;
+    }
+    #login{
+        margin-top: 100px;
         width: 100%;
     }
 }

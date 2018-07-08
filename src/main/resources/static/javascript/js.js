@@ -1,3 +1,4 @@
+//Navbar hide script-----------------------------------------
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -8,8 +9,11 @@ window.onscroll = function () {
     }
     prevScrollpos = currentScrollPos;
 };
+//Navbar hide END--------------------------------------------
 
+//Bootstrap animation initiation---------
 new WOW().init();
+//animation END--------------------------
 
 // $(window).scroll(function() {
 //     var scroll = $(window).scrollTop();
@@ -20,13 +24,22 @@ new WOW().init();
 //
 // });
 // });
-// Regular map
+
+
+// Bootstrap js for Google Maps-----------------------------
 function regular_map() {
     var var_location = new google.maps.LatLng(29.426791, -98.489602);
 
+    //add MyLocation button here----------------------
+
+
+    //MyLocation button END---------------------------
+
+    //Google Maps js----------------------------------
     var var_mapoptions = {
         center: var_location,
-        zoom: 14
+        zoom: 14,
+        disableDefaultUI: true
     };
 
     var var_map = new google.maps.Map(document.getElementById("map-container"),
@@ -74,3 +87,5 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 // Initialize maps
 google.maps.event.addDomListener(window, 'load', regular_map);
+
+//Google Maps js END-------------------------------------------

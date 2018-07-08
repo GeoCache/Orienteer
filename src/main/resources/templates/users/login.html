@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/fragments :: header(${'Login'})">
 </head>
 <body>
+<nav th:replace="partials/fragments :: navbar"></nav>
+
+<div class="wrapper">
+    <main role="main">
+        <!-- Card -->
+        <div id="login" class="container-fluid ">
+            <div class="card z-depth-5 py-5 mx-auto">
+
+                <!-- Card body -->
+                <div class="card-body">
+
+                    <!-- Material form login -->
+                    <form>
+                        <p class="h4 text-center mb-4">Sign in</p>
+
+                        <!-- Material input email -->
+                        <div class="md-form">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="email" id="materialFormLoginEmailEx" class="form-control"/>
+                            <label for="materialFormLoginEmailEx">Your email</label>
+                        </div>
+
+                        <!-- Material input password -->
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input type="password" id="materialFormLoginPasswordEx" class="form-control"/>
+                            <label for="materialFormLoginPasswordEx">Your password</label>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-default" type="submit">Login</button>
+                        </div>
+                    </form>
+                    <!-- Material form login -->
+                </div>
+                <!-- Card body -->
+
+            </div>
+            <!-- Card -->
+        </div>
+    </main>
+    <script th:replace="partials/fragments :: bootstrap"></script>
+    <div class="push"></div>
+</div>
 
 </body>
+<footer th:replace="partials/fragments :: homeFooter"></footer>
 </html>

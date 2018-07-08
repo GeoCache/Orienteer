@@ -8,7 +8,6 @@
 <body id="home">
 
 <nav th:replace="partials/fragments :: navbar"></nav>
-
 <div class="wrapper">
 
     <section id="hero" class="z-depth-4 container-fluid px-0">
@@ -16,9 +15,129 @@
     </section>
     <main role="main">
 
-        <h1 class="text-center">Welcome to Orienteer</h1>
+        <h1 class="text-center my-5">Welcome to Orienteer</h1>
 
-        <div id="onboard" class="container-fluid">
+
+        <div class="wow aminated fadeIn mt-5 container-fluid d-sm-block d-md-none">
+            <!--Carousel Wrapper-->
+            <div id="carousel-example-1z" class="carousel slide carousel-fade z-depth-2" data-ride="carousel">
+                <!--Indicators-->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                </ol>
+                <!--/.Indicators-->
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+                    <!--First slide-->
+                    <div class="carousel-item active">
+                        <!--Card here-->
+                        <div class="card shadow">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                                     alt="Card image cap"/>
+                                <a href="#!">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of
+                                    the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--/First slide-->
+                    <!--Second slide-->
+                    <div class="carousel-item">
+                        <!--Card here-->
+                        <div class=" card shadow">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg"
+                                     alt="Card image cap"/>
+                                <a href="#!">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of
+                                    the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--/Second slide-->
+                    <!--Third slide-->
+                    <div class="carousel-item">
+                        <!--Card here-->
+                        <div class="card shadow">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg"
+                                     alt="Card image cap"/>
+                                <a href="#!">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of
+                                    the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Third slide-->
+                </div>
+                <!--/.Slides-->
+                <!--Controls-->
+                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <!--/.Controls-->
+            </div>
+            <!--/.Carousel Wrapper-->
+
+        </div>
+
+
+        <div id="onboard" class="container-fluid d-none d-sm-none d-md-block">
             <!-- Card deck -->
             <div class="card-width card-deck">
 
@@ -105,7 +224,7 @@
             </div>
             <!-- Card deck -->
         </div>
-        <div id="signIn" class="container-fluid">
+        <div id="register" class="container-fluid">
             <!-- Card -->
             <div class="card shadow mx-lg-5 d-xl-0">
 
