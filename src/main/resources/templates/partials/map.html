@@ -13,37 +13,115 @@
             margin: 0;
             padding: 0;
         }
+        #map > div > div > div:nth-child(9) > div > div{
+            background-image: url("static/img/compass.png");
+        }
     </style>
 </head>
 <body>
 <div id="map" th:fragment="mapCanvas"></div>
 <div th:fragment="mapScript">
 <script>
-    var map, infoWindow;
+    var map, infoWindow, marker, pos;
+
+    var myStyles =[
+        {
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [
+                { visibility: "off" }
+            ]
+        }
+    ];
+
+    function CenterControl(controlDiv, map) {
+
+        // Set CSS for the control border.
+        var controlUI = document.createElement('div');
+        controlUI.style.backgroundColor = '#fff';
+        controlUI.style.border = '2px solid #fff';
+        controlUI.style.borderRadius = '15px';
+        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.marginBottom = '22px';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Click to recenter the map';
+        controlDiv.appendChild(controlUI);
+
+        // Set CSS for the control interior.
+        var controlText = document.createElement('div');
+        controlText.style.color = 'rgb(25,25,25)';
+        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+        controlText.style.fontSize = '16px';
+        controlText.style.lineHeight = '38px';
+        controlText.style.paddingLeft = '5px';
+        controlText.style.paddingRight = '5px';
+        controlText.innerHTML = 'Back to You';
+        controlUI.appendChild(controlText);
+
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlUI.addEventListener('click', function() {
+            map.setCenter(pos);
+        });
+
+    }
+
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {
                 lat:  29.426791,
                 lng: -98.489602
             },
-            zoom: 10
+            zoom: 17,
+            styles: myStyles,
+            disableDefaultUI: true
         });
+
+
+
+        marker = new google.maps.Marker({
+            position: map.center,
+            map: map,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 5,
+                strokeColor: 'black',
+                fillColor: 'red',
+                fillOpacity: 1
+            }
+        });
+
+        var centerControlDiv = document.createElement('div');
+        var centerControl = new CenterControl(centerControlDiv, map);
+
+        centerControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);
+
+
+    // Allows app to access built in GPS in devices
+       const watchOptions = {
+            enableHighAccuracy: true,
+            timeout: 1
+        };
+
         infoWindow = new google.maps.InfoWindow;
 
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
+
+
+            navigator.geolocation.watchPosition(function(position) {
+
+              pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
 
+                marker.setPosition(pos);
                 infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
-                infoWindow.open(map);
                 map.setCenter(pos);
             }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
-            });
+            }, watchOptions);
         } else {
             handleLocationError(false, infoWindow, map.getCenter());
         }
