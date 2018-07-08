@@ -8,6 +8,8 @@
     font-size: 1.3rem;
 
 }
+
+
 .icon {
     width: 10%
 }
@@ -104,9 +106,6 @@ h1 {
     padding-top: 8vh;
     padding-bottom: 30vh;
     width: 100%;
-
-
-
 }
 
 
@@ -250,6 +249,9 @@ and (orientation: portrait) {
         margin-top: 100px;
         width: 100%;
     }
+    #createContainer{
+        height: 610px;
+    }
 
 
 }
@@ -263,6 +265,10 @@ and (orientation : portrait) {
         height: 690px;
 
     }
+    #createContainer{
+        height: 690px;
+    }
+
     #login{
         margin-top: 100px;
         width: 100%;
