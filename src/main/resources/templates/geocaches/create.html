@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/fragments :: header(${'Create'})">
+
 </head>
-<body>
+<body id="home">
+<nav th:replace="partials/fragments :: dashbar"></nav>
+
+<div class="container"></div>
+
+<script th:replace="partials/fragments :: bootstrap"></script>
 
 </body>
+<footer th:replace="partials/fragments :: dashFooter"></footer>
 </html>
