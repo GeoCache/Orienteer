@@ -25,6 +25,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.sun.tools.internal.ws.processor.generator.GeneratorException;
 
+import javax.swing.plaf.basic.BasicMenuUI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +98,7 @@ public final class Generator implements EntryPoint {
         generators.add(new CalendarEventGenerator(changeHandler, keyPressHandler));
 
         generators.add(new TextGenerator(changeHandler));
-        generators.add(new UrlGenerator(changeHandler, keyPressHandler));
+        generators.add(new UrlGenerator((BasicMenuUI.ChangeHandler) changeHandler, keyPressHandler));
     }
 
     void setupLeftPanel() {
@@ -235,7 +236,7 @@ public final class Generator implements EntryPoint {
         @Override
         public void onChange(ChangeEvent event) {
             try {
-                selectedGenerator.validate((Widget) event.getSource());
+                selectedGenerator.validate((TextBox) event.getSource());
                 eraseErrorMessage();
             } catch (GeneratorException ex) {
                 String error = ex.getMessage();

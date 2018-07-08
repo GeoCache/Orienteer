@@ -16,7 +16,7 @@ public interface GeneratorSource {
      * @return the text to be encoded into the QR code.
      * @throws GeneratorException if the input data contains errors.
      */
-    String getText() throws GeneratorException;
+    String getText() throws GeneratorException, GenratorException;
     /**
      * @param widget the widget that was last modified, and that we want to
      *        validate the content.

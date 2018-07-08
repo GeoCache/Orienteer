@@ -55,7 +55,7 @@ public final class UrlGenerator implements GeneratorSource {
 
     @Override
     public void validate(TextBox widget) throws GeneratorException {
-        if (widget = url) {
+        if (widget == url) {
             getUrlField();
         }
     }
