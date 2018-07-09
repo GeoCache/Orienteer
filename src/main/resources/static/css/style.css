@@ -284,7 +284,31 @@ and (orientation: portrait) {
 
     }
 
-    #login {
+    #login{
+        margin-top: 100px;
+        width: 100%;
+    }
+    #createContainer{
+        height: 610px;
+    }
+
+
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : portrait) {
+    #map-container{
+        height: 690px;
+
+    }
+    #createContainer{
+        height: 690px;
+    }
+
+    #login{
         margin-top: 100px;
         width: 100%;
     }
