@@ -16,7 +16,6 @@
 
 }
 
-
 .icon {
     width: 10%
 }
@@ -47,7 +46,8 @@ h1 {
 }
 
 #myNavbar {
-    background: transparent;
+    background-color: transparent;
+    position: fixed;
     top: 0;
     width: 100%;
     transition: .5s;
@@ -66,6 +66,7 @@ h1 {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;
 
 }
+
 #myAppNav {
     background: #eee2cb;
     top: 0;
@@ -114,7 +115,7 @@ h1 {
 
 #hero {
     background-image: linear-gradient(rgba(238, 226, 203, 1), rgba(208, 148, 74, 0.1)), url(../img/adventure-ancient-antique-697662.jpg);
-    height: 80vh;
+    height: 70vh;
     background-size: cover;
     padding-top: 8vh;
     padding-bottom: 30vh;
@@ -190,9 +191,11 @@ and (orientation: portrait) {
     margin-top: 150px;
     width: 100%;
 }
+
 #register {
     width: 100%;
 }
+
 /*iPhone 6/7/8------------------------------------------------*/
 @media only screen
 and (min-device-width: 375px)
