@@ -9,13 +9,18 @@
 
 }
 
-
 .icon {
     width: 10%
 }
-.inline{
+
+.inline {
     display: inline;
 }
+
+#homeIcon{
+    width: 30px;
+}
+
 body {
     background-color: #eee2cb;
 }
@@ -51,7 +56,7 @@ h1 {
 
 }
 
-#myDashbar{
+#myDashbar {
     background: #eee2cb;
     position: fixed;
     top: 0;
@@ -59,22 +64,23 @@ h1 {
     transition: .5s;
     opacity: .9;
     z-index: 9;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;
 
 }
-#map-container{
+
+#map-container {
     margin-top: 55px;
     height: 540px;
 }
-#myDashFooter{
+
+#myDashFooter {
     height: 70px;
     background-color: #d0944a;
-    box-shadow: 0 -2px 10px 0 rgba(0,0,0,.16), 0 -2px 10px 0 rgba(0,0,0,.12);
-
+    box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, .16), 0 -2px 10px 0 rgba(0, 0, 0, .12);
 
 }
 
-#pin{
+#pin {
     position: absolute;
     bottom: 27px;
     left: 42%;
@@ -106,9 +112,8 @@ h1 {
     padding-top: 8vh;
     padding-bottom: 30vh;
     width: 100%;
+
 }
-
-
 
 #hello {
     font-family: "mr-eaves-modern", sans-serif;
@@ -116,7 +121,6 @@ h1 {
     color: #512c2a;
 
 }
-
 
 .wrapper {
     min-height: 100%;
@@ -127,7 +131,9 @@ h1 {
     height: 50px;
 
 }
-
+.footer, .pushLogin{
+    height: 200px;
+}
 
 a:hover {
     color: #d0944a !important;
@@ -156,7 +162,8 @@ a:hover {
     filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, .4));
 
 }
-#login{
+
+#login {
     margin-bottom: 50px;
     margin-top: 100px;
     width: 50%;
@@ -166,6 +173,7 @@ a:hover {
 @media only screen
 and (min-device-width: 375px)
 and (max-device-width: 667px)
+and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
 
     #logo-text {
@@ -188,10 +196,11 @@ and (orientation: portrait) {
 
     }
 
-    #hello{
+    #hello {
         font-size: 3rem;
     }
-    #login{
+
+    #login {
         margin-top: 100px;
         width: 100%;
     }
@@ -201,6 +210,7 @@ and (orientation: portrait) {
 @media only screen
 and (min-device-width: 375px)
 and (max-device-width: 667px)
+and (-webkit-device-pixel-ratio: 2)
 and (orientation: landscape) {
     #logo-text {
         margin-left: 10px;
@@ -215,13 +225,38 @@ and (orientation: landscape) {
     #register {
         width: 50%;
     }
-    #login{
+
+    #login {
         margin-top: 100px;
         width: 100%;
     }
 
 }
 
+
+/*iPhone X ---------------------------------------*/
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+    #map-container {
+        height: 690px;
+
+    }
+    #logo-text{
+        margin-left: -35px;
+        font-size: 2.5rem;
+    }
+
+    #login {
+        margin-top: 100px;
+        width: 100%;
+    }
+    #logo{
+        margin-left: -1px;
+    }
+}
 /*iPhone 6/7/8 plus----------------------------------*/
 @media only screen
 and (min-device-width: 414px)
@@ -233,18 +268,22 @@ and (orientation: landscape) {
 @media only screen
 and (min-device-width: 414px)
 and (max-device-width: 736px)
+and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
     #register {
         width: 100%;
     }
+
     #logo-text {
         margin-left: -70px;
         font-size: 2.5rem;
     }
-    #map-container{
+
+    #map-container {
         height: 610px;
 
     }
+
     #login{
         margin-top: 100px;
         width: 100%;
@@ -273,15 +312,16 @@ and (orientation : portrait) {
         margin-top: 100px;
         width: 100%;
     }
-}
 
+}
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) {
     #register {
         width: 100%;
     }
-    #login{
+
+    #login {
         margin-top: 100px;
         width: 100%;
     }

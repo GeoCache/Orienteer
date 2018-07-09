@@ -39,26 +39,25 @@ function regular_map() {
     function CenterControl(controlDiv, map) {
 
         // Set CSS for the control border.
-        var controlUI = document.createElement('button');
-        controlUI.style.height= '20px';
-        controlUI.style.width= '20px';
-        controlUI.style.backgroundColor = '#fff';
-        controlUI.style.border = '2px solid #fff';
-        controlUI.style.borderRadius = '15px';
-        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+        var controlUI = document.createElement('div');
+        controlUI.style.marginRight= '10px';
+        controlUI.style.height= '35px';
+        controlUI.style.width= '35px';
+        controlUI.style.borderRadius = '20px';
         controlUI.style.cursor = 'pointer';
-        controlUI.style.marginBottom = '22px';
+        controlUI.style.marginBottom = '1.5vh';
         controlUI.style.textAlign = 'center';
         controlUI.title = 'Click to recenter the map';
         controlDiv.appendChild(controlUI);
 
         // Set CSS for the control interior.
         var controlText = document.createElement('div');
-        controlText.style.paddingLeft = '5px';
-        controlText.style.paddingRight = '5px';
-        controlText.style.backgroundImage = 'img("static/img/gps.svg")';
-        controlText.style.backgroundSize = '10px 10px';
+        controlText.style.height= '30px';
+        controlText.style.width= '30px';
+        controlText.style.backgroundImage = 'url(/img/gps.svg)';
+        controlText.style.backgroundSize = '30px 30px';
         controlText.style.backgroundPosition = '0px 0px';
+        controlText.style.marginRight = '5px';
         controlText.style.backgroundRepeat = 'no-repeat';
         controlUI.appendChild(controlText);
 
