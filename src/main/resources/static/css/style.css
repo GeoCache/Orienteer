@@ -9,6 +9,14 @@
 
 }
 
+#register {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 50%;
+
+}
+
+
 .icon {
     width: 10%
 }
@@ -17,7 +25,7 @@
     display: inline;
 }
 
-#homeIcon{
+#homeIcon {
     width: 30px;
 }
 
@@ -31,13 +39,6 @@ h1 {
     color: #512c2a;
     font-size: 5rem;
     margin-top: 50px;
-
-}
-
-#register {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    width: 50%;
 
 }
 
@@ -122,19 +123,6 @@ h1 {
 
 }
 
-.wrapper {
-    min-height: 100%;
-    margin-bottom: -50px;
-}
-
-.footer, .push {
-    height: 50px;
-
-}
-.footer, .pushLogin{
-    height: 200px;
-}
-
 a:hover {
     color: #d0944a !important;
 }
@@ -169,6 +157,36 @@ a:hover {
     width: 50%;
 }
 
+/*iPhone X ---------------------------------------*/
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+    #map-container {
+        height: 690px;
+
+    }
+
+    #logo-text {
+        margin-left: -35px;
+        font-size: 2.5rem;
+    }
+
+}
+
+#logo {
+    margin-left: -1px;
+}
+
+#login {
+    margin-bottom: 50px;
+    margin-top: 150px;
+    width: 100%;
+}
+#register {
+    width: 100%;
+}
 /*iPhone 6/7/8------------------------------------------------*/
 @media only screen
 and (min-device-width: 375px)
@@ -201,62 +219,13 @@ and (orientation: portrait) {
     }
 
     #login {
+        margin-bottom: 50px;
         margin-top: 100px;
         width: 100%;
     }
 
 }
 
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 667px)
-and (-webkit-device-pixel-ratio: 2)
-and (orientation: landscape) {
-    #logo-text {
-        margin-left: 10px;
-        font-size: 2.5rem;
-        margin-right: -15px;
-    }
-
-    .card-width {
-        margin: 0 4px 0 4px;
-    }
-
-    #register {
-        width: 50%;
-    }
-
-    #login {
-        margin-top: 100px;
-        width: 100%;
-    }
-
-}
-
-
-/*iPhone X ---------------------------------------*/
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 812px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-    #map-container {
-        height: 690px;
-
-    }
-    #logo-text{
-        margin-left: -35px;
-        font-size: 2.5rem;
-    }
-
-    #login {
-        margin-top: 100px;
-        width: 100%;
-    }
-    #logo{
-        margin-left: -1px;
-    }
-}
 /*iPhone 6/7/8 plus----------------------------------*/
 @media only screen
 and (min-device-width: 414px)
@@ -286,20 +255,21 @@ and (orientation: portrait) {
 
     #login {
         margin-top: 100px;
+        margin-bottom: 50px;
         width: 100%;
     }
 
 }
 
 /*Small devices (landscape phones, 576px and up)*/
-@media (max-width: 576px) {
-    #register {
-        width: 100%;
-    }
+/*@media (max-width: 576px) {*/
+/*#register {*/
+/*width: 100%;*/
+/*}*/
 
-    #login {
-        margin-top: 100px;
-        width: 100%;
-    }
-}
+/*#login {*/
+/*margin-top: 100px;*/
+/*width: 100%;*/
+/*}*/
+/*}*/
 
