@@ -1,9 +1,8 @@
 package com.orienteer.orienteer.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+import javax.persistence.*;
+import java.util.List;
+@Entity
 public class Geocache {
     @Id
     @GeneratedValue
@@ -28,10 +27,18 @@ public class Geocache {
     private double latitude;
     @Column(name = "points", nullable = false)
     private int points;
-    @Column(name = "finder_id", nullable = false)
+    @Column(name = "finder_id", nullable = true)
     private int finderId;
     @Column(name = "is_active", nullable = true)
     private boolean isActive;
+
+    @ManyToOne
+    @JoinColumn
+    private User user;
+
+//    @ManyToOne
+//    @JoinColumn(name = "finder_id")
+//    private User finder;
 
     public Geocache(long id, String name, String description, String type, long ownerId, String qrCode, long createdTime, String locationName, double longitude, double latitude, int points, int finderId, boolean isActive) {
         this.id = id;
@@ -58,6 +65,21 @@ public class Geocache {
         this.isActive = isActive;
     }
 
+//    public User getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(User owner) {
+//        this.owner = owner;
+//    }
+
+//    public User getFinder() {
+//        return finder;
+//    }
+//
+//    public void setFinder(User finder) {
+//        this.finder = finder;
+//    }
 
     public Geocache() {
 
