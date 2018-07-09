@@ -8,12 +8,12 @@
 <body>
 
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div class="wrapper">
 
-    <section id="hero" class="z-depth-4 container-fluid px-0">
+
+    <div id="hero" class="z-depth-4 container-fluid px-0">
         <h1 id="hello" class="text-center">HELLO <span th:text="${name.toUpperCase()}"></span></h1>
-    </section>
-    <main role="main">
+    </div>
+
 
         <h1 class="text-center my-5">Welcome to Orienteer</h1>
 
@@ -275,13 +275,12 @@
             </div>
             <!-- Card -->
         </div>
-    </main>
 
 
     <script th:replace="partials/fragments :: bootstrap"></script>
 
-    <div class="push"></div>
-</div>
+
+
 
 <footer th:replace="partials/fragments :: homeFooter"></footer>
 </body>

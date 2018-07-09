@@ -48,7 +48,6 @@ h1 {
 
 #myNavbar {
     background: transparent;
-    position: fixed;
     top: 0;
     width: 100%;
     transition: .5s;
@@ -59,7 +58,6 @@ h1 {
 
 #myDashbar {
     background: #eee2cb;
-    position: fixed;
     top: 0;
     width: 100%;
     transition: .5s;
