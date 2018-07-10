@@ -50,7 +50,6 @@ public class User {
 //    private List<Geocache> foundGeocaches;
 
 
-    public User(User user) {}
 
     public User(String firstName, String lastName, String userName, String password, String email, long phoneNumber, String birthday) {
         this.firstName = firstName;
