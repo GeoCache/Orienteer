@@ -8,10 +8,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class GeocacheController {
 
-    @GetMapping("/home")
-    @ResponseBody
-    public String home() {
-        return "Time to start your adventure";
+    @GetMapping("/create")
+    public String showCreate() {
+        return "geocaches/create";
+    }
+
+    @GetMapping("/found")
+    public String showFind() {
+        return "geocaches/found";
+    }
+
+    @GetMapping("/list")
+    public String showList() {
+        return "geocaches/list";
     }
 
 

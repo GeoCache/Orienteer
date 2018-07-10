@@ -1,5 +1,6 @@
 package com.orienteer.orienteer.models;
 
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -33,7 +34,13 @@ public class User {
     @Column(name = "birthday", nullable = false)
     private String birthday;
 
-    public User() {}
+    @OneToMany
+    private List<Geocache> myGeocaches;
+
+//    @OneToMany(mappedBy = "finder")
+//    private List<Geocache> foundGeocaches;
+
+    public User(User user) {}
 
     public User(String firstName, String lastName, String userName, String password, String email, long phoneNumber, String birthday) {
         this.firstName = firstName;
@@ -44,6 +51,22 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.birthday = birthday;
     }
+
+    public List<Geocache> getMyGeocaches() {
+        return myGeocaches;
+    }
+
+    public void setMyGeocaches(List<Geocache> myGeocaches) {
+        this.myGeocaches = myGeocaches;
+    }
+
+//    public List<Geocache> getFoundGeocaches() {
+//        return foundGeocaches;
+//    }
+//
+//    public void setFoundGeocaches(List<Geocache> foundGeocaches) {
+//        this.foundGeocaches = foundGeocaches;
+//    }
 
     public long getId() {
         return id;
@@ -107,5 +130,9 @@ public class User {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+
+
+    public void save(User user) {
     }
 }

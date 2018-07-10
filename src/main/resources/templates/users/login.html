@@ -5,18 +5,17 @@
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
 
-<div class="wrapper">
-    <main role="main">
+
         <!-- Card -->
-        <div id="login" class="container-fluid ">
-            <div class="card z-depth-5 py-5 mx-auto">
+        <div id="login" class="container-fluid">
+            <div class="card z-depth-5 py-5">
 
                 <!-- Card body -->
                 <div class="card-body">
 
                     <!-- Material form login -->
                     <form>
-                        <p class="h4 text-center mb-4">Sign in</p>
+                        <p class="h4 text-center">Sign in</p>
 
                         <!-- Material input email -->
                         <div class="md-form">
@@ -33,7 +32,7 @@
                         </div>
 
                         <div class="text-center mt-4">
-                            <button class="btn btn-default" type="submit">Login</button>
+                            <button class="btn btn-default" type="submit">Sign in</button>
                         </div>
                     </form>
                     <!-- Material form login -->
@@ -43,11 +42,9 @@
             </div>
             <!-- Card -->
         </div>
-    </main>
     <script th:replace="partials/fragments :: bootstrap"></script>
-    <div class="push"></div>
-</div>
 
-</body>
 <footer th:replace="partials/fragments :: homeFooter"></footer>
+</body>
+
 </html>
