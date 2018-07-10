@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class HomeController {
 
-    @GetMapping("/home")
-    public String helloWorld(@PathVariable Model view) {
+    @GetMapping("/")
+    public String helloWorld() {
         return "home";
     }
 
