@@ -1,3 +1,8 @@
+#register {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 50%;
+}
 .wow {
     visibility: visible;
 }
@@ -9,6 +14,7 @@
 
 }
 
+
 .icon {
     width: 10%
 }
@@ -17,7 +23,7 @@
     display: inline;
 }
 
-#homeIcon{
+#homeIcon {
     width: 30px;
 }
 
@@ -34,19 +40,12 @@ h1 {
 
 }
 
-#register {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    width: 50%;
-
-}
-
 .shadow {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
 }
 
 #myNavbar {
-    background: transparent;
+    background-color: transparent;
     position: fixed;
     top: 0;
     width: 100%;
@@ -58,7 +57,6 @@ h1 {
 
 #myDashbar {
     background: #eee2cb;
-    position: fixed;
     top: 0;
     width: 100%;
     transition: .5s;
@@ -68,8 +66,17 @@ h1 {
 
 }
 
+#myAppNav {
+    background: #eee2cb;
+    top: 0;
+    width: 100%;
+    transition: .5s;
+    opacity: .9;
+    z-index: 9;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;
+}
+
 #map-container {
-    margin-top: 55px;
     height: 540px;
 }
 
@@ -107,7 +114,7 @@ h1 {
 
 #hero {
     background-image: linear-gradient(rgba(238, 226, 203, 1), rgba(208, 148, 74, 0.1)), url(../img/adventure-ancient-antique-697662.jpg);
-    height: 80vh;
+    height: 70vh;
     background-size: cover;
     padding-top: 8vh;
     padding-bottom: 30vh;
@@ -120,19 +127,6 @@ h1 {
     font-weight: 700;
     color: #512c2a;
 
-}
-
-.wrapper {
-    min-height: 100%;
-    margin-bottom: -50px;
-}
-
-.footer, .push {
-    height: 50px;
-
-}
-.footer, .pushLogin{
-    height: 200px;
 }
 
 a:hover {
@@ -169,6 +163,38 @@ a:hover {
     width: 50%;
 }
 
+/*iPhone X ---------------------------------------*/
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+    #map-container {
+        height: 690px;
+
+    }
+
+    #logo-text {
+        margin-left: -35px;
+        font-size: 2.5rem;
+    }
+    #logo {
+        margin-left: -1px;
+    }
+
+    #login {
+        margin-bottom: 50px;
+        margin-top: 150px;
+        width: 100%;
+    }
+
+    #register {
+        width: 100%;
+    }
+
+}
+
+
 /*iPhone 6/7/8------------------------------------------------*/
 @media only screen
 and (min-device-width: 375px)
@@ -201,62 +227,13 @@ and (orientation: portrait) {
     }
 
     #login {
+        margin-bottom: 50px;
         margin-top: 100px;
         width: 100%;
     }
 
 }
 
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 667px)
-and (-webkit-device-pixel-ratio: 2)
-and (orientation: landscape) {
-    #logo-text {
-        margin-left: 10px;
-        font-size: 2.5rem;
-        margin-right: -15px;
-    }
-
-    .card-width {
-        margin: 0 4px 0 4px;
-    }
-
-    #register {
-        width: 50%;
-    }
-
-    #login {
-        margin-top: 100px;
-        width: 100%;
-    }
-
-}
-
-
-/*iPhone X ---------------------------------------*/
-@media only screen
-and (min-device-width: 375px)
-and (max-device-width: 812px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-    #map-container {
-        height: 690px;
-
-    }
-    #logo-text{
-        margin-left: -35px;
-        font-size: 2.5rem;
-    }
-
-    #login {
-        margin-top: 100px;
-        width: 100%;
-    }
-    #logo{
-        margin-left: -1px;
-    }
-}
 /*iPhone 6/7/8 plus----------------------------------*/
 @media only screen
 and (min-device-width: 414px)
@@ -310,20 +287,21 @@ and (orientation : portrait) {
 
     #login{
         margin-top: 100px;
+        margin-bottom: 50px;
         width: 100%;
     }
 
 }
 
 /*Small devices (landscape phones, 576px and up)*/
-@media (max-width: 576px) {
-    #register {
-        width: 100%;
-    }
+/*@media (max-width: 576px) {*/
+/*#register {*/
+/*width: 100%;*/
+/*}*/
 
-    #login {
-        margin-top: 100px;
-        width: 100%;
-    }
-}
+/*#login {*/
+/*margin-top: 100px;*/
+/*width: 100%;*/
+/*}*/
+/*}*/
 
