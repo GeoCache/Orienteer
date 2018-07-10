@@ -2,7 +2,9 @@ package com.orienteer.orienteer.models;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
+@Table(name = "geocaches")
 public class Geocache {
     @Id
     @GeneratedValue
@@ -13,77 +15,55 @@ public class Geocache {
     private String description;
     @Column(name = "type", nullable = false, length = 100)
     private String type;
-    @Column(name = "owner_id", nullable = false)
-    private long ownerId;
-    @Column(name = "qr_code", nullable = false, length = 100)
-    private String qrCode;
     @Column(name = "created_time", nullable = false)
     private long createdTime;
     @Column(name = "location_name", nullable = false, length = 100)
     private String locationName;
-    @Column(name = "longitute", nullable = false)
+    @Column(name = "longitude", nullable = false)
     private double longitude;
     @Column(name = "latitude", nullable = false)
     private double latitude;
     @Column(name = "points", nullable = false)
     private int points;
-    @Column(name = "finder_id", nullable = true)
-    private int finderId;
     @Column(name = "is_active", nullable = true)
     private boolean isActive;
 
     @ManyToOne
-    @JoinColumn
-    private User user;
+    @JoinColumn(name = "owner_id")
+    private User owner;
 
-//    @ManyToOne
-//    @JoinColumn(name = "finder_id")
-//    private User finder;
+    @ManyToOne
+    @JoinColumn(name = "finder_id")
+    private User finder;
 
-    public Geocache(long id, String name, String description, String type, long ownerId, String qrCode, long createdTime, String locationName, double longitude, double latitude, int points, int finderId, boolean isActive) {
+
+    public Geocache(long id, String name, String description, String type, User owner, long createdTime, String locationName, double longitude, double latitude, int points, boolean isActive) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.type = type;
-        this.ownerId = ownerId;
-        this.qrCode = qrCode;
+        this.owner = owner;
         this.createdTime = createdTime;
         this.locationName = locationName;
         this.longitude = longitude;
         this.latitude = latitude;
         this.points = points;
-        this.finderId = finderId;
         this.isActive = isActive;
     }
 
-    public Geocache(long id, String name, String description, String type, long ownerId, boolean isActive) {
+    public Geocache(long id, String name, String description, String type, boolean isActive) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.type = type;
-        this.ownerId = ownerId;
         this.isActive = isActive;
     }
 
-//    public User getOwner() {
-//        return owner;
-//    }
-//
-//    public void setOwner(User owner) {
-//        this.owner = owner;
-//    }
-
-//    public User getFinder() {
-//        return finder;
-//    }
-//
-//    public void setFinder(User finder) {
-//        this.finder = finder;
-//    }
 
     public Geocache() {
 
     }
+
 
     public long getId() {
         return id;
@@ -115,22 +95,6 @@ public class Geocache {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public long getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(long ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public String getQrCode() {
-        return qrCode;
-    }
-
-    public void setQrCode(String qrCode) {
-        this.qrCode = qrCode;
     }
 
     public long getCreatedTime() {
@@ -173,19 +137,27 @@ public class Geocache {
         this.points = points;
     }
 
-    public int getFinderId() {
-        return finderId;
-    }
-
-    public void setFinderId(int finderId) {
-        this.finderId = finderId;
-    }
-
     public boolean isActive() {
         return isActive;
     }
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public User getFinder() {
+        return finder;
+    }
+
+    public void setFinder(User finder) {
+        this.finder = finder;
     }
 }

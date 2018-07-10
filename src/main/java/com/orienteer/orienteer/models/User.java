@@ -37,8 +37,13 @@ public class User {
     @Column(name = "birthday", nullable = false)
     private String birthday;
 
-    @OneToMany
-    private List<Geocache> myGeocaches;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "finder")
+    private List<Geocache> myFinds;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Geocache> myCaches;
+
+
 
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
@@ -48,8 +53,7 @@ public class User {
     }
 
     public User(){};
-//    @OneToMany(mappedBy = "finder")
-//    private List<Geocache> foundGeocaches;
+
 
 
 
@@ -63,21 +67,22 @@ public class User {
         this.birthday = birthday;
     }
 
-    public List<Geocache> getMyGeocaches() {
-        return myGeocaches;
+
+    public List<Geocache> getMyFinds() {
+        return myFinds;
     }
 
-    public void setMyGeocaches(List<Geocache> myGeocaches) {
-        this.myGeocaches = myGeocaches;
+    public void setMyFinds(List<Geocache> myFinds) {
+        this.myFinds = myFinds;
     }
 
-//    public List<Geocache> getFoundGeocaches() {
-//        return foundGeocaches;
-//    }
-//
-//    public void setFoundGeocaches(List<Geocache> foundGeocaches) {
-//        this.foundGeocaches = foundGeocaches;
-//    }
+    public List<Geocache> getMyCaches() {
+        return myCaches;
+    }
+
+    public void setMyCaches(List<Geocache> myCaches) {
+        this.myCaches = myCaches;
+    }
 
     public long getId() {
         return id;
@@ -144,6 +149,6 @@ public class User {
     }
 
 
-    public void save(User user) {
-    }
+
+
 }
