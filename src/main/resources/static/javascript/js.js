@@ -74,7 +74,9 @@ function regular_map() {
         center: location,
         zoom: 14,
         styles: myStyles,
-        disableDefaultUI: true
+        disableDefaultUI: true,
+        options: {minZoom: 5
+            , maxZoom: 18}
     };
 
     map = new google.maps.Map(document.getElementById("map-container"),
