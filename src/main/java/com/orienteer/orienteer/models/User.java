@@ -4,9 +4,6 @@ package com.orienteer.orienteer.models;
 import javax.persistence.*;
 import java.util.List;
 
-import static com.sun.tools.doclint.Entity.copy;
-
-
 @Entity
 @Table(name = "users")
 public class User {
