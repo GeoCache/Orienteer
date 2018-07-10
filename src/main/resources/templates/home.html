@@ -232,36 +232,60 @@
             <div class="card-body">
 
                 <!-- Material form register -->
-                <form>
+                <form th:action="@{/}" method="post" th:object="${user}">
                     <p class="h4 text-center py-4">Sign up</p>
 
-                    <!-- Material input text -->
+                    <!-- First name input -->
                     <div class="md-form">
                         <i class="fa fa-user prefix grey-text"></i>
-                        <input type="text" id="materialFormCardNameEx" class="form-control"/>
-                        <label for="materialFormCardNameEx" class="font-weight-light">Your name</label>
+                        <input type="text" id="firstName" class="form-control" th:field="*{firstName}" />
+                        <label for="firstName" class="font-weight-light">First Name</label>
                     </div>
 
-                    <!-- Material input email -->
+                    <!-- Last name input -->
                     <div class="md-form">
                         <i class="fa fa-envelope prefix grey-text"></i>
-                        <input type="email" id="materialFormCardEmailEx" class="form-control"/>
-                        <label for="materialFormCardEmailEx" class="font-weight-light">Your email</label>
+                        <input type="text" id="lastName" class="form-control" th:field="*{lastName}" />
+                        <label for="lastName" class="font-weight-light">Last Name</label>
                     </div>
 
-                    <!-- Material input email -->
+                    <!-- Username input -->
                     <div class="md-form">
                         <i class="fa fa-exclamation-triangle prefix grey-text"></i>
-                        <input type="email" id="materialFormCardConfirmEx" class="form-control"/>
-                        <label for="materialFormCardConfirmEx" class="font-weight-light">Confirm your email</label>
+                        <input type="text" id="userName" class="form-control" th:field="*{userName}" />
+                        <label for="userName" class="font-weight-light">Enter your Username</label>
                     </div>
 
-                    <!-- Material input password -->
+                    <!-- Password input-->
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" id="materialFormCardPasswordEx" class="form-control"/>
-                        <label for="materialFormCardPasswordEx" class="font-weight-light">Your password</label>
+                        <input type="password" id="password" class="form-control" th:field="*{password}" />
+                        <label for="password" class="font-weight-light">Your password</label>
                     </div>
+
+                    <!-- Email input-->
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input type="email" id="email" class="form-control" th:field="*{email}" />
+                        <label for="email" class="font-weight-light">Your email</label>
+                    </div>
+
+
+                    <!-- Phone input-->
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input type="text" id="phoneNumber" class="form-control" th:field="*{phoneNumber}" />
+                        <label for="phoneNumber" class="font-weight-light">Your phone number</label>
+                    </div>
+
+
+                    <!-- Birthday input-->
+                    <div class="md-form">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <input type="text" id="birthday" class="form-control" th:field="*{birthday}" />
+                        <label for="birthday" class="font-weight-light">Enter your birthday</label>
+                    </div>
+
 
                     <div class="text-center py-4 mt-3">
                         <button class="btn btn-cyan" type="submit">Register</button>

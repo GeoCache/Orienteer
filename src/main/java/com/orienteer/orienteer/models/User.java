@@ -46,6 +46,8 @@ public class User {
         userName = copy.userName;
         password = copy.password;
     }
+
+    public User(){};
 //    @OneToMany(mappedBy = "finder")
 //    private List<Geocache> foundGeocaches;
 
