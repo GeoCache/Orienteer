@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Login configuration */
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/home") // user's home page, it can be any URL
+                .defaultSuccessUrl("/dash") // user's home page, it can be any URL
                 .permitAll() // Anyone can go to the login page
                 /* Logout configuration */
                 .and()
@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/geocaches/create", "/geocaches/create", "/geocache/list", "/dash"
+                        "/geocaches/create", "/geocache/list", "/dash"
                         // we need to figure out if we want only signed up user to be able to access the cache's
 
                 )

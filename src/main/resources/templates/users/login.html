@@ -13,27 +13,37 @@
                 <!-- Card body -->
                 <div class="card-body">
 
+                    <div th:if="${param.error}">
+                        Invalid Email or Password!
+                    </div>
+
+                    <div th:if="${param.logout}">
+                        You have been logged out
+                    </div>
+
+
                     <!-- Material form login -->
-                    <form>
+                    <form th:action="@{/login}" method="post">
                         <p class="h4 text-center">Sign in</p>
 
                         <!-- Material input email -->
                         <div class="md-form">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" id="materialFormLoginEmailEx" class="form-control"/>
-                            <label for="materialFormLoginEmailEx">Your email</label>
+                            <i class="fa fa-user-circle-o prefix grey-text"></i>
+                            <input type="text" id="username" name="username" class="form-control"/>
+                            <label for="username">UserName</label>
                         </div>
 
                         <!-- Material input password -->
                         <div class="md-form">
                             <i class="fa fa-lock prefix grey-text"></i>
-                            <input type="password" id="materialFormLoginPasswordEx" class="form-control"/>
-                            <label for="materialFormLoginPasswordEx">Your password</label>
+                            <input type="password" id="password" name="password" class="form-control"/>
+                            <label for="password">Your password</label>
                         </div>
 
-                        <div class="text-center mt-4">
+                        <!--<div class="text-center mt-4">-->
+                            <!--<input type="hidden"  th:name="${_csrf.parameterName}" th:value="*{_csrf.token}"/>-->
                             <button class="btn btn-default" type="submit">Sign in</button>
-                        </div>
+                        <!--</div>-->
                     </form>
                     <!-- Material form login -->
                 </div>
