@@ -46,16 +46,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* Pages that can be viewed without having to log in */
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/geochace") // anyone can see the home and the ads pages
+                .antMatchers("/", "/home") // anyone can see the home and the ads pages
                 .permitAll()
                 /* Pages that require athentication */
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/posts/create", // only authenticated users can create ads
-                        "/posts/{id}/edit" // only authenticated users can edit ads
-                )
+                        "/geocaches/create", "/geocaches/create", "/geocache/list", "/geocache/dashboard"
+                        // we need to figure out if we want only signed up user to be able to access the cache's
 
+                )
                 .authenticated();
 
     }
