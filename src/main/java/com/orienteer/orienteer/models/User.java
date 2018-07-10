@@ -4,10 +4,13 @@ package com.orienteer.orienteer.models;
 import javax.persistence.*;
 import java.util.List;
 
+import static com.sun.tools.doclint.Entity.copy;
+
 
 @Entity
 @Table(name = "users")
 public class User {
+
 
     @Id
     @GeneratedValue
@@ -41,7 +44,16 @@ public class User {
     private List<Geocache> myCaches;
 
 
-    public User(User user) {}
+
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        userName = copy.userName;
+        password = copy.password;
+    }
+
+
+
 
     public User(String firstName, String lastName, String userName, String password, String email, long phoneNumber, String birthday) {
         this.firstName = firstName;

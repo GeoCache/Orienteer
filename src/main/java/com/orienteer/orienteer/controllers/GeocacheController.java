@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class GeocacheController {
 
-    @GetMapping("/create")
+    @GetMapping("/geocache/create")
     public String showCreate() {
         return "geocaches/create";
     }
 
-    @GetMapping("/found")
+    @GetMapping("/geocache/found")
     public String showFind() {
         return "geocaches/found";
     }
 
-    @GetMapping("/list")
+    @GetMapping("/geocache/list")
     public String showList() {
         return "geocaches/list";
     }
