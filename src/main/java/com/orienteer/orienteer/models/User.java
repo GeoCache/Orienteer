@@ -52,6 +52,8 @@ public class User {
         password = copy.password;
     }
 
+    public User(){};
+
 
 
 
