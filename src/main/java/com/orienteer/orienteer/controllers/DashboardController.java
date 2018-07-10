@@ -12,4 +12,8 @@ public class DashboardController {
     public String dash(){
         return "users/dashboard";
     }
+    @GetMapping("dash/create")
+    public String create(){
+        return "geocaches/create";
+    }
 }

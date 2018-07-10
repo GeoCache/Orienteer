@@ -1,4 +1,4 @@
-//Navbar hide script-----------------------------------------
+//n
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -9,8 +9,6 @@ window.onscroll = function () {
     }
     prevScrollpos = currentScrollPos;
 };
-//Navbar hide END--------------------------------------------
-
 //Bootstrap animation initiation---------
 new WOW().init();
 //animation END--------------------------
@@ -24,31 +22,67 @@ new WOW().init();
 //
 // });
 // });
-
-
 // Bootstrap js for Google Maps-----------------------------
 function regular_map() {
-    var var_location = new google.maps.LatLng(29.426791, -98.489602);
+    var map, infoWindow, marker, pos;
 
-    //add MyLocation button here----------------------
+    var myStyles =[
+        {
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [
+                { visibility: "off" }
+            ]
+        }
+    ];
 
+    function CenterControl(controlDiv, map) {
 
-    //MyLocation button END---------------------------
+        // Set CSS for the control border.
+        var controlUI = document.createElement('div');
+        controlUI.style.marginRight= '10px';
+        controlUI.style.height= '35px';
+        controlUI.style.width= '35px';
+        controlUI.style.borderRadius = '20px';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.marginBottom = '1.5vh';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Click to recenter the map';
+        controlDiv.appendChild(controlUI);
+
+        // Set CSS for the control interior.
+        var controlText = document.createElement('div');
+        controlText.style.height= '30px';
+        controlText.style.width= '30px';
+        controlText.style.backgroundImage = 'url(/img/gps.svg)';
+        controlText.style.backgroundSize = '30px 30px';
+        controlText.style.backgroundPosition = '0px 0px';
+        controlText.style.marginRight = '5px';
+        controlText.style.backgroundRepeat = 'no-repeat';
+        controlUI.appendChild(controlText);
+
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlUI.addEventListener('click', function() {
+            map.setCenter(pos);
+        });
+
+    }
+    var location = new google.maps.LatLng(29.426791, -98.489602);
 
     //Google Maps js----------------------------------
-    var var_mapoptions = {
-        center: var_location,
+    var mapoptions = {
+        center: location,
         zoom: 14,
+        styles: myStyles,
         disableDefaultUI: true
     };
 
-    var var_map = new google.maps.Map(document.getElementById("map-container"),
-        var_mapoptions);
+    map = new google.maps.Map(document.getElementById("map-container"),
+        mapoptions);
 
-    var var_marker = new google.maps.Marker({
-        position: var_location,
-        map: var_map,
-        title: "New York",
+    marker = new google.maps.Marker({
+        position: map.center,
+        map: map,
         icon: {
             path: google.maps.SymbolPath.CIRCLE,
             scale: 5,
@@ -57,11 +91,24 @@ function regular_map() {
             fillOpacity: 1
         }
     });
+    var centerControlDiv = document.createElement('div');
+    var centerControl = new CenterControl(centerControlDiv, map);
 
-    var infoWindow = new google.maps.InfoWindow;
+    centerControlDiv.index = 1;
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
+
+    // Allows app to access built in GPS in devices
+    const watchOptions = {
+        enableHighAccuracy: true,
+        timeout: 1
+    };
+
+    infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
+
         navigator.geolocation.watchPosition(function (position) {
-            var pos = {
+
+             pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
@@ -70,7 +117,7 @@ function regular_map() {
             map.setCenter(pos);
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
-        });
+        }, watchOptions);
     } else {
         handleLocationError(false, infoWindow, map.getCenter());
     }

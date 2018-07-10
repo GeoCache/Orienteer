@@ -34,4 +34,13 @@ public class UserController {
         usersRepository.save(user);
         return "redirect:/login";
     }
+
+
+
+    @GetMapping("/profile")
+    public String dash(){
+        return "users/profile";
+    }
+
 }
+
