@@ -74,14 +74,13 @@ function regular_map() {
         mapoptions);
 
     // On click add a marker and pull those cordinates
-    google.maps.event.addListener(map, 'mousedown', function(event) {
+    google.maps.event.addListener(map, 'rightclick', function(event) {
         placeMarker(event.latLng);
     });
     function placeMarker(location) {
         marker = new google.maps.Marker({
             position: location,
-            map: map,
-            optimized: false
+            map: map
         });
         var loc = location.toString().slice(1, -1);
         var latitude = loc.split(',')[0];
