@@ -147,6 +147,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 // Initialize maps
-google.maps.event.addDomListener(window, 'load', regular_map);
+
+$(document).ready(function () {
+    regular_map();
+    
+});
+// google.maps.event.addDomListener(window, 'load', regular_map);
 
 //Google Maps js END-------------------------------------------
