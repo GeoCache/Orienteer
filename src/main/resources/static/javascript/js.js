@@ -11,49 +11,37 @@ window.onscroll = function () {
 };
 //Bootstrap animation initiation---------
 new WOW().init();
-//animation END--------------------------
 
-// $(window).scroll(function() {
-//     var scroll = $(window).scrollTop();
-//     $("#hero").css({
-//         width: (100 + scroll/5)  + "%"
-//
-//
-//
-// });
-// });
-// Bootstrap js for Google Maps-----------------------------
+// Google map js
 function regular_map() {
     var map, infoWindow, marker, pos;
 
-    var myStyles =[
+    var myStyles = [
         {
             featureType: "poi",
             elementType: "labels",
             stylers: [
-                { visibility: "off" }
+                {visibility: "off"}
             ]
         }
     ];
 
     function CenterControl(controlDiv, map) {
 
-        // Set CSS for the control border.
+        // Controls the appearance of our center on me button.
         var controlUI = document.createElement('div');
-        controlUI.style.marginRight= '10px';
-        controlUI.style.height= '35px';
-        controlUI.style.width= '35px';
+        controlUI.style.marginRight = '10px';
+        controlUI.style.height = '35px';
+        controlUI.style.width = '35px';
         controlUI.style.borderRadius = '20px';
         controlUI.style.cursor = 'pointer';
         controlUI.style.marginBottom = '1.5vh';
         controlUI.style.textAlign = 'center';
         controlUI.title = 'Click to recenter the map';
         controlDiv.appendChild(controlUI);
-
-        // Set CSS for the control interior.
         var controlText = document.createElement('div');
-        controlText.style.height= '30px';
-        controlText.style.width= '30px';
+        controlText.style.height = '30px';
+        controlText.style.width = '30px';
         controlText.style.backgroundImage = 'url(/img/gps.svg)';
         controlText.style.backgroundSize = '30px 30px';
         controlText.style.backgroundPosition = '0px 0px';
@@ -61,28 +49,48 @@ function regular_map() {
         controlText.style.backgroundRepeat = 'no-repeat';
         controlUI.appendChild(controlText);
 
-        // Setup the click event listeners: simply set the map to Chicago.
-        controlUI.addEventListener('click', function() {
+        // Setup the click event listeners: simply set the map to users location.
+        controlUI.addEventListener('click', function () {
             map.setCenter(pos);
         });
 
     }
-    var location = new google.maps.LatLng(29.426791, -98.489602);
 
-    //Google Maps js----------------------------------
+    // Creates initial map and location
+    var location = new google.maps.LatLng(29.426791, -98.489602);
     var mapoptions = {
         center: location,
-        zoom: 14,
+        zoom: 18,
         styles: myStyles,
         disableDefaultUI: true,
-        options: {minZoom: 5
-            , maxZoom: 18}
+        options: {
+            minZoom: 5
+            , maxZoom: 20
+        }
     };
 
+    // Sets the map to our mapcontainer div
     map = new google.maps.Map(document.getElementById("map-container"),
         mapoptions);
 
-    marker = new google.maps.Marker({
+    // On click add a marker and pull those cordinates
+    google.maps.event.addListener(map, 'rightclick', function(event) {
+        placeMarker(event.latLng);
+    });
+    function placeMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+        var loc = location.toString().slice(1, -1);
+        var latitude = loc.split(',')[0];
+        var longitude = loc.split(',')[1];
+        console.log("Latitude: " + latitude);
+        console.log("Longitude: " + longitude);
+    }
+
+    // Custom marker made to mark persons current location
+    var gps = new google.maps.Marker({
         position: map.center,
         map: map,
         icon: {
@@ -93,6 +101,8 @@ function regular_map() {
             fillOpacity: 1
         }
     });
+
+    // Sets the location for the center on me button
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
 
@@ -105,18 +115,20 @@ function regular_map() {
         timeout: 1
     };
 
+    // Display an infowindow if there is an error
     infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
 
         navigator.geolocation.watchPosition(function (position) {
 
-             pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            marker.setPosition(pos);
+
+            // Keeps marker on their location
+            gps.setPosition(pos);
             infoWindow.setPosition(pos);
-            map.setCenter(pos);
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         }, watchOptions);
