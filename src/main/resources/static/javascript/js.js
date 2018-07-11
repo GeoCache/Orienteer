@@ -77,15 +77,19 @@ function regular_map() {
     // Hold down for 3 seconds to add a marker and pull those cordinates
     var holdStart = null;
     var holdTime = null;
+    var startLocation = null;
+    var endLocation = null;
     google.maps.event.addListener(map, 'mousedown', function (evt) {
-        holdStart = Date.now()
+        holdStart = Date.now();
+        startLocation = evt.latLng.toString()
     });
 
     google.maps.event.addListener(map, 'mouseup', function (evt) {
         holdTime = Date.now() - holdStart;
+        endLocation = evt.latLng.toString();
         console.log(holdTime);
-        if (holdTime >= 2000) {
-            placeMarker(evt.latLng)
+        if (holdTime >= 2000 && startLocation === endLocation) {
+            placeMarker(evt.latLng);
         }
     });
 
