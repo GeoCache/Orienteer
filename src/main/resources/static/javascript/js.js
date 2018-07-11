@@ -163,7 +163,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 $(document).ready(function () {
     regular_map();
-
 });
 // google.maps.event.addDomListener(window, 'load', regular_map);
 
