@@ -16,6 +16,7 @@ new WOW().init();
 function regular_map() {
     var map, infoWindow, marker, pos;
 
+
     var myStyles = [
         {
             featureType: "poi",
@@ -73,10 +74,22 @@ function regular_map() {
     map = new google.maps.Map(document.getElementById("map-container"),
         mapoptions);
 
-    // On click add a marker and pull those cordinates
-    google.maps.event.addListener(map, 'rightclick', function(event) {
-        placeMarker(event.latLng);
+    // Hold down for 3 seconds to add a marker and pull those cordinates
+    var holdStart = null;
+    var holdTime = null;
+    google.maps.event.addListener(map, 'mousedown', function (evt) {
+        holdStart = Date.now()
     });
+
+    google.maps.event.addListener(map, 'mouseup', function (evt) {
+        holdTime = Date.now() - holdStart;
+        console.log(holdTime);
+        if (holdTime >= 3000) {
+            placeMarker(evt.latLng)
+        }
+    });
+
+
     function placeMarker(location) {
         marker = new google.maps.Marker({
             position: location,
@@ -150,7 +163,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 $(document).ready(function () {
     regular_map();
-    
 });
 // google.maps.event.addDomListener(window, 'load', regular_map);
 
