@@ -13,6 +13,14 @@
     font-size: 1.3rem;
 
 }
+#modal{
+    background-color: #eee2cb;
+}
+.modal-B-color{
+    background-color: #512c2a;
+}
+
+
 
 
 .icon {
@@ -169,6 +177,9 @@ and (min-device-width: 375px)
 and (max-device-width: 812px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
+    #geocacheModal{
+        margin-top: 18%;
+    }
     #map-container {
         height: 690px;
 
@@ -201,6 +212,9 @@ and (min-device-width: 375px)
 and (max-device-width: 667px)
 and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
+    #geocacheModal {
+        margin-top: 5%;
+    }
 
     #logo-text {
         margin-left: -25px;
@@ -247,6 +261,9 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
+    #geocacheModal {
+        margin-top: 12%;
+    }
     #register {
         width: 100%;
     }

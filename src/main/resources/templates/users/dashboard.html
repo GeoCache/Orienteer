@@ -13,7 +13,85 @@
 
 <!--Google Maps API key-->
 <script src="https://maps.google.com/maps/api/js?key=AIzaSyAxRJQ2z_RF7BIbR_QLUawSWrQAa1Hhbds" async=""></script>
+<!-- Full Height Modal Right -->
 
+<div class="modal fade right" id="geocacheModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right" role="document">
+        <!--Content-->
+        <div id="modal" class="modal-content">
+
+            <!--Header-->
+            <div  class="modal-header white-text modal-B-color">
+                <h4 class="title">
+                    <i class="fa fa-map-o mx-4"></i>Create Geocache</h4>
+                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+
+                <!-- Material Long and Lat -->
+                <div class="md-form form-sm">
+                    <i class="fa fa-map-marker prefix"></i>
+                    <h5 class="pt-2 ml-5">Latitude Here</h5>
+                </div>
+
+                <div class="md-form form-sm">
+                    <i class="fa fa-map-marker prefix"></i>
+                    <h5 class="pt-2 ml-5">Longitude Here</h5>
+                </div>
+
+                <!-- Material name -->
+                <div class="md-form form-sm">
+                    <i class="fa fa-pencil-square-o prefix"></i>
+                    <input type="text" id="name" class="form-control form-control-sm"/>
+                    <label for="name">Name</label>
+                </div>
+
+                <!-- Material textarea message -->
+                <div class="md-form form-sm">
+                    <i class="fa fa-pencil prefix"></i>
+                    <textarea type="text" id="description" class="md-textarea form-control"></textarea>
+                    <label for="description">Description</label>
+                </div>
+
+                <h5>Difficulty</h5>
+
+                <!-- Difficulty option 1-->
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" value="1" class="custom-control-input" id="difficulty1" name="difficulty"/>
+                    <label class="custom-control-label" for="difficulty1">1</label>
+                </div>
+
+                <!-- Difficulty option 2-->
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" value="2" class="custom-control-input" id="difficulty2" name="difficulty"/>
+                    <label class="custom-control-label" for="difficulty2">2</label>
+                </div>
+
+                <!-- Difficulty option 3-->
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" value="3" class="custom-control-input" id="difficulty3" name="difficulty"/>
+                    <label class="custom-control-label" for="difficulty3">3</label>
+                </div>
+
+                <!-- Difficulty option 4-->
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" value="4" class="custom-control-input" id="difficulty4" name="difficulty"/>
+                    <label class="custom-control-label" for="difficulty4">4</label>
+                </div>
+
+                <div  class="text-center mt-4 mb-2 ">
+                    <button class="btn modal-B-color">Create</button>
+                </div>
+
+            </div>
+        </div>
+        <!--/.Content-->
+
+    </div>
+</div>
 
 <script th:replace="partials/fragments :: bootstrap"></script>
 
