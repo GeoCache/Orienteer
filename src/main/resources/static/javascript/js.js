@@ -90,6 +90,7 @@ function regular_map() {
         console.log(holdTime);
         if (holdTime >= 2000 && startLocation === endLocation) {
             placeMarker(evt.latLng);
+            $('#geocacheModal').modal('toggle')
         }
     });
 
