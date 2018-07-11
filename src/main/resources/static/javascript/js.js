@@ -84,7 +84,7 @@ function regular_map() {
     google.maps.event.addListener(map, 'mouseup', function (evt) {
         holdTime = Date.now() - holdStart;
         console.log(holdTime);
-        if (holdTime >= 3000) {
+        if (holdTime >= 2000) {
             placeMarker(evt.latLng)
         }
     });
@@ -93,7 +93,8 @@ function regular_map() {
     function placeMarker(location) {
         marker = new google.maps.Marker({
             position: location,
-            map: map
+            map: map,
+            animation: google.maps.Animation.DROP
         });
         var loc = location.toString().slice(1, -1);
         var latitude = loc.split(',')[0];
