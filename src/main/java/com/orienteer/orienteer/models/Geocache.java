@@ -60,9 +60,7 @@ public class Geocache {
     }
 
 
-    public Geocache() {
-
-    }
+    public Geocache() {}
 
 
     public long getId() {
