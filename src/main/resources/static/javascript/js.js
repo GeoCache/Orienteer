@@ -12,23 +12,144 @@ window.onscroll = function () {
 //Bootstrap animation initiation---------
 new WOW().init();
 
+var markers = [];
+var uniqueId = 1;
 // Google map js
-function regular_map() {
+window.onload = function () {
     var map, infoWindow, marker, pos;
+    var holdStart = null;
+    var holdTime = null;
+    var startLocation = null;
+    var endLocation = null;
+    var first = 1;
 
+    // Allows app to access built in GPS in devices
+    const watchOptions = {enableHighAccuracy: true, timeout: 1};
 
     var myStyles = [
-        {
-            featureType: "poi",
-            elementType: "labels",
-            stylers: [
-                {visibility: "off"}
-            ]
-        }
+        {featureType: "poi", elementType: "labels", stylers: [{visibility: "off"}]}
     ];
 
-    function CenterControl(controlDiv, map) {
+    // Creates initial map and location
+    var location = new google.maps.LatLng(29.426791, -98.489602);
+    var mapoptions = {
+        center: location,
+        zoom: 18,
+        styles: myStyles,
+        disableDefaultUI: true,
+        options: {
+            minZoom: 5
+            , maxZoom: 20
+        }
+    };
 
+    // Sets the map to our mapcontainer div
+    map = new google.maps.Map(document.getElementById("map-container"),
+        mapoptions);
+
+    // Hold down for 3 seconds to add a marker and pull those cordinates
+    google.maps.event.addListener(map, 'mousedown', function (evt) {
+        holdStart = Date.now();
+        startLocation = evt.latLng.toString()
+    });
+    google.maps.event.addListener(map, 'mouseup', function (evt) {
+        holdTime = Date.now() - holdStart;
+        endLocation = evt.latLng.toString();
+        console.log(holdTime);
+        if (holdTime >= 1000 && startLocation === endLocation) {
+            // Line to make testing faster
+        // if(true){
+            placeMarker(evt.latLng);
+            marker.id = uniqueId;
+            uniqueId++;
+
+            //Attach click event handler to the marker.
+            google.maps.event.addListener(marker, "click", function (e) {
+                var content = 'Latitude: ' + location.lat() + '<br />Longitude: ' + location.lng();
+                content += "<br />" +
+                    "<div class='dlBtnWrapper'>" +
+                    "<input data-id="+marker.id+" class='deleteBtn' type = 'button' value='Delete' />" +
+                    "</div>";
+                var infoWindow = new google.maps.InfoWindow({
+                    content: content
+                });
+                infoWindow.open(map, marker);
+            });
+            markers.push(marker);
+            $("#latitude").html("Latitude: " + location.lat());
+            $("#longitude").html("Longitude: " + location.lng());
+            $('#geocacheModal').modal('toggle');
+        }
+    });
+
+    $('div').delegate('.deleteBtn','click', function(){
+        var id = $(this).attr('data-id');
+        for (var i = 0; i < markers.length; i++) {
+            if (markers[i].id == id) {
+                //Remove the marker from Map
+                markers[i].setMap(null);
+                //Remove the marker from array.
+                // markers.splice(i, 1);
+                return;
+            }
+        }
+        console.log(markers);
+    });
+
+    // Places marker at a specified location
+    function placeMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            animation: google.maps.Animation.DROP
+        });
+    }
+
+    // Custom marker made to mark persons current location
+    var gps = new google.maps.Marker({
+        position: map.center,
+        map: map,
+        icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 5,
+            strokeColor: 'black',
+            fillColor: 'red',
+            fillOpacity: 1
+        }
+    });
+
+    // Sets the location for the center on me button
+    var centerControlDiv = document.createElement('div');
+    var centerControl = new CenterControl(centerControlDiv, map);
+    centerControlDiv.index = 1;
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
+
+    // Display an infowindow if there is an error
+    infoWindow = new google.maps.InfoWindow;
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(function (position) {
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            // Sets the map to persons location the first time
+            if (first === 1) {
+                map.setCenter(pos);
+                first++
+            }
+
+            // Keeps marker on their location
+            gps.setPosition(pos);
+            infoWindow.setPosition(pos);
+        }, function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+        }, watchOptions);
+    } else {
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    function CenterControl(controlDiv, map) {
         // Controls the appearance of our center on me button.
         var controlUI = document.createElement('div');
         controlUI.style.marginRight = '10px';
@@ -57,122 +178,16 @@ function regular_map() {
 
     }
 
-    // Creates initial map and location
-    var location = new google.maps.LatLng(29.426791, -98.489602);
-    var mapoptions = {
-        center: location,
-        zoom: 18,
-        styles: myStyles,
-        disableDefaultUI: true,
-        options: {
-            minZoom: 5
-            , maxZoom: 20
-        }
-    };
-
-    // Sets the map to our mapcontainer div
-    map = new google.maps.Map(document.getElementById("map-container"),
-        mapoptions);
-
-    // Hold down for 3 seconds to add a marker and pull those cordinates
-    var holdStart = null;
-    var holdTime = null;
-    var startLocation = null;
-    var endLocation = null;
-    var longitude = null;
-    var latitude = null;
-    google.maps.event.addListener(map, 'mousedown', function (evt) {
-        holdStart = Date.now();
-        startLocation = evt.latLng.toString()
-    });
-
-    google.maps.event.addListener(map, 'mouseup', function (evt) {
-        holdTime = Date.now() - holdStart;
-        endLocation = evt.latLng.toString();
-        console.log(holdTime);
-        if (holdTime >= 1000 && startLocation === endLocation) {
-            placeMarker(evt.latLng);
-            $('#geocacheModal').modal('toggle');
-            $("#latitude").html("Latitude: " + latitude);
-            $("#longitude").html("Longitude: " + longitude);
-        }
-    });
-
-
-    function placeMarker(location) {
-        marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            animation: google.maps.Animation.DROP
-        });
-        var loc = location.toString().slice(1, -1);
-        latitude = loc.split(',')[0];
-        longitude = loc.split(',')[1];
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
     }
-
-    // Custom marker made to mark persons current location
-    var gps = new google.maps.Marker({
-        position: map.center,
-        map: map,
-        icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 5,
-            strokeColor: 'black',
-            fillColor: 'red',
-            fillOpacity: 1
-        }
-    });
-
-    // Sets the location for the center on me button
-    var centerControlDiv = document.createElement('div');
-    var centerControl = new CenterControl(centerControlDiv, map);
-
-    centerControlDiv.index = 1;
-    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
-
-    // Allows app to access built in GPS in devices
-    const watchOptions = {
-        enableHighAccuracy: true,
-        timeout: 1
-    };
-
-    // Display an infowindow if there is an error
-    infoWindow = new google.maps.InfoWindow;
-    if (navigator.geolocation) {
-
-        navigator.geolocation.watchPosition(function (position) {
-
-            pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            // Keeps marker on their location
-            gps.setPosition(pos);
-            infoWindow.setPosition(pos);
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        }, watchOptions);
-    } else {
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-}
+};
 
 
-// Initialize maps
-
-$(document).ready(function () {
-    regular_map();
-});
-// google.maps.event.addDomListener(window, 'load', regular_map);
 
 //Google Maps js END-------------------------------------------
 
