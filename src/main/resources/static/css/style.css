@@ -1,40 +1,4 @@
-#register {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    width: 50%;
-}
-
-.wow {
-    visibility: visible;
-}
-
-.nav-link {
-    font-family: "mr-eaves-modern", sans-serif;
-    font-weight: 900 !important;
-    font-size: 1.3rem;
-
-}
-
-#modal {
-    background-color: #eee2cb;
-}
-
-.modal-B-color {
-    background-color: #512c2a;
-}
-
-.icon {
-    width: 10%
-}
-
-.inline {
-    display: inline;
-}
-
-#homeIcon {
-    width: 30px;
-}
-
+/*HTML*/
 body {
     background-color: #eee2cb;
 }
@@ -48,10 +12,31 @@ h1 {
 
 }
 
-.shadow {
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+
+/*animation*/
+.wow {
+    visibility: visible;
 }
 
+/*navigation*/
+.navbar {
+    box-shadow: none !important;
+}
+
+.nav-link {
+    font-family: "mr-eaves-modern", sans-serif;
+    font-weight: 900 !important;
+    font-size: 1.3rem;
+
+}
+a:hover {
+    color: #d0944a !important;
+}
+
+.nav-link {
+    color: #512c2a !important;
+    font-weight: bolder;
+}
 #myNavbar {
     background-color: transparent;
     position: fixed;
@@ -85,66 +70,32 @@ h1 {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;
 }
 
-#map-container {
-    height: 540px;
-}
-
 #myDashFooter {
     height: 70px;
     background-color: #d0944a;
     box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, .16), 0 -2px 10px 0 rgba(0, 0, 0, .12);
 
 }
-
-#pin {
-    position: absolute;
-    bottom: 27px;
-    left: 42%;
-    width: 20%;
+/*modal*/
+#modal {
+    background-color: #eee2cb;
 }
 
-#onboard {
-    margin-top: 100px;
-
+.modal-B-color {
+    background-color: #512c2a;
 }
 
-.navbar {
-    box-shadow: none !important;
+/*icons*/
+.icon {
+    width: 10%
 }
 
-#home {
-    height: 1500px;
-    margin: 0;
+#homeIcon {
+    width: 30px;
 }
 
-#space {
-    margin-top: 200px;
-}
-
-#hero {
-    background-image: linear-gradient(rgba(238, 226, 203, 1), rgba(208, 148, 74, 0.1)), url(../img/adventure-ancient-antique-697662.jpg);
-    height: 70vh;
-    background-size: cover;
-    padding-top: 8vh;
-    padding-bottom: 30vh;
-    width: 100%;
-
-}
-
-#hello {
-    font-family: "mr-eaves-modern", sans-serif;
-    font-weight: 700;
-    color: #512c2a;
-
-}
-
-a:hover {
-    color: #d0944a !important;
-}
-
-.nav-link {
-    color: #512c2a !important;
-    font-weight: bolder;
+.inline {
+    display: inline;
 }
 
 #logo {
@@ -166,6 +117,55 @@ a:hover {
 
 }
 
+
+.shadow {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+}
+
+/*map*/
+#map-container {
+    height: 540px;
+}
+
+#pin {
+    position: absolute;
+    bottom: 27px;
+    left: 42%;
+    width: 20%;
+}
+
+/*homepage*/
+#hero {
+    background-image: linear-gradient(rgba(238, 226, 203, 1), rgba(208, 148, 74, 0.1)), url(../img/adventure-ancient-antique-697662.jpg);
+    height: 70vh;
+    background-size: cover;
+    padding-top: 8vh;
+    padding-bottom: 30vh;
+    width: 100%;
+
+}
+
+#onboard {
+    margin-top: 100px;
+
+}
+
+
+#home {
+    height: 1500px;
+    margin: 0;
+}
+
+#space {
+    margin-top: 200px;
+}
+
+#register {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 50%;
+}
+
 #login {
     margin-bottom: 50px;
     margin-top: 100px;
@@ -178,16 +178,17 @@ and (min-device-width: 375px)
 and (max-device-width: 812px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
+    /*modal/dashboard*/
     #geocacheModal {
         margin-top: 18%;
     }
-
+    /*map*/
     #map-container {
         margin-top: 52px;
         height: 690px;
 
     }
-
+    /*logo/icons*/
     #logo-text {
         margin-left: -35px;
         font-size: 2.5rem;
@@ -215,10 +216,17 @@ and (min-device-width: 375px)
 and (max-device-width: 667px)
 and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
+    /*modal/dashboard*/
     #geocacheModal {
         margin-top: 5%;
     }
+    /*home*/
+    #hero {
+        background-position: 450px 0px;
+        height: 375px;
 
+        /*logo/icons*/
+    }
     #logo-text {
         margin-left: -25px;
         font-size: 2.5rem;
@@ -228,27 +236,19 @@ and (orientation: portrait) {
         margin-left: 5px;
     }
 
-    #hero {
-        background-position: 450px 0px;
-        height: 375px;
-
-    }
 
     #register {
         width: 100%;
 
     }
 
-    #hello {
-        font-size: 3rem;
-    }
 
     #login {
         margin-bottom: 50px;
         margin-top: 100px;
         width: 100%;
     }
-
+    /*map*/
     #map-container {
         margin-top: 52px;
         height: 550px;
@@ -269,12 +269,9 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
+    /*modal/dashboard*/
     #geocacheModal {
         margin-top: 12%;
-    }
-
-    #register {
-        width: 100%;
     }
 
     #logo-text {
@@ -282,10 +279,9 @@ and (orientation: portrait) {
         font-size: 2.5rem;
     }
 
-    #map-container {
-        margin-top: 54px;
-        height: 610px;
 
+    #register {
+        width: 100%;
     }
 
     #login {
