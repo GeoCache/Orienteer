@@ -45,25 +45,28 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mr-5">
-
             <li class="nav-item mr-3">
                 <a class="nav-link" href="/profile">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
+                <a class="nav-link" href="/geocache/list">List</a>
             </li>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="logout"><a type="link" class="typeNav logoutNav">Logout</a></button>
+            </form>
         </ul>
     </div>
 </nav>
 <!--navbar for multiple app views that isn't the dashboard-->
-<nav th:fragment="appNav" id="myAppNav" class="navbar navbar-light navbar-expand-sm">
+<nav th:fragment="appNav" id="myAppNav" class="navbar navbar-light navbar-expand-sm position-fixed">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="/dash"><img id="homeIcon" th:src="@{/img/home.svg}" src="/static/img/home.svg" alt="home"/></a>
+    <a class="navbar-brand" href="/dash"><img id="homeIcon" th:src="@{/img/home.svg}" src="/static/img/home.svg"
+                                              alt="home"/></a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mr-5">
@@ -72,7 +75,10 @@
                 <a class="nav-link" href="/profile">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
+                <a class="nav-link" href="/geocache/list">List</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Logout</a>
             </li>
         </ul>
     </div>
@@ -114,17 +120,17 @@
 <!-- Dashboard footer with controls -->
 <footer th:fragment="dashFooter" id="myDashFooter" class="page-footer font-small pt-3 fixed-bottom">
 
-<div class="container mx-auto">
-    <a class="mx-2 ml-2 inline" href="/geocache/list">
-        <img class="icon mb-1" th:src="@{/img/list.svg}" src="/static/img/list.svg" alt=""/>
-    </a>
-    <a class="mb-3 ml-4 inline" href="/profile">
-        <img class="icon mb-1" th:src="@{/img/explorer.svg}" src="/static/img/explorer.svg" alt=""/>
-    </a>
-    <a href="#" data-toggle="modal" data-target="#geocacheModal" class="mb-3 ml-5 inline">
-        <img  id="pin" th:src="@{/img/pin.svg}" src="/static/img/pin.svg" alt="" class="mb-1"/>
-    </a>
-</div>
+    <div class="container mx-auto">
+        <a class="mx-2 ml-2 inline" href="/geocache/list">
+            <img class="icon mb-1" th:src="@{/img/list.svg}" src="/static/img/list.svg" alt=""/>
+        </a>
+        <a class="mb-3 ml-4 inline" href="/profile">
+            <img class="icon mb-1" th:src="@{/img/explorer.svg}" src="/static/img/explorer.svg" alt=""/>
+        </a>
+        <a href="#" data-toggle="modal" data-target="#geocacheModal" class="mb-3 ml-5 inline">
+            <img id="pin" th:src="@{/img/pin.svg}" src="/static/img/pin.svg" alt="" class="mb-1"/>
+        </a>
+    </div>
 
 </footer>
 <!--footer for homepage-->
