@@ -79,6 +79,8 @@ function regular_map() {
     var holdTime = null;
     var startLocation = null;
     var endLocation = null;
+    var longitude = null;
+    var latitude = null;
     google.maps.event.addListener(map, 'mousedown', function (evt) {
         holdStart = Date.now();
         startLocation = evt.latLng.toString()
@@ -88,9 +90,11 @@ function regular_map() {
         holdTime = Date.now() - holdStart;
         endLocation = evt.latLng.toString();
         console.log(holdTime);
-        if (holdTime >= 2000 && startLocation === endLocation) {
+        if (holdTime >= 1000 && startLocation === endLocation) {
             placeMarker(evt.latLng);
-            $('#geocacheModal').modal('toggle')
+            $('#geocacheModal').modal('toggle');
+            $("#latitude").html("Latitude: " + latitude);
+            $("#longitude").html("Longitude: " + longitude);
         }
     });
 
@@ -102,10 +106,8 @@ function regular_map() {
             animation: google.maps.Animation.DROP
         });
         var loc = location.toString().slice(1, -1);
-        var latitude = loc.split(',')[0];
-        var longitude = loc.split(',')[1];
-        console.log("Latitude: " + latitude);
-        console.log("Longitude: " + longitude);
+        latitude = loc.split(',')[0];
+        longitude = loc.split(',')[1];
     }
 
     // Custom marker made to mark persons current location
