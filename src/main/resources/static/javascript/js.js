@@ -16,6 +16,7 @@ new WOW().init();
 function regular_map() {
     var map, infoWindow, marker, pos;
 
+
     var myStyles = [
         {
             featureType: "poi",
@@ -73,20 +74,40 @@ function regular_map() {
     map = new google.maps.Map(document.getElementById("map-container"),
         mapoptions);
 
-    // On click add a marker and pull those cordinates
-    google.maps.event.addListener(map, 'rightclick', function(event) {
-        placeMarker(event.latLng);
+    // Hold down for 3 seconds to add a marker and pull those cordinates
+    var holdStart = null;
+    var holdTime = null;
+    var startLocation = null;
+    var endLocation = null;
+    var longitude = null;
+    var latitude = null;
+    google.maps.event.addListener(map, 'mousedown', function (evt) {
+        holdStart = Date.now();
+        startLocation = evt.latLng.toString()
     });
+
+    google.maps.event.addListener(map, 'mouseup', function (evt) {
+        holdTime = Date.now() - holdStart;
+        endLocation = evt.latLng.toString();
+        console.log(holdTime);
+        if (holdTime >= 1000 && startLocation === endLocation) {
+            placeMarker(evt.latLng);
+            $('#geocacheModal').modal('toggle');
+            $("#latitude").html("Latitude: " + latitude);
+            $("#longitude").html("Longitude: " + longitude);
+        }
+    });
+
+
     function placeMarker(location) {
         marker = new google.maps.Marker({
             position: location,
-            map: map
+            map: map,
+            animation: google.maps.Animation.DROP
         });
         var loc = location.toString().slice(1, -1);
-        var latitude = loc.split(',')[0];
-        var longitude = loc.split(',')[1];
-        console.log("Latitude: " + latitude);
-        console.log("Longitude: " + longitude);
+        latitude = loc.split(',')[0];
+        longitude = loc.split(',')[1];
     }
 
     // Custom marker made to mark persons current location
@@ -150,7 +171,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 $(document).ready(function () {
     regular_map();
-    
 });
 // google.maps.event.addDomListener(window, 'load', regular_map);
 
