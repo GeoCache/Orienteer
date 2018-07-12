@@ -6,6 +6,96 @@
 <body>
 <nav th:replace="partials/fragments :: appNav"></nav>
 
+<div>
+    <!-- Card -->
+    <div id="profile-height" class="card z-depth-0">
+
+        <!-- Card image -->
+        <div id="profile-color" class="z-depth-1-half">
+            <div class="profile mx-auto">
+                <img id="profile-icon" class="card-img-top" th:src="@{/img/explorer.svg}" src="/static/img/explorer.svg"
+                     alt="Card image cap"/>
+            </div>
+        </div>
+        <!-- Card content -->
+        <div id="profile-content" class="card-body">
+
+            <!-- Title -->
+            <h5 class="card-title mb-4"><a>User Name:</a></h5>
+            <!-- Text -->
+            <h5 class="card-title mb-4">Name:</h5>
+            <!-- Text -->
+            <h5 class="card-title">Email:</h5>
+
+            <h4 class="card-title mt-2 text-center">
+                <span>'s</span> Geocaches
+            </h4>
+
+            <hr id="rule-line"/>
+            <div class="table-wrapper-2 mx-4">
+                <!--Table-->
+                <table class="table table-hover mx-auto table-responsive-sm">
+
+                    <!--Table head-->
+                    <thead id="table-head" class="z-depth-1">
+                    <tr>
+                        <th>#</th>
+                        <th>Cache Name</th>
+                        <th>Difficulty</th>
+                        <th>Owner</th>
+                    </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                    <!--Table body-->
+
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+    </div>
+    <!-- Card -->
+</div>
+
+
 <script th:replace="partials/fragments :: bootstrap"></script>
 
 
