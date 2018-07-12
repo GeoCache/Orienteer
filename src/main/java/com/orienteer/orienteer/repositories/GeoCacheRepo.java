@@ -10,12 +10,12 @@ public interface GeoCacheRepo extends CrudRepository<Geocache, Long> {
 
     List<Geocache> findAll();
 
-    List<Geocache> findCache(
-            long createdTime, String name, String type,
-            String locationName, String isActive, String points);
+//    List<Geocache> findCache(
+//            long createdTime, String name, String type,
+//            String locationName, String isActive, String points);
 
     Geocache findById(long id);
 
 
-    List<Geocache> findCache(String searchCache, String searchCache1);
+//    List<Geocache> findCache(String searchCache, String searchCache1);
 }

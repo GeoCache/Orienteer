@@ -20,44 +20,36 @@ public class GeocacheService {
         this.usersDao = usersDao;
     }
 
-    public List<Geocache> search(String searchCache) {
-        return geoDao.findCache(searchCache, searchCache);
+
+
+
+    public List<Geocache> findAll() {
+        return geoDao.findAll();
     }
 
-
-
-    public Geocache findAll() {
-        return (Geocache) geoDao.findAll();
-    }
-
-    public void save(Geocache geocache) {
+    public Geocache save(Geocache geocache) {
         User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = usersDao.findUsersById(sessionUser.getId());
         geocache.setOwner(user);
 
 
         geoDao.save(geocache);
+        return geocache;
     }
 
-
-    public List<Geocache> findAll(long id) {
-        return geoDao.findAll();
-    }
 
 
     public Geocache findById(long id) {
         return geoDao.findById(id);
     }
 
-    public void edit(Geocache geocache, long id) {
-        Geocache postUser = geoDao.findById(id);
-        User user = postUser.getOwner();
-        geocache.setOwner(user);
-        geoDao.save(geocache);
+//    public void edit(Geocache geocache, long id) {
+//        Geocache postUser = geoDao.findById(id);
+//        User user = postUser.getOwner();
+//        geocache.setOwner(user);
+//        geoDao.save(geocache);
+//
+//    }
 
-    }
-
-    private void createCache() {
-    }
 
 }

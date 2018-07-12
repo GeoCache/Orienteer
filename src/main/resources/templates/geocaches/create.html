@@ -19,16 +19,20 @@
                     <h1 class="text-center">Create A Cache</h1>
                 </div>
                 <div class="card-body">
-                    <form class="mx-auto mt-5" th:action="@{'/geocaches/create'}" method="post" th:object="${post}">
+                    <form class="mx-auto mt-5" th:action="@{'/geocache/create'}" method="post" th:object="${geocache}">
                         <div class="form-group">
                             <label for="title" class="type">Title</label>
-                            <input type="text" class="form-control type" id="title" placeholder="name"
-                                   th:field="*{title}"/>
+                            <input type="text" class="form-control type" id="title" placeholder="name" th:field="*{name}"/>
+                            <input type="text" class="form-control type" id="title" placeholder="created Time" th:field="*{createdTime}"/>
+                            <input type="text" class="form-control type" id="title" placeholder="location Name" th:field="*{locationName}"/>
+                            <input type="text" class="form-control type" id="title" placeholder="longitude" th:field="*{longitude}"/>
+                            <input type="text" class="form-control type" id="title" placeholder="latitude" th:field="*{latitude}"/>
+                            <input type="text" class="form-control type" id="title" placeholder="points" th:field="*{points}"/>
+
                         </div>
                         <div class="form-group">
                             <label for="body" class="type">Body</label>
-                            <textarea type="text" class="form-control type" id="body" placeholder="Body" rows="5"
-                                      th:field="*{body}"/>
+                            <textarea type="text" class="form-control type" id="body" placeholder="description" rows="5" th:field="*{description}"/>
                         </div>
                         <button type="submit" class="btn btn-primary type">Submit</button>
                     </form>
