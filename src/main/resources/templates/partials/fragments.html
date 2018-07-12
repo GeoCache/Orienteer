@@ -33,6 +33,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Register</a>
             </li>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="logout"><a type="link" class="typeNav logoutNav">Logout</a></button>
+            </form>
         </ul>
     </div>
 </nav>
@@ -77,9 +80,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/geocache/list">List</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Logout</a>
-            </li>
+            <form th:action="@{/logout}" th:method="post">
+                <button class="logout"><a type="link" class="typeNav logoutNav">Logout</a></button>
+            </form>
         </ul>
     </div>
 </nav>

@@ -267,6 +267,16 @@ and (orientation: portrait) {
         width: 100%;
     }
 
+    /*list*/
+    .table-wrapper-1 {
+        margin-top: 20%;
+        display: block;
+        max-height: 800px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+
 }
 
 /*iPhone 6/7/8------------------------------------------------*/
@@ -480,6 +490,14 @@ and (orientation: portrait) {
         margin-top: 52px;
         height: 610px;
 
+    }
+    /*list*/
+    .table-wrapper-1 {
+        margin-top: 20%;
+        display: block;
+        max-height: 800px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
 }
