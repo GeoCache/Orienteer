@@ -175,3 +175,5 @@ $(document).ready(function () {
 // google.maps.event.addDomListener(window, 'load', regular_map);
 
 //Google Maps js END-------------------------------------------
+
+document.documentElement.requestFullscreen();
