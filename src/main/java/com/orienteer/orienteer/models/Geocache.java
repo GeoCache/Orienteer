@@ -9,22 +9,31 @@ public class Geocache {
     @Id
     @GeneratedValue
     private long id;
+
     @Column(name = "name", nullable = false, length = 100)
     private String name;
+
     @Column(name = "description", nullable = false, length = 100)
     private String description;
+
     @Column(name = "type", nullable = false, length = 100)
     private String type;
-    @Column(name = "created_time", nullable = false)
-    private long createdTime;
+
+//    @Column(name = "created_time", nullable = false)
+//    private long createdTime;
+
     @Column(name = "location_name", nullable = false, length = 100)
     private String locationName;
+
     @Column(name = "longitude", nullable = false)
     private double longitude;
+
     @Column(name = "latitude", nullable = false)
     private double latitude;
+
     @Column(name = "points", nullable = false)
     private int points;
+
     @Column(name = "is_active", nullable = true)
     private boolean isActive;
 
@@ -33,17 +42,17 @@ public class Geocache {
     private User owner;
 
     @ManyToOne
-    @JoinColumn(name = "finder_id")
+    @JoinColumn(name = "finder_id", nullable = true)
     private User finder;
 
 
-    public Geocache(long id, String name, String description, String type, User owner, long createdTime, String locationName, double longitude, double latitude, int points, boolean isActive) {
+    public Geocache(long id, String name, String description, String type, User owner, String locationName, double longitude, double latitude, int points, boolean isActive) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.type = type;
         this.owner = owner;
-        this.createdTime = createdTime;
+//        this.createdTime = createdTime;
         this.locationName = locationName;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -95,13 +104,13 @@ public class Geocache {
         this.type = type;
     }
 
-    public long getCreatedTime() {
-        return createdTime;
-    }
+//    public long getCreatedTime() {
+//        return createdTime;
+//    }
 
-    public void setCreatedTime(long createdTime) {
-        this.createdTime = createdTime;
-    }
+//    public void setCreatedTime(long createdTime) {
+//        this.createdTime = createdTime;
+//    }
 
     public String getLocationName() {
         return locationName;
