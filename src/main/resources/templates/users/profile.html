@@ -21,14 +21,14 @@
         <div id="profile-content" class="card-body">
 
             <!-- Title -->
-            <h5 class="card-title mb-4"><a>User Name:</a></h5>
+            <h5 class="card-title mb-4"><a>User Name: <span th:text="${user.getUserName()}"></span></a></h5>
             <!-- Text -->
-            <h5 class="card-title mb-4">Name:</h5>
+            <h5 class="card-title mb-4">Name: <span th:text="${user.getFirstName()}"></span></h5>
             <!-- Text -->
-            <h5 class="card-title">Email:</h5>
+            <h5 class="card-title">Email: <span th:text="${user.getEmail()}"></span></h5>
 
             <h4 class="card-title mt-2 text-center">
-                <span>'s</span> Geocaches
+                <span th:text="${user.getFirstName()+'s'}"></span> Geocaches
             </h4>
 
             <hr id="rule-line"/>

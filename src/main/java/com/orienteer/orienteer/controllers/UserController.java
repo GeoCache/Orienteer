@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -22,13 +23,13 @@ public class UserController {
     }
 
     @GetMapping("/sign-up")
-    public String showSignupForm(Model model){
+    public String showSignupForm(Model model) {
         model.addAttribute("user", new SecurityProperties.User());
         return "usersRepository/sign-up";
     }
 
     @PostMapping("/sign-up")
-    public String saveUser(@ModelAttribute User user){
+    public String saveUser(@ModelAttribute User user) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersRepository.save(user);
@@ -36,9 +37,9 @@ public class UserController {
     }
 
 
-
-    @GetMapping("/profile")
-    public String dash(){
+    @GetMapping("/profile/{id}")
+    public String showProfile(@PathVariable long id, Model view) {
+        view.addAttribute("user", usersRepository.findUsersById(id));
         return "users/profile";
     }
 
