@@ -24,13 +24,13 @@ public class GeocacheController {
         this.usersRepository = usersRepository;
     }
 
-    @GetMapping("/geocache")
+    @GetMapping("/geocache/list")
     public String index(Model view) {
 
         List<Geocache> geocaches;
         geocaches = geocacheService.findAll();
         view.addAttribute("geocaches", geocaches);
-        return "geocache/index";
+        return "geocaches/list";
     }
 
     @GetMapping("/geocache/create")
