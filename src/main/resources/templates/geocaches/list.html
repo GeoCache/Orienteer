@@ -26,8 +26,8 @@
         <tr th:each="geocache,iStat : ${geocaches}">
             <th scope="row" th:text="${iStat.count}"/>
             <td th:text="${geocache.getName()}"/>
-            <td th:text="${geocache.getType()}"/>
-            <td th:text="${geocache.getOwner()}"/>
+            <td th:text="${geocache.getPoints()}"/>
+            <td th:text="${geocache.getOwner().getUserName()}"/>
         </tr>
         </tbody>
         <!--Table body-->

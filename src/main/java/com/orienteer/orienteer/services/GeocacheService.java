@@ -43,6 +43,9 @@ public class GeocacheService {
         return geoDao.findById(id);
     }
 
+    public List<Geocache> findAllByOwnerId(long id){return geoDao.findAllByOwner_Id(id);}
+    public List<Geocache> findAllByFinderId(long id){return geoDao.findAllByFinder_Id(id);}
+
 //    public void edit(Geocache geocache, long id) {
 //        Geocache postUser = geoDao.findById(id);
 //        User user = postUser.getOwner();

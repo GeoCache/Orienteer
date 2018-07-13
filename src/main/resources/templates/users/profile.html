@@ -48,42 +48,15 @@
                     <!--Table head-->
 
                     <!--Table body-->
-                    <tbody>
+                    <th:block th:each="geocache, iStat : ${geocaches}">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row" th:text="${iStat.count}"></th>
+                        <td th:text="${geocache.getName()}">Mark</td>
+                        <td th:text="${geocache.getPoints()}">Otto</td>
+                        <td th:text="${geocache.getOwner().getUserName()}">@mdo</td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
+
+                    </th:block>
                     <!--Table body-->
 
                 </table>
