@@ -29,8 +29,9 @@
                 </button>
             </div>
             <!--Body-->
-            <div class="modal-body">
-
+            <form class="modal-body" th:action="@{'/geocache/create'}" method="post" th:object="${geocache}">
+                <input type="hidden" id="longitude-input" th:field="*{longitude}"/>
+                <input type="hidden" id="latitude-input" th:field="*{latitude}"/>
                 <!-- Material Long and Lat -->
                 <div class="md-form form-sm"  >
                     <i class="fa fa-map-marker prefix"></i>
@@ -45,14 +46,14 @@
                 <!-- Material name -->
                 <div class="md-form form-sm">
                     <i class="fa fa-pencil-square-o prefix"></i>
-                    <input type="text" id="name" class="form-control form-control-sm"/>
+                    <input type="text" id="name" class="form-control form-control-sm" th:field="*{name}"/>
                     <label for="name">Name</label>
                 </div>
 
                 <!-- Material textarea message -->
                 <div class="md-form form-sm">
                     <i class="fa fa-pencil prefix"></i>
-                    <textarea type="text" id="description" class="md-textarea form-control"></textarea>
+                    <textarea type="text" id="description" class="md-textarea form-control" th:field="*{description}"/>
                     <label for="description">Description</label>
                 </div>
 
@@ -60,25 +61,25 @@
 
                 <!-- Difficulty option 1-->
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" value="1" class="custom-control-input" id="difficulty1" name="difficulty"/>
+                    <input type="radio" value="1" class="custom-control-input" id="difficulty1" th:field="*{points}"/>
                     <label class="custom-control-label" for="difficulty1">1</label>
                 </div>
 
                 <!-- Difficulty option 2-->
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" value="2" class="custom-control-input" id="difficulty2" name="difficulty"/>
+                    <input type="radio" value="2" class="custom-control-input" id="difficulty2" th:field="*{points}"/>
                     <label class="custom-control-label" for="difficulty2">2</label>
                 </div>
 
                 <!-- Difficulty option 3-->
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" value="3" class="custom-control-input" id="difficulty3" name="difficulty"/>
+                    <input type="radio" value="3" class="custom-control-input" id="difficulty3" th:field="*{points}"/>
                     <label class="custom-control-label" for="difficulty3">3</label>
                 </div>
 
                 <!-- Difficulty option 4-->
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" value="4" class="custom-control-input" id="difficulty4" name="difficulty"/>
+                    <input type="radio" value="4" class="custom-control-input" id="difficulty4" th:field="*{points}"/>
                     <label class="custom-control-label" for="difficulty4">4</label>
                 </div>
 
@@ -86,7 +87,7 @@
                     <button class="btn modal-B-color">Create</button>
                 </div>
 
-            </div>
+            </form>
         </div>
         <!--/.Content-->
 

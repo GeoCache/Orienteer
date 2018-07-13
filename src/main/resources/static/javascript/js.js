@@ -79,7 +79,17 @@ window.onload = function () {
             $("#latitude").html("Latitude: " + location.lat());
             $("#longitude").html("Longitude: " + location.lng());
             $('#geocacheModal').modal('toggle');
+
+            $("#latitude").html("Latitude: " + latitude);
+            $("#longitude").html("Longitude: " + longitude);
+
+            // help back end find info
+
+            $("#latitude-input").val(latitude);
+            $("#longitude-input").val(longitude);
+
         }
+
     });
 
     $('div').delegate('.deleteBtn','click', function(){
