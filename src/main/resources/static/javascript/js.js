@@ -1,4 +1,19 @@
 //n
+
+function approximate(number){
+    return Number(number.toFixed(4));
+}
+
+function getApproximatLocation(lat, long){
+    return {
+        'lat': lat,
+        'long': long
+    }
+
+}
+
+
+
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -50,13 +65,41 @@ window.onload = function () {
     // Hold down for 3 seconds to add a marker and pull those cordinates
     google.maps.event.addListener(map, 'mousedown', function (evt) {
         holdStart = Date.now();
-        startLocation = evt.latLng.toString()
+        startLocation = evt.latLng
+
+        console.log(startLocation.lat())
+
+        var lat = startLocation.lat();
+
+        var long = startLocation.lng();
+
+        lat = approximate(lat)
+        long = approximate(long)
+
+        startLocation = getApproximatLocation(lat, long)
+
     });
+
+
+
     google.maps.event.addListener(map, 'mouseup', function (evt) {
         holdTime = Date.now() - holdStart;
-        endLocation = evt.latLng.toString();
-        console.log(holdTime);
-        if (holdTime >= 1000 && startLocation === endLocation) {
+        endLocation = evt.latLng
+
+        var lat = endLocation.lat()
+        var long = endLocation.lng()
+
+        lat = approximate(lat)
+        long = approximate(long)
+
+        endLocation = getApproximatLocation(lat, long)
+
+        console.log({holdTime});
+        console.log({startLocation});
+        console.log({endLocation});
+
+
+        if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.long == endLocation.long) {
             // Line to make testing faster
         // if(true){
             placeMarker(evt.latLng);
@@ -91,6 +134,7 @@ window.onload = function () {
         }
 
     });
+
 
     $('div').delegate('.deleteBtn','click', function(){
         var id = $(this).attr('data-id');
