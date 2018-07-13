@@ -34,7 +34,7 @@ public class GeocacheController {
     }
 
     @GetMapping("/geocache/create")
-    public String create(Model view) {
+    public String create(Model view) { // check it out
      view.addAttribute("geocache", new Geocache());
         return "geocaches/create";
     }

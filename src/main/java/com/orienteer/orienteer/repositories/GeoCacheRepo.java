@@ -8,6 +8,10 @@ package com.orienteer.orienteer.repositories;
 
 public interface GeoCacheRepo extends CrudRepository<Geocache, Long> {
 
+    static void search(Geocache geocache) {
+
+    }
+
     List<Geocache> findAll();
 
 //    List<Geocache> findCache(

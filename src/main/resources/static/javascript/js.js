@@ -95,7 +95,13 @@ function regular_map() {
             $('#geocacheModal').modal('toggle');
             $("#latitude").html("Latitude: " + latitude);
             $("#longitude").html("Longitude: " + longitude);
+
+            // help back end find info
+
+            $("#latitude-input").val(latitude);
+            $("#longitude-input").val(longitude);
         }
+
     });
 
 

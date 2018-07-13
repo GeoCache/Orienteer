@@ -16,15 +16,6 @@ public class Geocache {
     @Column(name = "description", nullable = false, length = 100)
     private String description;
 
-    @Column(name = "type", nullable = false, length = 100)
-    private String type;
-
-//    @Column(name = "created_time", nullable = false)
-//    private long createdTime;
-
-    @Column(name = "location_name", nullable = false, length = 100)
-    private String locationName;
-
     @Column(name = "longitude", nullable = false)
     private double longitude;
 
@@ -46,14 +37,12 @@ public class Geocache {
     private User finder;
 
 
-    public Geocache(long id, String name, String description, String type, User owner, String locationName, double longitude, double latitude, int points, boolean isActive) {
+    public Geocache(long id, String name, String description, User owner,  double longitude, double latitude, int points, boolean isActive) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.type = type;
         this.owner = owner;
-//        this.createdTime = createdTime;
-        this.locationName = locationName;
+
         this.longitude = longitude;
         this.latitude = latitude;
         this.points = points;
@@ -64,7 +53,7 @@ public class Geocache {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.type = type;
+//        this.type = type;
         this.isActive = isActive;
     }
 
@@ -96,29 +85,6 @@ public class Geocache {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-//    public long getCreatedTime() {
-//        return createdTime;
-//    }
-
-//    public void setCreatedTime(long createdTime) {
-//        this.createdTime = createdTime;
-//    }
-
-    public String getLocationName() {
-        return locationName;
-    }
-
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
-    }
 
     public double getLongitude() {
         return longitude;
