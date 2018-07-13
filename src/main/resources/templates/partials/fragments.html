@@ -49,7 +49,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mr-5">
             <li class="nav-item mr-3">
-                <a class="nav-link" href="/profile">Profile</a>
+                <a class="nav-link" th:href="@{'/profile/'+${#authentication.principal.id}}">Profile</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/geocache/list">List</a>
@@ -75,7 +75,7 @@
         <ul class="navbar-nav ml-auto mr-5">
 
             <li class="nav-item mr-3">
-                <a class="nav-link" href="/profile">Profile</a>
+                <a class="nav-link" th:href="@{'/profile/'+${#authentication.principal.id}}">Profile</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/geocache/list">List</a>
@@ -141,7 +141,7 @@
         <a class="mx-2 ml-2 inline" href="/geocache/list">
             <img class="icon mb-1" th:src="@{/img/list.svg}" src="/static/img/list.svg" alt=""/>
         </a>
-        <a class="mb-3 ml-4 inline" href="/profile">
+        <a class="mb-3 ml-4 inline" th:href="@{'/profile/'+${#authentication.principal.id}}">
             <img class="icon mb-1" th:src="@{/img/explorer.svg}" src="/static/img/explorer.svg" alt=""/>
         </a>
         <a href="#" data-toggle="modal" data-target="#geocacheModal" class="mb-3 ml-5 inline">
