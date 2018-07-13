@@ -12,7 +12,6 @@ h1 {
 
 }
 
-
 /*animation*/
 .wow {
     visibility: visible;
@@ -29,6 +28,7 @@ h1 {
     font-size: 1.3rem;
 
 }
+
 a:hover {
     color: #d0944a !important;
 }
@@ -37,6 +37,7 @@ a:hover {
     color: #512c2a !important;
     font-weight: bolder;
 }
+
 #myNavbar {
     background-color: transparent;
     position: fixed;
@@ -76,6 +77,7 @@ a:hover {
     box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, .16), 0 -2px 10px 0 rgba(0, 0, 0, .12);
 
 }
+
 /*modal*/
 #modal {
     background-color: #eee2cb;
@@ -117,7 +119,6 @@ a:hover {
 
 }
 
-
 .shadow {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
 }
@@ -150,7 +151,6 @@ a:hover {
 
 }
 
-
 #home {
     height: 1500px;
     margin: 0;
@@ -172,22 +172,81 @@ a:hover {
     width: 50%;
 }
 
+/*scroll for lists*/
+.table-wrapper-2 {
+
+    display: block;
+    max-height: 200px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 /*iPhone X ---------------------------------------*/
 @media only screen
 and (min-device-width: 375px)
 and (max-device-width: 812px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
+    /*profile*/
+    .table-wrapper-2 {
+        display: block;
+        max-height: 300px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    #table-head {
+        background-color: #d0944a;
+    }
+
+    #profile-content {
+        margin-top: 25%;
+    }
+
+    #profile-height {
+        background-color: #eee2cb;
+        height: 820px;
+    }
+
+    #profile-color {
+
+        background-color: #d0944a;
+        height: 200px;
+        width: 100%;
+    }
+
+    .profile {
+
+        top: 50px;
+        margin-top: 80px;
+        height: 200px;
+        width: 200px;
+        border: #eee2cb solid 4px;
+        border-radius: 100px;
+        background-color: #512c2a;
+    }
+
+    #profile-icon {
+
+        margin-left: 25px;
+        margin-top: 15px;
+        height: 140px;
+        width: 140px;
+
+    }
+
     /*modal/dashboard*/
     #geocacheModal {
         margin-top: 18%;
     }
+
     /*map*/
     #map-container {
         margin-top: 52px;
         height: 690px;
 
     }
+
     /*logo/icons*/
     #logo-text {
         margin-left: -35px;
@@ -208,6 +267,16 @@ and (orientation: portrait) {
         width: 100%;
     }
 
+    /*list*/
+    .table-wrapper-1 {
+        margin-top: 20%;
+        display: block;
+        max-height: 800px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+
 }
 
 /*iPhone 6/7/8------------------------------------------------*/
@@ -216,10 +285,73 @@ and (min-device-width: 375px)
 and (max-device-width: 667px)
 and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
+    /*profile*/
+    .table-wrapper-2 {
+        display: block;
+        max-height: 200px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    #table-head {
+        background-color: #d0944a;
+    }
+
+    #profile-content {
+        margin-top: 15%;
+    }
+
+    #profile-height {
+
+        background-color: #eee2cb;
+        height: 668px;
+    }
+
+    #profile-color {
+
+        background-color: #d0944a;
+        height: 200px;
+        width: 100%;
+    }
+
+    .profile {
+
+        top: 50px;
+        margin-top: 30%;
+        height: 150px;
+        width: 150px;
+        border: #eee2cb solid 4px;
+        border-radius: 150px;
+        background-color: #512c2a;
+    }
+
+    #profile-icon {
+
+        margin-left: 21px;
+        margin-top: 15px;
+        height: 100px;
+        width: 100px;
+
+    }
+    /*list*/
+    .table-wrapper-1 {
+        margin-top: 20%;
+        display: block;
+        max-height: 800px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+
+
+
+
+
     /*modal/dashboard*/
     #geocacheModal {
         margin-top: 5%;
     }
+
     /*home*/
     #hero {
         background-position: 450px 0px;
@@ -227,27 +359,35 @@ and (orientation: portrait) {
 
         /*logo/icons*/
     }
+
     #logo-text {
-        margin-left: -25px;
-        font-size: 2.5rem;
+        margin-left: -6px;
+        font-size: 2.4rem;
     }
 
     #logo {
         margin-left: 5px;
     }
 
-
     #register {
         width: 100%;
 
     }
-
 
     #login {
         margin-bottom: 50px;
         margin-top: 100px;
         width: 100%;
     }
+    .logoutNav {
+        font-family: "mr-eaves-modern", sans-serif;
+        font-weight: 900 !important;
+        font-size: 1.3rem;
+        color: #512c2a !important;
+
+    }
+
+
     /*map*/
     #map-container {
         margin-top: 52px;
@@ -269,6 +409,64 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
+    /*profile*/
+    .table-wrapper-2 {
+        display: block;
+        max-height: 200px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    #rule-line {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #table-head {
+        background-color: #d0944a;
+    }
+
+    #profile-content {
+
+        margin-top: 20%;
+
+    }
+
+    #profile-body {
+        height: 50%;
+    }
+
+    #profile-height {
+        background-color: #eee2cb;
+        height: 740px;
+    }
+
+    #profile-color {
+        background-color: #d0944a;
+        height: 200px;
+        width: 100%;
+    }
+
+    .profile {
+
+        top: 50px;
+        margin-top: 80px;
+        height: 200px;
+        width: 200px;
+        border: #eee2cb solid 4px;
+        border-radius: 100px;
+        background-color: #512c2a;
+    }
+
+    #profile-icon {
+
+        margin-left: 25px;
+        margin-top: 15px;
+        height: 140px;
+        width: 140px;
+
+    }
+
     /*modal/dashboard*/
     #geocacheModal {
         margin-top: 12%;
@@ -279,7 +477,6 @@ and (orientation: portrait) {
         font-size: 2.5rem;
     }
 
-
     #register {
         width: 100%;
     }
@@ -289,11 +486,18 @@ and (orientation: portrait) {
         width: 100%;
     }
 
-
     #map-container {
         margin-top: 52px;
         height: 610px;
 
+    }
+    /*list*/
+    .table-wrapper-1 {
+        margin-top: 20%;
+        display: block;
+        max-height: 800px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
 }
