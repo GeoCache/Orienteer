@@ -191,7 +191,9 @@ window.onload = function () {
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
+
+            //  => This error needs to be fixed in the future.
+            'You are here.' :
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
     }
