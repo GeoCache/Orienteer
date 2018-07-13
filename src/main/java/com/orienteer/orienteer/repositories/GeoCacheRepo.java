@@ -20,6 +20,9 @@ public interface GeoCacheRepo extends CrudRepository<Geocache, Long> {
 
     Geocache findById(long id);
 
+    List<Geocache> findAllByOwner_Id(long id);
+    List<Geocache> findAllByFinder_Id(long id);
+
 
 //    List<Geocache> findCache(String searchCache, String searchCache1);
 }
