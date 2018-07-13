@@ -80,13 +80,13 @@ window.onload = function () {
             $("#longitude").html("Longitude: " + location.lng());
             $('#geocacheModal').modal('toggle');
 
-            $("#latitude").html("Latitude: " + latitude);
-            $("#longitude").html("Longitude: " + longitude);
+            // $("#latitude").html("Latitude: " + latitude);
+            // $("#longitude").html("Longitude: " + longitude);
 
             // help back end find info
 
-            $("#latitude-input").val(latitude);
-            $("#longitude-input").val(longitude);
+            $("#latitude-input").val(location.lat());
+            $("#longitude-input").val(location.lng());
 
         }
 
@@ -200,5 +200,7 @@ window.onload = function () {
 
 
 //Google Maps js END-------------------------------------------
+if (document.documentElement.requestFullscreen) {
 
 document.documentElement.requestFullscreen();
+}

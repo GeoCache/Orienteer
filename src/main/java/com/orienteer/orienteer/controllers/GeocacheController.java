@@ -9,6 +9,8 @@ import com.orienteer.orienteer.services.UserServices;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,7 +42,10 @@ public class GeocacheController {
     }
 
     @PostMapping("/geocache/create")
-    public String saveGeocahe(@ModelAttribute Geocache geocache){
+    public String saveGeocahe(@ModelAttribute Geocache geocache, Errors errors){
+        for (ObjectError objectError : errors.getAllErrors()) {
+            System.out.println(objectError);
+        }
         geocacheService.save(geocache);
         return "redirect:/dash";
     }
