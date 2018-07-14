@@ -416,6 +416,9 @@ and (orientation: portrait) {
         overflow-y: auto;
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
+    .profile{
+        filter: drop-shadow(0 3mm 6mm #999183);
+    }
 
     #rule-line {
         margin-top: 30px;
