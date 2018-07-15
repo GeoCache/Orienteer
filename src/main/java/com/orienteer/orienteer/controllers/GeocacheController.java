@@ -85,4 +85,14 @@ public class GeocacheController {
 
     }
 
+    @GetMapping("/geocaches.json")
+    public @ResponseBody List<Geocache> viewLocationsInJSONFormat(){
+        return geocacheService.findAll();
+    }
+
+    @GetMapping("/geocaches/ajax")
+    public String viewAllGeocachesWithAjax(){
+        return "geocaches/ajax";
+    }
+
 }

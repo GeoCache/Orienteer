@@ -1,5 +1,8 @@
 package com.orienteer.orienteer.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -30,6 +33,7 @@ public class Geocache {
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
+    @JsonManagedReference
     private User owner;
 
     @ManyToOne
@@ -37,23 +41,22 @@ public class Geocache {
     private User finder;
 
 
-    public Geocache(long id, String name, String description, User owner,  double longitude, double latitude, int points, boolean isActive) {
+    public Geocache(long id, String name, String description, User owner, double longitude, double latitude, int points, boolean isActive) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.owner = owner;
-
         this.longitude = longitude;
         this.latitude = latitude;
         this.points = points;
         this.isActive = isActive;
     }
 
-    public Geocache(long id, String name, String description, String type, boolean isActive) {
+    public Geocache(long id, String name, String description, boolean isActive) {
         this.id = id;
         this.name = name;
         this.description = description;
-//        this.type = type;
+
         this.isActive = isActive;
     }
 
@@ -86,21 +89,13 @@ public class Geocache {
     }
 
 
-    public double getLongitude() {
-        return longitude;
-    }
+    public double getLongitude() { return longitude; }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
+    public void setLongitude(double longitude) { this.longitude = longitude; }
 
-    public double getLatitude() {
-        return latitude;
-    }
+    public double getLatitude() { return latitude; }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
+    public void setLatitude(double latitude) { this.latitude = latitude; }
 
     public int getPoints() {
         return points;
