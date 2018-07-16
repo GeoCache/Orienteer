@@ -38,6 +38,8 @@ window.onload = function () {
     var holdTime = null;
     var startLocation = null;
     var endLocation = null;
+    var longitude = null;
+    var latitude = null;
     var first = 1;
 
     // Allows app to access built in GPS in devices
@@ -110,6 +112,7 @@ window.onload = function () {
 
 
         if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.long == endLocation.long) {
+
             // Line to make testing faster
         // if(true){
             placeMarker(evt.latLng);
