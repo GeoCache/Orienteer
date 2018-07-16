@@ -13,7 +13,7 @@ function getApproximatLocation(lat, long){
 }
 
 
-
+//HOME and LOGIN navigation: hide and show nav on scroll----------------------
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -24,6 +24,8 @@ window.onscroll = function () {
     }
     prevScrollpos = currentScrollPos;
 };
+//END-----------------------------------------------------------------------------
+
 //Bootstrap animation initiation---------
 new WOW().init();
 
@@ -65,16 +67,14 @@ window.onload = function () {
     // Hold down for 3 seconds to add a marker and pull those cordinates
     google.maps.event.addListener(map, 'mousedown', function (evt) {
         holdStart = Date.now();
-        startLocation = evt.latLng
+        startLocation = evt.latLng;
 
-        console.log(startLocation.lat())
 
         var lat = startLocation.lat();
-
         var long = startLocation.lng();
 
-        lat = approximate(lat)
-        long = approximate(long)
+        lat = approximate(lat);
+        long = approximate(long);
 
         startLocation = getApproximatLocation(lat, long)
 
@@ -84,15 +84,15 @@ window.onload = function () {
 
     google.maps.event.addListener(map, 'mouseup', function (evt) {
         holdTime = Date.now() - holdStart;
-        endLocation = evt.latLng
+        endLocation = evt.latLng;
 
-        var lat = endLocation.lat()
-        var long = endLocation.lng()
+        var lat = endLocation.lat();
+        var long = endLocation.lng();
 
-        lat = approximate(lat)
-        long = approximate(long)
+        lat = approximate(lat);
+        long = approximate(long);
 
-        endLocation = getApproximatLocation(lat, long)
+        endLocation = getApproximatLocation(lat, long);
 
         console.log({holdTime});
         console.log({startLocation});
@@ -128,8 +128,11 @@ window.onload = function () {
 
             // help back end find info
 
-            $("#latitude-input").val(location.lat());
-            $("#longitude-input").val(location.lng());
+            $("#latitude-input").val(location.lat);
+            $("#longitude-input").val(location.lng);
+            console.log(location.lat);
+            console.log(location.lng);
+
 
         }
 
@@ -147,13 +150,13 @@ window.onload = function () {
                 return;
             }
         }
-        console.log(markers);
+
     });
 
     // Places marker at a specified location
-    function placeMarker(location) {
+    function placeMarker(pos) {
         marker = new google.maps.Marker({
-            position: location,
+            position: pos,
             map: map,
             animation: google.maps.Animation.DROP
         });
@@ -171,37 +174,39 @@ window.onload = function () {
             fillOpacity: 1
         }
     });
+    //ajax request for database location data-----------------------------------------------
+    (function($) {
+        var request = $.ajax({'url': '/geocaches.json'});
+        request.done(function (geocaches) {
+            geocaches.forEach(function (geocache) {
 
-    // Sets the location for the center on me button
+                //console logs --------------
+                console.log(geocache.latitude);
+                console.log(geocache.longitude);
+                console.log(geocache.description);
+                console.log(geocache.name);
+                //console logs end-----------------
+
+                var userMarker = new google.maps.Marker({
+                    position: {lat: geocache.latitude , lng: geocache.longitude },
+                    map: map,
+                    animation: google.maps.Animation.DROP
+                });
+                userMarker.setMap(map);
+
+            })
+
+
+        });
+    })(jQuery);
+    //ajax END-----------------------------------------------------------------------------
+
+    // Sets the location for the center on me button---------------------------------------
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
 
-    // Display an infowindow if there is an error
-    infoWindow = new google.maps.InfoWindow;
-    if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(function (position) {
-            pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            // Sets the map to persons location the first time
-            if (first === 1) {
-                map.setCenter(pos);
-                first++
-            }
-
-            // Keeps marker on their location
-            gps.setPosition(pos);
-            infoWindow.setPosition(pos);
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        }, watchOptions);
-    } else {
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
 
     function CenterControl(controlDiv, map) {
         // Controls the appearance of our center on me button.
@@ -232,6 +237,34 @@ window.onload = function () {
 
     }
 
+    //center UI button END-------------------------------------------------------------------
+
+    // Display an infowindow if there is an error
+    infoWindow = new google.maps.InfoWindow;
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(function (position) {
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+
+
+            // Sets the map to persons location the first time
+            if (first === 1) {
+                map.setCenter(pos);
+                first++
+            }
+
+            // Keeps marker on their location
+            gps.setPosition(pos);
+            infoWindow.setPosition(pos);
+        }, function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+        }, watchOptions);
+    } else {
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?

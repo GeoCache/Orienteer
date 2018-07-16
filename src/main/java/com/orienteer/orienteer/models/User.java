@@ -1,6 +1,10 @@
 package com.orienteer.orienteer.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -23,6 +27,7 @@ public class User {
     private String userName;
 
     @Column(name = "password", nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column(name = "email", nullable = false, unique = true)
@@ -38,8 +43,8 @@ public class User {
     private List<Geocache> myFinds;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    @JsonBackReference
     private List<Geocache> myCaches;
-
 
 
     public User(User copy) {
@@ -63,6 +68,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.birthday = birthday;
     }
+
 
 
     public List<Geocache> getMyFinds() {
