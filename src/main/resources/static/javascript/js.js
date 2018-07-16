@@ -118,6 +118,7 @@ window.onload = function () {
             placeMarker(evt.latLng);
             marker.id = uniqueId;
             uniqueId++;
+            location = (evt.latLng);
 
             //Attach click event handler to the marker.
             google.maps.event.addListener(marker, "click", function (e) {
@@ -266,9 +267,7 @@ window.onload = function () {
             // Sets the map to persons location the first time
             if (first === 1) {
                 // map.setCenter(pos);
-                map.setCenter(zoomedLocation);
-                    console.log(zoomedMarker.lat);
-                    console.log(zoomedMarker.lon);
+                map.setCenter(pos);
                 first++
 
             }
