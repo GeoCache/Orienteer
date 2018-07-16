@@ -68,7 +68,7 @@ public class GeocacheController {
     public String show(@PathVariable long id, Model view) {
         Geocache geocache = geocacheService.findById(id);
         view.addAttribute("geocache", geocache);
-        return "geocache/show";
+        return "users/dashboard";
     }
 
     @GetMapping("/geocache/{id}/edit")

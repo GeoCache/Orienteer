@@ -11,7 +11,7 @@ public class DashboardController {
 
     @GetMapping("/dash")
     public String dash(Model view){
-        view.addAttribute("geocache", new Geocache());
+        view.addAttribute("newGeocache", new Geocache());
         return "users/dashboard";
     }
 

@@ -47,8 +47,18 @@ window.onload = function () {
         {featureType: "poi", elementType: "labels", stylers: [{visibility: "off"}]}
     ];
 
+    var zoomedMarker = {
+        lat: document.getElementById("lat"),
+        lon: document.getElementById("lon"),
+        username: document.getElementById("username"),
+        cacheName: document.getElementById("cacheName")
+
+    };
+
+
     // Creates initial map and location
     var location = new google.maps.LatLng(29.426791, -98.489602);
+    var zoomedLocation = new google.maps.LatLng(zoomedMarker.lat, zoomedMarker.lon);
     var mapoptions = {
         center: location,
         zoom: 18,
@@ -252,8 +262,12 @@ window.onload = function () {
 
             // Sets the map to persons location the first time
             if (first === 1) {
-                map.setCenter(pos);
+                // map.setCenter(pos);
+                map.setCenter(zoomedLocation);
+                    console.log(zoomedMarker.lat);
+                    console.log(zoomedMarker.lon);
                 first++
+
             }
 
             // Keeps marker on their location
