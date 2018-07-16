@@ -13,7 +13,7 @@ function getApproximatLocation(lat, long){
 }
 
 
-
+//HOME and LOGIN navigation: hide and show nav on scroll----------------------
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -24,6 +24,8 @@ window.onscroll = function () {
     }
     prevScrollpos = currentScrollPos;
 };
+//END-----------------------------------------------------------------------------
+
 //Bootstrap animation initiation---------
 new WOW().init();
 
@@ -65,17 +67,14 @@ window.onload = function () {
     // Hold down for 3 seconds to add a marker and pull those cordinates
     google.maps.event.addListener(map, 'mousedown', function (evt) {
         holdStart = Date.now();
-        startLocation = evt.latLng
+        startLocation = evt.latLng;
 
-        console.log(startLocation.lat());
-        console.log(startLocation.lng());
 
         var lat = startLocation.lat();
-
         var long = startLocation.lng();
 
-        lat = approximate(lat)
-        long = approximate(long)
+        lat = approximate(lat);
+        long = approximate(long);
 
         startLocation = getApproximatLocation(lat, long)
 
@@ -85,15 +84,15 @@ window.onload = function () {
 
     google.maps.event.addListener(map, 'mouseup', function (evt) {
         holdTime = Date.now() - holdStart;
-        endLocation = evt.latLng
+        endLocation = evt.latLng;
 
-        var lat = endLocation.lat()
-        var long = endLocation.lng()
+        var lat = endLocation.lat();
+        var long = endLocation.lng();
 
-        lat = approximate(lat)
-        long = approximate(long)
+        lat = approximate(lat);
+        long = approximate(long);
 
-        endLocation = getApproximatLocation(lat, long)
+        endLocation = getApproximatLocation(lat, long);
 
         console.log({holdTime});
         console.log({startLocation});
@@ -129,8 +128,11 @@ window.onload = function () {
 
             // help back end find info
 
-            $("#latitude-input").val(location.lat());
-            $("#longitude-input").val(location.lng());
+            $("#latitude-input").val(location.lat);
+            $("#longitude-input").val(location.lng);
+            console.log(location.lat);
+            console.log(location.lng);
+
 
         }
 
@@ -172,7 +174,7 @@ window.onload = function () {
             fillOpacity: 1
         }
     });
-
+    //ajax request for database location data-----------------------------------------------
     (function($) {
         var request = $.ajax({'url': '/geocaches.json'});
         request.done(function (geocaches) {
@@ -182,10 +184,11 @@ window.onload = function () {
                 console.log(geocache.latitude);
                 console.log(geocache.longitude);
                 console.log(geocache.description);
+                console.log(geocache.name);
                 //console logs end-----------------
 
                 var userMarker = new google.maps.Marker({
-                    position: {lat: geocache.longitude , lng: geocache.latitude },
+                    position: {lat: geocache.latitude , lng: geocache.longitude },
                     map: map,
                     animation: google.maps.Animation.DROP
                 });
@@ -196,8 +199,9 @@ window.onload = function () {
 
         });
     })(jQuery);
+    //ajax END-----------------------------------------------------------------------------
 
-    // Sets the location for the center on me button
+    // Sets the location for the center on me button---------------------------------------
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
     centerControlDiv.index = 1;
@@ -232,6 +236,8 @@ window.onload = function () {
         });
 
     }
+
+    //center UI button END-------------------------------------------------------------------
 
     // Display an infowindow if there is an error
     infoWindow = new google.maps.InfoWindow;
