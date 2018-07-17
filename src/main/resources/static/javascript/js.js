@@ -56,10 +56,9 @@ window.onload = function () {
             username: document.getElementById("userName").value,
             cacheName: document.getElementById("cacheName").value
         };
-    var zoomedLocation = new google.maps.LatLng(zoomedMarker.lat, zoomedMarker.lon);
-    location = (zoomedLocation);
+        var zoomedLocation = new google.maps.LatLng(zoomedMarker.lat, zoomedMarker.lon);
+        location = (zoomedLocation);
     }
-
 
 // Creates initial map and location
     var mapoptions = {
@@ -81,14 +80,11 @@ window.onload = function () {
     google.maps.event.addListener(map, 'mousedown', function (evt) {
         holdStart = Date.now();
         startLocation = evt.latLng;
-
-
         var lat = startLocation.lat();
         var long = startLocation.lng();
-
+        // Makes the movement less sensitive
         lat = approximate(lat);
         long = approximate(long);
-
         startLocation = getApproximatLocation(lat, long)
 
     });
@@ -97,23 +93,16 @@ window.onload = function () {
     google.maps.event.addListener(map, 'mouseup', function (evt) {
         holdTime = Date.now() - holdStart;
         endLocation = evt.latLng;
-
         var lat = endLocation.lat();
         var long = endLocation.lng();
-
+        // Makes the movement less sensitive
         lat = approximate(lat);
         long = approximate(long);
-
         endLocation = getApproximatLocation(lat, long);
 
-        console.log({holdTime});
-        console.log({startLocation});
-        console.log({endLocation});
-
-
-        if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.long == endLocation.long) {
-
-            // Line to make testing faster
+        // Conditional to call up create geocache modal
+        if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.lng == endLocation.lng) {
+            // Comment previous line and uncomment next line to make testing faster
             // if(true){
             placeMarker(evt.latLng);
             marker.id = uniqueId;
@@ -133,14 +122,11 @@ window.onload = function () {
                 infoWindow.open(map, marker);
             });
             markers.push(marker);
+
+            // Adds the coodinates to the modal
             $("#latitude").html("Latitude: " + location.lat());
             $("#longitude").html("Longitude: " + location.lng());
             $('#geocacheModal').modal('toggle');
-
-            // $("#latitude").html("Latitude: " + latitude);
-            // $("#longitude").html("Longitude: " + longitude);
-
-            // help back end find info
 
             $("#latitude-input").val(location.lat());
             $("#longitude-input").val(location.lng());
@@ -149,7 +135,6 @@ window.onload = function () {
         }
 
     });
-
 
     $('div').delegate('.deleteBtn', 'click', function () {
         var id = $(this).attr('data-id');
@@ -180,12 +165,6 @@ window.onload = function () {
         request.done(function (geocaches) {
             geocaches.forEach(function (geocache) {
 
-                //console logs --------------
-                // console.log(geocache.latitude);
-                // console.log(geocache.longitude);
-                // console.log(geocache.description);
-                // console.log(geocache.name);
-                //console logs end-----------------
 
                 var userMarker = new google.maps.Marker({
                     position: {lat: geocache.latitude, lng: geocache.longitude},
@@ -193,10 +172,7 @@ window.onload = function () {
                     animation: google.maps.Animation.DROP
                 });
                 userMarker.setMap(map);
-
             })
-
-
         });
     })(jQuery);
 //ajax END-----------------------------------------------------------------------------
@@ -206,7 +182,6 @@ window.onload = function () {
     var centerControl = new CenterControl(centerControlDiv, map);
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
-
 
     function CenterControl(controlDiv, map) {
         // Controls the appearance of our center on me button.
@@ -234,19 +209,19 @@ window.onload = function () {
         controlUI.addEventListener('click', function () {
             map.setCenter(pos);
         });
-
     }
-            var gps = new google.maps.Marker({
-                position: gpsStartLocation,
-                map: map,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 5,
-                    strokeColor: 'black',
-                    fillColor: 'red',
-                    fillOpacity: 1
-                }
-            });
+
+    var gps = new google.maps.Marker({
+        position: gpsStartLocation,
+        map: map,
+        icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 5,
+            strokeColor: 'black',
+            fillColor: 'red',
+            fillOpacity: 1
+        }
+    });
 
 //center UI button END-------------------------------------------------------------------
 
@@ -259,29 +234,28 @@ window.onload = function () {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            // Keeps marker on their location
 
-
-
-
-
+            // if want to load in on a marker's location'
             if (zoomedLocation != null) {
-                map.setCenter(zoomedLocation);
-                infoWindow.setPosition(pos);
-            }
-
-
-            if (zoomedLocation == null) {
-                gps.setPosition(pos);
-                infoWindow.setPosition(pos);
-                // Sets the map to persons location the first time
+                // Set map to geocache location first time
                 if (first === 1) {
-                    infoWindow.setPosition(pos);
-                    map.setCenter(pos);
+                    gps.setPosition(pos);
+                    map.setCenter(zoomedLocation);
                     first++
-
                 }
             }
+
+            // if want to load in on yourself
+            if (zoomedLocation == null) {
+                // Sets the map to persons location the first time
+                if (first === 1) {
+                    gps.setPosition(pos);
+                    map.setCenter(pos);
+                    first++
+                }
+            }
+            // Keeps marker on their location
+            gps.setPosition(pos);
         }, function () {
             handleLocationError(true, infoWindow, pos);
         }, watchOptions);
