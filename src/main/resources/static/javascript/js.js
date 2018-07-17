@@ -1,10 +1,10 @@
 //n
 
-function approximate(number){
+function approximate(number) {
     return Number(number.toFixed(4));
 }
 
-function getApproximatLocation(lat, long){
+function getApproximatLocation(lat, long) {
     return {
         'lat': lat,
         'long': long
@@ -47,7 +47,18 @@ window.onload = function () {
         {featureType: "poi", elementType: "labels", stylers: [{visibility: "off"}]}
     ];
 
-    // Creates initial map and location
+    if (document.getElementById("lat") != null) {
+        var zoomedMarker = {
+            lat: document.getElementById("lat").value,
+            lon: document.getElementById("lon").value,
+            username: document.getElementById("userName").value,
+            cacheName: document.getElementById("cacheName").value
+        };
+    var zoomedLocation = new google.maps.LatLng(zoomedMarker.lat, zoomedMarker.lon);
+    }
+
+
+// Creates initial map and location
     var location = new google.maps.LatLng(29.426791, -98.489602);
     var mapoptions = {
         center: location,
@@ -60,11 +71,11 @@ window.onload = function () {
         }
     };
 
-    // Sets the map to our mapcontainer div
+// Sets the map to our mapcontainer div
     map = new google.maps.Map(document.getElementById("map-container"),
         mapoptions);
 
-    // Hold down for 3 seconds to add a marker and pull those cordinates
+// Hold down for 3 seconds to add a marker and pull those cordinates
     google.maps.event.addListener(map, 'mousedown', function (evt) {
         holdStart = Date.now();
         startLocation = evt.latLng;
@@ -79,7 +90,6 @@ window.onload = function () {
         startLocation = getApproximatLocation(lat, long)
 
     });
-
 
 
     google.maps.event.addListener(map, 'mouseup', function (evt) {
@@ -100,18 +110,20 @@ window.onload = function () {
 
 
         if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.long == endLocation.long) {
+
             // Line to make testing faster
-        // if(true){
+            // if(true){
             placeMarker(evt.latLng);
             marker.id = uniqueId;
             uniqueId++;
+            location = (evt.latLng);
 
             //Attach click event handler to the marker.
             google.maps.event.addListener(marker, "click", function (e) {
                 var content = 'Latitude: ' + location.lat() + '<br />Longitude: ' + location.lng();
                 content += "<br />" +
                     "<div class='dlBtnWrapper'>" +
-                    "<input data-id="+marker.id+" class='deleteBtn' type = 'button' value='Delete' />" +
+                    "<input data-id=" + marker.id + " class='deleteBtn' type = 'button' value='Delete' />" +
                     "</div>";
                 var infoWindow = new google.maps.InfoWindow({
                     content: content
@@ -128,10 +140,8 @@ window.onload = function () {
 
             // help back end find info
 
-            $("#latitude-input").val(location.lat);
-            $("#longitude-input").val(location.lng);
-            console.log(location.lat);
-            console.log(location.lng);
+            $("#latitude-input").val(location.lat());
+            $("#longitude-input").val(location.lng());
 
 
         }
@@ -139,7 +149,7 @@ window.onload = function () {
     });
 
 
-    $('div').delegate('.deleteBtn','click', function(){
+    $('div').delegate('.deleteBtn', 'click', function () {
         var id = $(this).attr('data-id');
         for (var i = 0; i < markers.length; i++) {
             if (markers[i].id == id) {
@@ -153,7 +163,7 @@ window.onload = function () {
 
     });
 
-    // Places marker at a specified location
+// Places marker at a specified location
     function placeMarker(pos) {
         marker = new google.maps.Marker({
             position: pos,
@@ -162,7 +172,7 @@ window.onload = function () {
         });
     }
 
-    // Custom marker made to mark persons current location
+// Custom marker made to mark persons current location
     var gps = new google.maps.Marker({
         position: map.center,
         map: map,
@@ -174,21 +184,21 @@ window.onload = function () {
             fillOpacity: 1
         }
     });
-    //ajax request for database location data-----------------------------------------------
-    (function($) {
+//ajax request for database location data-----------------------------------------------
+    (function ($) {
         var request = $.ajax({'url': '/geocaches.json'});
         request.done(function (geocaches) {
             geocaches.forEach(function (geocache) {
 
                 //console logs --------------
-                console.log(geocache.latitude);
-                console.log(geocache.longitude);
-                console.log(geocache.description);
-                console.log(geocache.name);
+                // console.log(geocache.latitude);
+                // console.log(geocache.longitude);
+                // console.log(geocache.description);
+                // console.log(geocache.name);
                 //console logs end-----------------
 
                 var userMarker = new google.maps.Marker({
-                    position: {lat: geocache.latitude , lng: geocache.longitude },
+                    position: {lat: geocache.latitude, lng: geocache.longitude},
                     map: map,
                     animation: google.maps.Animation.DROP
                 });
@@ -199,9 +209,9 @@ window.onload = function () {
 
         });
     })(jQuery);
-    //ajax END-----------------------------------------------------------------------------
+//ajax END-----------------------------------------------------------------------------
 
-    // Sets the location for the center on me button---------------------------------------
+// Sets the location for the center on me button---------------------------------------
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
     centerControlDiv.index = 1;
@@ -237,9 +247,9 @@ window.onload = function () {
 
     }
 
-    //center UI button END-------------------------------------------------------------------
+//center UI button END-------------------------------------------------------------------
 
-    // Display an infowindow if there is an error
+// Display an infowindow if there is an error
     infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function (position) {
@@ -249,22 +259,34 @@ window.onload = function () {
             };
 
 
-
             // Sets the map to persons location the first time
             if (first === 1) {
                 map.setCenter(pos);
+                // map.setCenter(zoomedLocation);
+                // console.log(zoomedLocation);
                 first++
+
             }
 
             // Keeps marker on their location
-            gps.setPosition(pos);
-            infoWindow.setPosition(pos);
+
+            if (zoomedLocation != null) {
+                map.setCenter(zoomedLocation);
+                infoWindow.setPosition(zoomedLocation);
+            }
+
+
+            if (zoomedLocation == null) {
+                gps.setPosition(pos);
+                infoWindow.setPosition(pos);
+            }
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         }, watchOptions);
     } else {
         handleLocationError(false, infoWindow, map.getCenter());
     }
+
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -274,8 +296,8 @@ window.onload = function () {
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
     }
-};
-
+}
+;
 
 
 //Google Maps js END-------------------------------------------

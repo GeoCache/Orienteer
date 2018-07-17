@@ -31,11 +31,8 @@
                 <a class="nav-link" href="/login">Sign In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
+                <a class="nav-link" href="#register">Register</a>
             </li>
-            <form th:action="@{/logout}" th:method="post">
-                <button class="logout"><a type="link" class="typeNav logoutNav">Logout</a></button>
-            </form>
         </ul>
     </div>
 </nav>
@@ -106,31 +103,37 @@
 </div>
 
 
-<footer th:fragment="homeFooter" id="footer" class="bg-light pt-4 mt-1">
-    <div class="container-fluid text-center text-md-left">
+<footer th:fragment="homeFooter" id="home-footer" class=" pt-1 mt-2">
+    <div  class="container-fluid text-md-left text-center-sm">
         <div class="row">
-            <div class="col-md-6 mt-md-0 mt-3">
-                <h5>footer content</h5>
-                <p>footer content</p>
+            <div class="col-md-6 mt-md-0 mt-4">
+                <h5>About us</h5>
+                <hr class="mt-1 mx-0 w-50"/>
+                <p>John Cook</p>
+                <p>Steven Hampton</p>
+                <p>Kelly Villalobos</p>
             </div>
         </div>
     </div>
-    <div class="text-light bg-dark text-center py-3">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+    <div id="home-footer-bottom" class="text-light text-center py-3">© 2018 Copyright:
+        <a href="#"> Team Orienteer</a>
     </div>
 </footer>
 
-<footer th:fragment="loginFooter" id="footer" class="fixed-bottom bg-light pt-4 mt-1">
-    <div class="container-fluid text-center text-md-left">
+<footer th:fragment="loginFooter" id="home-footer" class=" pt-1 mt-2">
+    <div class="container-fluid text-left text-md-left">
         <div class="row">
-            <div class="col-md-6 mt-md-0 mt-3">
-                <h5>footer content</h5>
-                <p>footer content</p>
+            <div class="col-md-6 mt-md-0 mt-4">
+                <h5>About us</h5>
+                <hr class="mt-1 mx-0 w-50"/>
+                <p>John Cook</p>
+                <p>Steven Hampton</p>
+                <p>Kelly Villalobos</p>
             </div>
         </div>
     </div>
-    <div class="text-light bg-dark text-center py-3">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+    <div id="home-footer-bottom" class="text-light text-center py-3">© 2018 Copyright:
+        <a href="#"> Team Orienteer</a>
     </div>
 </footer>
 

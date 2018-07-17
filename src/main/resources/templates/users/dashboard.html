@@ -8,6 +8,14 @@
 <nav th:replace="partials/fragments :: dashbar"></nav>
 <!--Google Map container-->
 <div id="map-container" class="z-depth-1"></div>
+<div th:if="${geocache != null}">
+<div th:object="${geocache}">
+    <input type="hidden" id="lat" th:value="${geocache.getLatitude()}" />
+    <input type="hidden" id="lon" th:value="${geocache.getLongitude()}" />
+    <input type="hidden" id="userName" th:value="${geocache.getOwner().getUserName()}" />
+    <input type="hidden" id="cacheName" th:value="${geocache.getName()}"  />
+</div>
+</div>
 
 
 
@@ -29,7 +37,7 @@
                 </button>
             </div>
             <!--Body-->
-            <form class="modal-body" th:action="@{'/geocache/create'}" method="post" th:object="${geocache}">
+            <form class="modal-body" th:action="@{/geocache/create}" method="post" th:object="${newGeocache}">
                 <input type="hidden" id="longitude-input" th:field="*{longitude}"/>
                 <input type="hidden" id="latitude-input" th:field="*{latitude}"/>
                 <!-- Material Long and Lat -->
@@ -89,7 +97,7 @@
 
             </form>
         </div>
-        <!--/.Content-->
+        <!--Content-->
 
     </div>
 </div>

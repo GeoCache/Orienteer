@@ -78,6 +78,13 @@ a:hover {
 
 }
 
+#home-footer{
+    background-color: #d0944a;
+}
+#home-footer-bottom{
+    background-color: #512c2a;
+}
+
 /*modal*/
 #modal {
     background-color: #eee2cb;

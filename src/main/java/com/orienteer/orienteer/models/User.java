@@ -33,11 +33,6 @@ public class User {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "phoneNumber", nullable = false)
-    private String phoneNumber;
-
-    @Column(name = "birthday", nullable = false)
-    private String birthday;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "finder")
     private List<Geocache> myFinds;
@@ -59,14 +54,12 @@ public class User {
 
 
 
-    public User(String firstName, String lastName, String userName, String password, String email, String phoneNumber, String birthday) {
+    public User(String firstName, String lastName, String userName, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.birthday = birthday;
     }
 
 
@@ -135,21 +128,6 @@ public class User {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
 
 
 

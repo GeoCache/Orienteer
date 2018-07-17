@@ -25,9 +25,10 @@
         <tbody>
         <tr th:each="geocache,iStat : ${geocaches}">
             <th scope="row" th:text="${iStat.count}"/>
-            <td th:text="${geocache.getName()}"/>
-            <td th:text="${geocache.getPoints()}"/>
-            <td th:text="${geocache.getOwner().getUserName()}"/>
+
+            <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getName()}" ></a></td>
+            <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getPoints()}"></a></td>
+            <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getOwner().getUserName()}"></a></td>
         </tr>
         </tbody>
         <!--Table body-->
