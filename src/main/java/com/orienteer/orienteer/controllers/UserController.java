@@ -49,7 +49,7 @@ public class UserController {
     @GetMapping("/profile/{id}")
     public String showProfile(@PathVariable long id, Model view) {
         view.addAttribute("user", usersRepository.findUsersById(id));
-        List<Geocache> geocacheList = geocacheService.findAllByFinder_Id(id);
+        List<Geocache> geocacheList = geocacheService.findAllByOwner_Id(id);
         view.addAttribute("geocaches", geocacheList);
         return "users/profile";
     }
