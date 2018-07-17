@@ -28,13 +28,13 @@
             <h5 class="card-title">Email: <span th:text="${user.getEmail()}"></span></h5>
 
             <h4 class="card-title mt-2 text-center">
-                <span th:text="${user.getFirstName()+'s'}"></span> Geocaches
+                <span th:text="${user.getFirstName()+ '''s'}"></span> Geocaches
             </h4>
 
             <hr id="rule-line"/>
             <div class="table-wrapper-2 mx-4">
                 <!--Table-->
-                <table class="table table-hover mx-auto table-responsive-sm">
+                <table class="table table-hover mx-auto table-responsive-s">
 
                     <!--Table head-->
                     <thead id="table-head" class="z-depth-1">
@@ -42,7 +42,6 @@
                         <th>#</th>
                         <th>Cache Name</th>
                         <th>Difficulty</th>
-                        <th>Owner</th>
                     </tr>
                     </thead>
                     <!--Table head-->
@@ -53,7 +52,6 @@
                         <th scope="row" th:text="${iStat.count}"></th>
                         <td th:text="${geocache.getName()}">Mark</td>
                         <td th:text="${geocache.getPoints()}">Otto</td>
-                        <td th:text="${geocache.getOwner().getUserName()}">@mdo</td>
                     </tr>
 
                     </th:block>
