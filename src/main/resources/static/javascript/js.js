@@ -39,6 +39,7 @@ window.onload = function () {
     var startLocation = null;
     var endLocation = null;
     var first = 1;
+    var location = new google.maps.LatLng(29.426791, -98.489602);
 
     // Allows app to access built in GPS in devices
     const watchOptions = {enableHighAccuracy: true, timeout: 1};
@@ -55,11 +56,11 @@ window.onload = function () {
             cacheName: document.getElementById("cacheName").value
         };
     var zoomedLocation = new google.maps.LatLng(zoomedMarker.lat, zoomedMarker.lon);
+    location = (zoomedLocation);
     }
 
 
 // Creates initial map and location
-    var location = new google.maps.LatLng(29.426791, -98.489602);
     var mapoptions = {
         center: location,
         zoom: 18,
@@ -172,18 +173,6 @@ window.onload = function () {
         });
     }
 
-// Custom marker made to mark persons current location
-    var gps = new google.maps.Marker({
-        position: map.center,
-        map: map,
-        icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 5,
-            strokeColor: 'black',
-            fillColor: 'red',
-            fillOpacity: 1
-        }
-    });
 //ajax request for database location data-----------------------------------------------
     (function ($) {
         var request = $.ajax({'url': '/geocaches.json'});
@@ -253,35 +242,47 @@ window.onload = function () {
     infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function (position) {
+            // Custom marker made to mark persons current location
             pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
-
-            // Sets the map to persons location the first time
-            if (first === 1) {
-                map.setCenter(pos);
-                // map.setCenter(zoomedLocation);
-                // console.log(zoomedLocation);
-                first++
-
-            }
-
             // Keeps marker on their location
+            var gps = new google.maps.Marker({
+                position: pos,
+                map: map,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 5,
+                    strokeColor: 'black',
+                    fillColor: 'red',
+                    fillOpacity: 1
+                }
+            });
+
+
+
+
 
             if (zoomedLocation != null) {
                 map.setCenter(zoomedLocation);
-                infoWindow.setPosition(zoomedLocation);
+                infoWindow.setPosition(pos);
             }
 
 
             if (zoomedLocation == null) {
                 gps.setPosition(pos);
                 infoWindow.setPosition(pos);
+                // Sets the map to persons location the first time
+                if (first === 1) {
+                    infoWindow.setPosition(pos);
+                    map.setCenter(pos);
+                    first++
+
+                }
             }
         }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
+            handleLocationError(true, infoWindow, pos);
         }, watchOptions);
     } else {
         handleLocationError(false, infoWindow, map.getCenter());
