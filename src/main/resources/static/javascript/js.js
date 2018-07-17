@@ -47,18 +47,19 @@ window.onload = function () {
         {featureType: "poi", elementType: "labels", stylers: [{visibility: "off"}]}
     ];
 
-    var zoomedMarker = {
-        lat: document.getElementById("lat").value,
-        lon: document.getElementById("lon").value,
-        username: document.getElementById("userName").value,
-        cacheName: document.getElementById("cacheName").value
-
-    };
-
-
-    // Creates initial map and location
-    var location = new google.maps.LatLng(29.426791, -98.489602);
+    if (document.getElementById("lat") != null) {
+        var zoomedMarker = {
+            lat: document.getElementById("lat").value,
+            lon: document.getElementById("lon").value,
+            username: document.getElementById("userName").value,
+            cacheName: document.getElementById("cacheName").value
+        };
     var zoomedLocation = new google.maps.LatLng(zoomedMarker.lat, zoomedMarker.lon);
+    }
+
+
+// Creates initial map and location
+    var location = new google.maps.LatLng(29.426791, -98.489602);
     var mapoptions = {
         center: location,
         zoom: 18,
@@ -70,11 +71,11 @@ window.onload = function () {
         }
     };
 
-    // Sets the map to our mapcontainer div
+// Sets the map to our mapcontainer div
     map = new google.maps.Map(document.getElementById("map-container"),
         mapoptions);
 
-    // Hold down for 3 seconds to add a marker and pull those cordinates
+// Hold down for 3 seconds to add a marker and pull those cordinates
     google.maps.event.addListener(map, 'mousedown', function (evt) {
         holdStart = Date.now();
         startLocation = evt.latLng;
@@ -162,7 +163,7 @@ window.onload = function () {
 
     });
 
-    // Places marker at a specified location
+// Places marker at a specified location
     function placeMarker(pos) {
         marker = new google.maps.Marker({
             position: pos,
@@ -171,7 +172,7 @@ window.onload = function () {
         });
     }
 
-    // Custom marker made to mark persons current location
+// Custom marker made to mark persons current location
     var gps = new google.maps.Marker({
         position: map.center,
         map: map,
@@ -183,7 +184,7 @@ window.onload = function () {
             fillOpacity: 1
         }
     });
-    //ajax request for database location data-----------------------------------------------
+//ajax request for database location data-----------------------------------------------
     (function ($) {
         var request = $.ajax({'url': '/geocaches.json'});
         request.done(function (geocaches) {
@@ -208,9 +209,9 @@ window.onload = function () {
 
         });
     })(jQuery);
-    //ajax END-----------------------------------------------------------------------------
+//ajax END-----------------------------------------------------------------------------
 
-    // Sets the location for the center on me button---------------------------------------
+// Sets the location for the center on me button---------------------------------------
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
     centerControlDiv.index = 1;
@@ -246,9 +247,9 @@ window.onload = function () {
 
     }
 
-    //center UI button END-------------------------------------------------------------------
+//center UI button END-------------------------------------------------------------------
 
-    // Display an infowindow if there is an error
+// Display an infowindow if there is an error
     infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function (position) {
@@ -270,9 +271,8 @@ window.onload = function () {
             // Keeps marker on their location
 
             if (zoomedLocation != null) {
-                pos = zoomedLocation;
-                map.setCenter(pos);
-                infoWindow.setPosition(pos);
+                map.setCenter(zoomedLocation);
+                infoWindow.setPosition(zoomedLocation);
             }
 
 
@@ -296,7 +296,8 @@ window.onload = function () {
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
     }
-};
+}
+;
 
 
 //Google Maps js END-------------------------------------------
