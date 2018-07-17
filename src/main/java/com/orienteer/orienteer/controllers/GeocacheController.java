@@ -37,7 +37,7 @@ public class GeocacheController {
 
     @GetMapping("/geocache/create")
     public String create(Model view) { // check it out
-     view.addAttribute("geocache", new Geocache());
+     view.addAttribute("Geocache", new Geocache());
         return "geocaches/create";
     }
 
@@ -66,7 +66,8 @@ public class GeocacheController {
 
     @GetMapping("/geocache/{id}")
     public String show(@PathVariable long id, Model view) {
-        Geocache geocache = geocacheService.findById(id);
+       Geocache geocache = geocacheService.findById(id);
+        view.addAttribute("newGeocache", new Geocache());
         view.addAttribute("geocache", geocache);
         return "users/dashboard";
     }

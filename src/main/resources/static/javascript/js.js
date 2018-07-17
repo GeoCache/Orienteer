@@ -1,10 +1,10 @@
 //n
 
-function approximate(number){
+function approximate(number) {
     return Number(number.toFixed(4));
 }
 
-function getApproximatLocation(lat, long){
+function getApproximatLocation(lat, long) {
     return {
         'lat': lat,
         'long': long
@@ -38,8 +38,6 @@ window.onload = function () {
     var holdTime = null;
     var startLocation = null;
     var endLocation = null;
-    var longitude = null;
-    var latitude = null;
     var first = 1;
 
     // Allows app to access built in GPS in devices
@@ -50,10 +48,10 @@ window.onload = function () {
     ];
 
     var zoomedMarker = {
-        lat: document.getElementById("lat"),
-        lon: document.getElementById("lon"),
-        username: document.getElementById("username"),
-        cacheName: document.getElementById("cacheName")
+        lat: document.getElementById("lat").value,
+        lon: document.getElementById("lon").value,
+        username: document.getElementById("userName").value,
+        cacheName: document.getElementById("cacheName").value
 
     };
 
@@ -93,7 +91,6 @@ window.onload = function () {
     });
 
 
-
     google.maps.event.addListener(map, 'mouseup', function (evt) {
         holdTime = Date.now() - holdStart;
         endLocation = evt.latLng;
@@ -114,7 +111,7 @@ window.onload = function () {
         if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.long == endLocation.long) {
 
             // Line to make testing faster
-        // if(true){
+            // if(true){
             placeMarker(evt.latLng);
             marker.id = uniqueId;
             uniqueId++;
@@ -125,7 +122,7 @@ window.onload = function () {
                 var content = 'Latitude: ' + location.lat() + '<br />Longitude: ' + location.lng();
                 content += "<br />" +
                     "<div class='dlBtnWrapper'>" +
-                    "<input data-id="+marker.id+" class='deleteBtn' type = 'button' value='Delete' />" +
+                    "<input data-id=" + marker.id + " class='deleteBtn' type = 'button' value='Delete' />" +
                     "</div>";
                 var infoWindow = new google.maps.InfoWindow({
                     content: content
@@ -142,10 +139,8 @@ window.onload = function () {
 
             // help back end find info
 
-            $("#latitude-input").val(location.lat);
-            $("#longitude-input").val(location.lng);
-            console.log(location.lat);
-            console.log(location.lng);
+            $("#latitude-input").val(location.lat());
+            $("#longitude-input").val(location.lng());
 
 
         }
@@ -153,7 +148,7 @@ window.onload = function () {
     });
 
 
-    $('div').delegate('.deleteBtn','click', function(){
+    $('div').delegate('.deleteBtn', 'click', function () {
         var id = $(this).attr('data-id');
         for (var i = 0; i < markers.length; i++) {
             if (markers[i].id == id) {
@@ -189,20 +184,20 @@ window.onload = function () {
         }
     });
     //ajax request for database location data-----------------------------------------------
-    (function($) {
+    (function ($) {
         var request = $.ajax({'url': '/geocaches.json'});
         request.done(function (geocaches) {
             geocaches.forEach(function (geocache) {
 
                 //console logs --------------
-                console.log(geocache.latitude);
-                console.log(geocache.longitude);
-                console.log(geocache.description);
-                console.log(geocache.name);
+                // console.log(geocache.latitude);
+                // console.log(geocache.longitude);
+                // console.log(geocache.description);
+                // console.log(geocache.name);
                 //console logs end-----------------
 
                 var userMarker = new google.maps.Marker({
-                    position: {lat: geocache.latitude , lng: geocache.longitude },
+                    position: {lat: geocache.latitude, lng: geocache.longitude},
                     map: map,
                     animation: google.maps.Animation.DROP
                 });
@@ -263,24 +258,35 @@ window.onload = function () {
             };
 
 
-
             // Sets the map to persons location the first time
             if (first === 1) {
-                // map.setCenter(pos);
                 map.setCenter(pos);
+                // map.setCenter(zoomedLocation);
+                // console.log(zoomedLocation);
                 first++
 
             }
 
             // Keeps marker on their location
-            gps.setPosition(pos);
-            infoWindow.setPosition(pos);
+
+            if (zoomedLocation != null) {
+                pos = zoomedLocation;
+                map.setCenter(pos);
+                infoWindow.setPosition(pos);
+            }
+
+
+            if (zoomedLocation == null) {
+                gps.setPosition(pos);
+                infoWindow.setPosition(pos);
+            }
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         }, watchOptions);
     } else {
         handleLocationError(false, infoWindow, map.getCenter());
     }
+
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -291,7 +297,6 @@ window.onload = function () {
         infoWindow.open(map);
     }
 };
-
 
 
 //Google Maps js END-------------------------------------------
