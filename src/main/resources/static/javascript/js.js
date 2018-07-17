@@ -40,6 +40,7 @@ window.onload = function () {
     var endLocation = null;
     var first = 1;
     var location = new google.maps.LatLng(29.426791, -98.489602);
+    var gpsStartLocation = new google.maps.LatLng(24.00289460939447, -121.99045743092353);
 
     // Allows app to access built in GPS in devices
     const watchOptions = {enableHighAccuracy: true, timeout: 1};
@@ -235,6 +236,17 @@ window.onload = function () {
         });
 
     }
+            var gps = new google.maps.Marker({
+                position: gpsStartLocation,
+                map: map,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 5,
+                    strokeColor: 'black',
+                    fillColor: 'red',
+                    fillOpacity: 1
+                }
+            });
 
 //center UI button END-------------------------------------------------------------------
 
@@ -248,17 +260,6 @@ window.onload = function () {
                 lng: position.coords.longitude
             };
             // Keeps marker on their location
-            var gps = new google.maps.Marker({
-                position: pos,
-                map: map,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 5,
-                    strokeColor: 'black',
-                    fillColor: 'red',
-                    fillOpacity: 1
-                }
-            });
 
 
 
