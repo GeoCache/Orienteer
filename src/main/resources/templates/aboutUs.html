@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('About Us')"></head>
+<body>
+<div th:replace="partials/navbar :: navbar"></div>
+<div id="about" class="fluid-container mx-4">
+    <div class="row d-flex">
+        <div class="col-12">
+            <h1 class="display-4">About Our Team</h1>
+        </div>
+        <div class="col-xs-12 col-lg-4 d-flex">
+            <div class="card">
+                <div class="card-body">
+                    <img class="picUs" th:src="/img/john.jpeg"/>
+                </div>
+                <div class="col-md-7">
+                    <h2>John Cook</h2>
+                    <p class="mt-4">
+                        <a href="https://www.linkedin.com/in/cooksjohns/"><i class="fa fa-linkedin-square"
+                                                                               style="font-size:36px"></i></a>
+                        <a href="https://github.com/Cooks-Johns"><i class="fa fa-github"
+                                                                     style="font-size:36px"></i></a>
+                        <a href="mailto:cooks.johns@gmail.com"><i class="fa fa-envelope-square"
+                                                                      style="font-size:36px"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 d-flex">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <img class="picUs" th:src="/img/steve.jpeg"/>
+                        </div>
+                        <div class="col-md-7">
+                            <h2>Steven Hampton</h2>
+                            <p class="mt-4">
+                                <a href="https://www.linkedin.com/in/stevenmhampton/"><i
+                                        class="fa fa-linkedin-square" style="font-size:36px"></i></a>
+                                <a href="https://github.com/StevenHampton"><i class="fa fa-github"
+                                                                            style="font-size:36px"></i></a>
+                                <a href="mailto:#steven.hampton415@gmail.com"><i class="fa fa-envelope-square"
+                                                                                style="font-size:36px"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 d-flex">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <img class="picUs" th:src="/img/KellyVillaobos.jpg"/>
+                                </div>
+                                <div class="col-md-7">
+                                    <h2>Kelly Villalobos</h2>
+                                    <p class="mt-4">
+                                        <a href="https://www.linkedin.com/in/kelly-villalobos/"><i
+                                                class="fa fa-linkedin-square" style="font-size:36px"></i></a>
+                                        <a href="https://github.com/KellyVillalobos"><i class="fa fa-github"
+                                                                                         style="font-size:36px"></i></a>
+                                        <a href="mailto:kvdesign1978@gmail.com"><i class="fa fa-envelope-square"
+                                                                                   style="font-size:36px"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

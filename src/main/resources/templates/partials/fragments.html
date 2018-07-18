@@ -17,8 +17,9 @@
 <body>
 <!--navbar for landing page-->
 <nav th:fragment="navbar" id="myNavbar" class="navbar navbar-light navbar-expand-sm">
-    <img id="logo" th:src="@{/img/safari.svg}" src="/static/img/safari.svg" height="55" width="55" alt=""/><span
-        id="logo-text">RIENTEER</span>
+    <a href="/"><img id="logo" th:src="@{/img/safari.svg}" src="/static/img/safari.svg" height="55" width="55"
+                     alt=""/><span
+            id="logo-text">RIENTEER</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -104,7 +105,7 @@
 
 
 <footer th:fragment="homeFooter" id="home-footer" class=" pt-1 mt-2">
-    <div  class="container-fluid text-md-left text-center-sm">
+    <div class="container-fluid text-md-left text-center-sm">
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-4">
                 <h5>About us</h5>
@@ -138,7 +139,7 @@
 </footer>
 
 <!-- Dashboard footer with controls -->
-<footer th:fragment="dashFooter" id="myDashFooter" class="page-footer font-small pt-3 fixed-bottom">
+<footer th:fragment="dashFooter" id="myDashFooter" class="page-footer font-small pt-2 fixed-bottom">
 
     <div class="container mx-auto">
         <a class="mx-2 ml-2 inline" href="/geocache/list">
@@ -150,6 +151,10 @@
         <a href="#" data-toggle="modal" data-target="#geocacheModal" class="mb-3 ml-5 inline">
             <img id="pin" th:src="@{/img/pin.svg}" src="/static/img/pin.svg" alt="" class="mb-1"/>
         </a>
+    </div>
+    <div>
+        <p class="inline dash-link1">List</p>
+        <p class="inline dash-link2">Profile</p>
     </div>
 
 </footer>

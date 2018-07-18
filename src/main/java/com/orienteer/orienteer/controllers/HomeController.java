@@ -34,6 +34,11 @@ public class HomeController {
         users.save(user);
         return "redirect:/login";
     }
+    @GetMapping("/aboutUs")
+    public String aboutUsPage(Model view) {
+        return "About Us";
+
+    }
 
 
 }
