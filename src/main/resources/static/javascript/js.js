@@ -168,14 +168,21 @@ window.onload = function () {
         var request = $.ajax({'url': '/geocaches.json'});
         request.done(function (geocaches) {
             geocaches.forEach(function (geocache) {
+                console.log(geocache.name);
+                var contentString = '<h5><strong>' + geocache.name + '</strong></h5>' + geocache.description;
 
-
+                var cacheWindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
                 var userMarker = new google.maps.Marker({
                     position: {lat: geocache.latitude, lng: geocache.longitude},
                     map: map,
                     animation: google.maps.Animation.DROP
                 });
                 userMarker.setMap(map);
+                userMarker.addListener('click', function(){
+                    cacheWindow.open(map, userMarker);
+                })
             })
         });
     })(jQuery);
