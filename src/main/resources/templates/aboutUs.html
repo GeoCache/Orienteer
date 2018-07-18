@@ -1,71 +1,119 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header('About Us')"></head>
+<head th:replace="partials/fragments :: header(${'About Us'})">
+
+</head>
 <body>
-<div th:replace="partials/navbar :: navbar"></div>
+<div th:replace="partials/fragments :: navbar"></div>
 <div id="about" class="fluid-container mx-4">
-    <div class="row d-flex">
-        <div class="col-12">
-            <h1 class="display-4">About Our Team</h1>
-        </div>
-        <div class="col-xs-12 col-lg-4 d-flex">
+    <div class="text-center">
+        <h1 class="display-4">About Our Team</h1>
+    </div>
+    <div class="row ">
+
+
+        <!-- Card -->
+        <div class="col-4-lg mt-5">
             <div class="card">
+
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top" th:src="@{img/john.jpg}" src="../static/img/john.jpg"/>
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!-- Card content -->
                 <div class="card-body">
-                    <img class="picUs" th:src="/img/john.jpeg"/>
+
+                    <!-- Title -->
+                    <h4 class="card-title">John Cook</h4>
+                    <!-- Text -->
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <!-- Button -->
+                    <a class="inline" href="https://www.linkedin.com/in/cooksjohns/"><i class="fa fa-linkedin-square"
+                                                                         style="font-size:36px"></i></a>
+                    <a class="inline" href="https://github.com/Cooks-Johns"><i class="fa fa-github"
+                                                                style="font-size:36px"></i></a>
+                    <a class="inline" href="mailto:cooks.johns@gmail.com"><i class="fa fa-envelope-square"
+                                                              style="font-size:36px"></i></a>
+
                 </div>
-                <div class="col-md-7">
-                    <h2>John Cook</h2>
-                    <p class="mt-4">
-                        <a href="https://www.linkedin.com/in/cooksjohns/"><i class="fa fa-linkedin-square"
-                                                                               style="font-size:36px"></i></a>
-                        <a href="https://github.com/Cooks-Johns"><i class="fa fa-github"
-                                                                     style="font-size:36px"></i></a>
-                        <a href="mailto:cooks.johns@gmail.com"><i class="fa fa-envelope-square"
-                                                                      style="font-size:36px"></i></a>
-                    </p>
-                </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 d-flex">
-                <div class="card">
-                    <div class="card-body">
-                        <div>
-                            <img class="picUs" th:src="/img/steve.jpeg"/>
-                        </div>
-                        <div class="col-md-7">
-                            <h2>Steven Hampton</h2>
-                            <p class="mt-4">
-                                <a href="https://www.linkedin.com/in/stevenmhampton/"><i
-                                        class="fa fa-linkedin-square" style="font-size:36px"></i></a>
-                                <a href="https://github.com/StevenHampton"><i class="fa fa-github"
-                                                                            style="font-size:36px"></i></a>
-                                <a href="mailto:#steven.hampton415@gmail.com"><i class="fa fa-envelope-square"
-                                                                                style="font-size:36px"></i></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-lg-4 d-flex">
-                        <div class="card">
-                            <div class="card-body">
-                                <div>
-                                    <img class="picUs" th:src="/img/KellyVillaobos.jpg"/>
-                                </div>
-                                <div class="col-md-7">
-                                    <h2>Kelly Villalobos</h2>
-                                    <p class="mt-4">
-                                        <a href="https://www.linkedin.com/in/kelly-villalobos/"><i
-                                                class="fa fa-linkedin-square" style="font-size:36px"></i></a>
-                                        <a href="https://github.com/KellyVillalobos"><i class="fa fa-github"
-                                                                                         style="font-size:36px"></i></a>
-                                        <a href="mailto:kvdesign1978@gmail.com"><i class="fa fa-envelope-square"
-                                                                                   style="font-size:36px"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="col-4-lg mt-5">
+            <div class="card">
+
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top" th:src="@{img/steve.jpg}" src="../static/img/steve.jpg"/>
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body">
+
+                    <!-- Title -->
+                    <h4 class="card-title">Steven Hampton</h4>
+                    <!-- Text -->
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <!-- Button -->
+                    <a class="inline" href="https://www.linkedin.com/in/stevenmhampton/"><i
+                            class="fa fa-linkedin-square" style="font-size:36px"></i></a>
+                    <a class="inline" href="https://github.com/StevenHampton"><i class="fa fa-github"
+                                                                  style="font-size:36px"></i></a>
+                    <a class="inline" href="mailto:#steven.hampton415@gmail.com"><i class="fa fa-envelope-square"
+                                                                     style="font-size:36px"></i></a>
+
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Card -->
+        <!-- Card -->
+        <div class="col-4-lg mt-5">
+            <div class="card">
+
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top" th:src="@{img/KellyVillalobos.jpg}"
+                         src="../static/img/KellyVillalobos.jpg"/>
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body">
+
+                    <!-- Title -->
+                    <h4 class="card-title">Kelly Villalobos</h4>
+                    <!-- Text -->
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <!-- Button -->
+                    <a class="inline" href="https://www.linkedin.com/in/kelly-villalobos/"><i
+                            class="fa fa-linkedin-square" style="font-size:36px"></i></a>
+                    <a class="inline" href="https://github.com/KellyVillalobos"><i class="fa fa-github"
+                                                                    style="font-size:36px"></i></a>
+                    <a class="inline" href="mailto:kvdesign1978@gmail.com"><i class="fa fa-envelope-square"
+                                                               style="font-size:36px"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Card -->
     </div>
 </div>
 </body>
