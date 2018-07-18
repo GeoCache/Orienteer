@@ -36,6 +36,7 @@ public class HomeController {
     }
     @GetMapping("/aboutUs")
     public String aboutUsPage(Model view) {
+        return "About Us";
 
     }
 
