@@ -169,10 +169,11 @@ window.onload = function () {
         request.done(function (geocaches) {
             geocaches.forEach(function (geocache) {
                 console.log(geocache.name);
-                var contentString = '<h5><strong>' + geocache.name + '</strong></h5>' + geocache.description;
+                var contentString = '<h5 style="margin: 0 auto"><strong>' + geocache.name + '</strong></h5>' + '<p style="margin: 0 auto">' + geocache.description + '</p>';
 
                 var cacheWindow = new google.maps.InfoWindow({
-                    content: contentString
+                    content: contentString,
+                    maxWidth: 280
                 });
                 var userMarker = new google.maps.Marker({
                     position: {lat: geocache.latitude, lng: geocache.longitude},

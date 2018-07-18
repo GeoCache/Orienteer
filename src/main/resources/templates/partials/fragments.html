@@ -19,7 +19,7 @@
 <nav th:fragment="navbar" id="myNavbar" class="navbar navbar-light navbar-expand-sm">
     <a href="/"><img id="logo" th:src="@{/img/safari.svg}" src="/static/img/safari.svg" height="55" width="55"
                      alt=""/><span
-            id="logo-text">RIENTEER</span></a>
+            id="logo-text">ORIENTEER</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,6 +33,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#register">Register</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/aboutUs">About us</a>
             </li>
         </ul>
     </div>
@@ -51,6 +54,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/geocache/list">List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/aboutUs">About Us</a>
             </li>
             <form th:action="@{/logout}" th:method="post">
                 <button class="logout"><a type="link" class="typeNav logoutNav">Logout</a></button>
@@ -77,6 +83,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/geocache/list">List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/aboutUs">About Us</a>
             </li>
             <form th:action="@{/logout}" th:method="post">
                 <button class="logout"><a type="link" class="typeNav logoutNav">Logout</a></button>
@@ -108,11 +117,7 @@
     <div class="container-fluid text-md-left text-center-sm">
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-4">
-                <h5>About us</h5>
                 <hr class="mt-1 mx-0 w-50"/>
-                <p>John Cook</p>
-                <p>Steven Hampton</p>
-                <p>Kelly Villalobos</p>
             </div>
         </div>
     </div>
@@ -125,11 +130,7 @@
     <div class="container-fluid text-left text-md-left">
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-4">
-                <h5>About us</h5>
                 <hr class="mt-1 mx-0 w-50"/>
-                <p>John Cook</p>
-                <p>Steven Hampton</p>
-                <p>Kelly Villalobos</p>
             </div>
         </div>
     </div>
@@ -148,9 +149,9 @@
         <a class="mb-3 ml-4 inline" th:href="@{'/profile/'+${#authentication.principal.id}}">
             <img class="icon mb-1" th:src="@{/img/explorer.svg}" src="/static/img/explorer.svg" alt=""/>
         </a>
-        <a href="#" data-toggle="modal" data-target="#geocacheModal" class="mb-3 ml-5 inline">
+        <!--<a href="#" data-toggle="modal" data-target="#geocacheModal" class="mb-3 ml-5 inline">-->
             <img id="pin" th:src="@{/img/pin.svg}" src="/static/img/pin.svg" alt="" class="mb-1"/>
-        </a>
+        <!--</a>-->
     </div>
     <div>
         <p class="inline dash-link1">List</p>
