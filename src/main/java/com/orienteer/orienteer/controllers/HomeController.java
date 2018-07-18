@@ -16,7 +16,7 @@ public class HomeController {
     private UsersRepository users;
     private PasswordEncoder passwordEncoder;
 
-    public HomeController(UsersRepository users, PasswordEncoder passwordEncoder){
+    public HomeController(UsersRepository users, PasswordEncoder passwordEncoder) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
     }
@@ -28,15 +28,16 @@ public class HomeController {
     }
 
     @PostMapping("/")
-    public String saveUser(@ModelAttribute User user){
+    public String saveUser(@ModelAttribute User user) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         users.save(user);
         return "redirect:/login";
     }
-    @GetMapping("/aboutUs")
-    public String aboutUsPage(Model view) {
 
+    @GetMapping("/aboutUs")
+    public String aboutUsPage() {
+        return "aboutUs";
     }
 
 }
