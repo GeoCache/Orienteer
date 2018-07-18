@@ -12,6 +12,23 @@ h1 {
 
 }
 
+
+/*onboarding*/
+.searchHome {
+    height: 200px;
+
+}
+
+.addHome {
+    height: 200px;
+
+}
+
+.exploreHome {
+    height: 200px;
+
+}
+
 /*animation*/
 .wow {
     visibility: visible;
@@ -78,10 +95,11 @@ a:hover {
 
 }
 
-#home-footer{
+#home-footer {
     background-color: #d0944a;
 }
-#home-footer-bottom{
+
+#home-footer-bottom {
     background-color: #512c2a;
 }
 
@@ -121,6 +139,8 @@ a:hover {
     color: #d0944a;
     margin-left: 8px;
     letter-spacing: 3px;
+    position: relative;
+    top: 8px;
     -webkit-filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, .8));
     filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, .4));
 
@@ -143,6 +163,10 @@ a:hover {
 }
 
 /*homepage*/
+.welcome{
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
 #hero {
     background-image: linear-gradient(rgba(238, 226, 203, 1), rgba(208, 148, 74, 0.1)), url(../img/adventure-ancient-antique-697662.jpg);
     height: 70vh;
@@ -172,11 +196,21 @@ a:hover {
     margin-bottom: 100px;
     width: 50%;
 }
+.reg-login-button{
+    background-color: #512c2a !important;
+}
 
 #login {
     margin-bottom: 50px;
     margin-top: 100px;
     width: 50%;
+}
+
+.logoutNav {
+    font-family: "mr-eaves-modern", sans-serif;
+    font-weight: 900 !important;
+    font-size: 1.3rem;
+    color: #512c2a !important;
 }
 
 /*scroll for lists*/
@@ -256,8 +290,10 @@ and (orientation: portrait) {
 
     /*logo/icons*/
     #logo-text {
-        margin-left: -35px;
-        font-size: 2.5rem;
+        position: relative;
+        top: 8px;
+        margin-left: 9px;
+        font-size: 2.4rem;
     }
 
     #logo {
@@ -270,8 +306,28 @@ and (orientation: portrait) {
         width: 100%;
     }
 
+    .logoutNav {
+        font-family: "mr-eaves-modern", sans-serif;
+        font-weight: 900 !important;
+        font-size: 1.3rem;
+        color: #512c2a !important;
+    }
+
     #register {
         width: 100%;
+    }
+
+    .dash-link1 {
+        font-weight: bold;
+        color: #512c2a;
+        margin-left: 29px;
+
+    }
+    .dash-link2 {
+        font-weight: bold;
+        color: #512c2a;
+        margin-left: 32px;
+
     }
 
     /*list*/
@@ -283,7 +339,6 @@ and (orientation: portrait) {
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
-
 }
 
 /*iPhone 6/7/8------------------------------------------------*/
@@ -292,6 +347,22 @@ and (min-device-width: 375px)
 and (max-device-width: 667px)
 and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
+    /*onboarding-mobile*/
+    .searchHome {
+        height: 200px;
+
+    }
+
+    .addHome {
+        height: 200px;
+
+    }
+
+    .exploreHome {
+        height: 200px;
+
+    }
+
     /*profile*/
     .table-wrapper-2 {
         display: block;
@@ -340,6 +411,7 @@ and (orientation: portrait) {
         width: 100px;
 
     }
+
     /*list*/
     .table-wrapper-1 {
         margin-top: 20%;
@@ -348,11 +420,6 @@ and (orientation: portrait) {
         overflow-y: auto;
         -ms-overflow-style: -ms-autohiding-scrollbar;
     }
-
-
-
-
-
 
     /*modal/dashboard*/
     #geocacheModal {
@@ -368,7 +435,9 @@ and (orientation: portrait) {
     }
 
     #logo-text {
-        margin-left: -6px;
+        position: relative;
+        top: 8px;
+        margin-left: 5px;
         font-size: 2.4rem;
     }
 
@@ -386,6 +455,7 @@ and (orientation: portrait) {
         margin-top: 100px;
         width: 100%;
     }
+
     .logoutNav {
         font-family: "mr-eaves-modern", sans-serif;
         font-weight: 900 !important;
@@ -394,6 +464,17 @@ and (orientation: portrait) {
 
     }
 
+    .dash-link1 {
+        font-weight: bold;
+        color: #512c2a;
+        margin-left: 29px;
+    }
+    .dash-link2 {
+        font-weight: bold;
+        color: #512c2a;
+        margin-left: 32px;
+
+    }
 
     /*map*/
     #map-container {
@@ -480,7 +561,9 @@ and (orientation: portrait) {
     }
 
     #logo-text {
-        margin-left: -70px;
+        position: relative;
+        top: 10px;
+        margin-left: 3px;
         font-size: 2.5rem;
     }
 
@@ -493,11 +576,19 @@ and (orientation: portrait) {
         width: 100%;
     }
 
+    .logoutNav {
+        font-family: "mr-eaves-modern", sans-serif;
+        font-weight: 900 !important;
+        font-size: 1.3rem;
+        color: #512c2a !important;
+    }
+
     #map-container {
         margin-top: 55px;
         height: 610px;
 
     }
+
     /*list*/
     .table-wrapper-1 {
         margin-top: 20%;
@@ -505,6 +596,19 @@ and (orientation: portrait) {
         max-height: 800px;
         overflow-y: auto;
         -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .dash-link1 {
+        font-weight: bold;
+        color: #512c2a;
+        margin-left: 29px;
+    }
+
+    .dash-link2 {
+        font-weight: bold;
+        color: #512c2a;
+        margin-left: 37px;
+
     }
 
 }
