@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: header('About Us')"></head>
+<head th:replace="partials/fragments :: header(${'AboutUs'})"></head>
 <body>
-<div th:replace="partials/navbar :: navbar"></div>
+<nav th:replace="partials/fragments :: navbar"></nav>
 <div id="about" class="fluid-container mx-4">
-    <div class="row d-flex">
+    <div class="row">
         <div class="col-12">
             <h1 class="display-4">About Our Team</h1>
         </div>
-        <div class="col-xs-12 col-lg-4 d-flex">
+        <div class="col-xs-12 col-lg-4">
             <div class="card">
                 <div class="card-body">
-                    <img class="picUs" th:src="/img/john.jpeg"/>
+                    <img th:src="@{img/john.jpg}" src="../static/img/john.jpg" />
+
                 </div>
                 <div class="col-md-7">
                     <h2>John Cook</h2>
@@ -25,11 +26,11 @@
                     </p>
                 </div>
             </div>
-            <div class="col-xs-12 col-lg-4 d-flex">
+            <div class="col-xs-12 col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <div>
-                            <img class="picUs" th:src="/img/steve.jpeg"/>
+                            <img th:src="@{img/steve.jpg}" src="../static/img/steve.jpeg" />
                         </div>
                         <div class="col-md-7">
                             <h2>Steven Hampton</h2>
@@ -43,11 +44,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-lg-4 d-flex">
+                    <div class="col-xs-12 col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <div>
-                                    <img class="picUs" th:src="/img/KellyVillaobos.jpg"/>
+                                    <img th:src="@{img/KellyVillaobos.jpg}" src="../static/img/KellyVillaobos.jpg" />
                                 </div>
                                 <div class="col-md-7">
                                     <h2>Kelly Villalobos</h2>
@@ -69,4 +70,6 @@
     </div>
 </div>
 </body>
+
+
 </html>

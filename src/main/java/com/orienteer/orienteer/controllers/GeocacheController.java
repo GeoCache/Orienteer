@@ -51,8 +51,6 @@ public class GeocacheController {
     }
 
 
-
-
     @GetMapping("/geocache/found")
     public String showFind() {
         return "geocaches/found";

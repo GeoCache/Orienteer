@@ -35,8 +35,8 @@ public class HomeController {
         return "redirect:/login";
     }
     @GetMapping("/aboutUs")
-    public String aboutUsPage(Model view) {
-        return "About Us";
+    public String aboutUsPage() {
+        return "AboutUs";
 
     }
 
