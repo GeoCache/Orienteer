@@ -35,6 +35,7 @@ public class HomeController {
         return "redirect:/login";
     }
 
+
     @GetMapping("/aboutUs")
     public String aboutUsPage() {
         return "aboutUs";
