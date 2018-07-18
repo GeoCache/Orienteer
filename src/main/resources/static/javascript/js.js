@@ -41,6 +41,8 @@ window.onload = function () {
     var first = 1;
     var location = new google.maps.LatLng(29.426791, -98.489602);
     var gpsStartLocation = new google.maps.LatLng(24.00289460939447, -121.99045743092353);
+    var mapCenterStart = null;
+    var mapCenterEnd = null;
 
     // Allows app to access built in GPS in devices
     const watchOptions = {enableHighAccuracy: true, timeout: 1};
@@ -86,6 +88,7 @@ window.onload = function () {
         lat = approximate(lat);
         long = approximate(long);
         startLocation = getApproximatLocation(lat, long)
+        mapCenterStart = map.getCenter();
 
     });
 
@@ -99,9 +102,10 @@ window.onload = function () {
         lat = approximate(lat);
         long = approximate(long);
         endLocation = getApproximatLocation(lat, long);
+        mapCenterEnd = map.getCenter();
 
         // Conditional to call up create geocache modal
-        if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.lng == endLocation.lng) {
+        if (holdTime >= 1000 && startLocation.lat == endLocation.lat && startLocation.lng == endLocation.lng && mapCenterStart == mapCenterEnd) {
             // Comment previous line and uncomment next line to make testing faster
             // if(true){
             placeMarker(evt.latLng);
@@ -250,6 +254,7 @@ window.onload = function () {
                 // Sets the map to persons location the first time
                 if (first === 1) {
                     gps.setPosition(pos);
+                    infoWindow.setPosition(pos);
                     map.setCenter(pos);
                     first++
                 }
