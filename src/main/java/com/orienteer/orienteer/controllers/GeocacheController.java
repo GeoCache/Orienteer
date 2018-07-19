@@ -3,6 +3,7 @@ package com.orienteer.orienteer.controllers;
 
 import com.orienteer.orienteer.models.Geocache;
 import com.orienteer.orienteer.models.User;
+import com.orienteer.orienteer.repositories.GeoCacheRepo;
 import com.orienteer.orienteer.repositories.UsersRepository;
 import com.orienteer.orienteer.services.GeocacheService;
 import com.orienteer.orienteer.services.UserServices;
@@ -83,7 +84,12 @@ public class GeocacheController {
     public String updateGeo(@PathVariable long id, @ModelAttribute Geocache geocache){
         geocacheService.save(geocache);
         return "redirect:/dash";
+    }
 
+    @GetMapping("geocache/{id}/delete")
+    public String delete(@PathVariable long id, @ModelAttribute Geocache geocache){
+        geocacheService.deleteCache(id);
+        return "redirect:/profile/";
     }
 
     @GetMapping("/geocaches.json")

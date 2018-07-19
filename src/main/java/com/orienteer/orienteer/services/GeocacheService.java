@@ -42,6 +42,7 @@ public class GeocacheService {
     public Geocache findById(long id) {
         return geoDao.findById(id);
     }
+    public void deleteCache(long id) {geoDao.delete(id); }
 
     public List<Geocache> findAllByOwnerId(long id){return geoDao.findAllByOwner_Id(id);}
     public List<Geocache> findAllByFinderId(long id){return geoDao.findAllByFinder_Id(id);}

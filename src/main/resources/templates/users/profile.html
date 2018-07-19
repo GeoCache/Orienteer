@@ -42,6 +42,7 @@
                         <th>#</th>
                         <th>Cache Name</th>
                         <th>Difficulty</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <!--Table head-->
@@ -52,7 +53,7 @@
                         <th scope="row" th:text="${iStat.count}"></th>
                         <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getName()}" ></a></td>
                         <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getPoints()}" ></a></td>
-
+                        <td><a class="button" th:href="${'/delete/' + geocache.id}">Delete</a></td>
                     </tr>
 
                     </th:block>
