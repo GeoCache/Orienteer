@@ -50,8 +50,9 @@
                     <th:block th:each="geocache, iStat : ${geocaches}">
                     <tr>
                         <th scope="row" th:text="${iStat.count}"></th>
-                        <td th:text="${geocache.getName()}">Mark</td>
-                        <td th:text="${geocache.getPoints()}">Otto</td>
+                        <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getName()}" ></a></td>
+                        <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getPoints()}" ></a></td>
+
                     </tr>
 
                     </th:block>

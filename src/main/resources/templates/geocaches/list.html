@@ -25,7 +25,6 @@
         <tbody>
         <tr th:each="geocache,iStat : ${geocaches}">
             <th scope="row" th:text="${iStat.count}"/>
-
             <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getName()}" ></a></td>
             <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getPoints()}"></a></td>
             <td><a th:href="${'/geocache/' + geocache.id}" th:text="${geocache.getOwner().getUserName()}"></a></td>
