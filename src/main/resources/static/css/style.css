@@ -224,6 +224,10 @@ a:hover {
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+#about{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
 
 
 /*iPhone X ---------------------------------------*/
@@ -445,7 +449,7 @@ and (orientation: portrait) {
         position: relative;
         top: 8px;
         margin-left: 5px;
-        font-size: 2.4rem;
+        font-size: 2rem;
     }
 
     #logo {
@@ -489,6 +493,7 @@ and (orientation: portrait) {
         height: 550px;
 
     }
+
     .about{
         max-width: 100%;
     }
